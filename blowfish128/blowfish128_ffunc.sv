@@ -3,7 +3,7 @@
 //-----------------------------------------------------------
 // Author	: Long Le, Manh Nguyen
 // Date  	: Feb-5th, 2025
-// Description	: Contains 2 Subtitution Boxes, each has 256 elements 32-bit
+// Description	: F-function module used in encrypting process
 //-----------------------------------------------------------
 
 /* USING NOTE:
