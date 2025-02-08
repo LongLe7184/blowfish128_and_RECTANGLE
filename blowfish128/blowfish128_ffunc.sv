@@ -142,7 +142,7 @@ module blowfish128_ffunc(
 					if(Enable & valid_stage0) begin
 						res1H <= S1a ^ S1b;
 						res1L <= S2e ^ S2f;
-						valid_stage1 = 1'b1;
+						valid_stage1 <= 1'b1;
 					end
 				end
 				//ADD step
