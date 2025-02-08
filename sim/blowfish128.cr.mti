@@ -1,7 +1,0 @@
-D:/designIP/blowfish128/blowfish128_sbox.sv {1 {vlog -work work -sv -stats=none D:/designIP/blowfish128/blowfish128_sbox.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-
-Top level modules:
-	--none--
-
-} {} {}}
