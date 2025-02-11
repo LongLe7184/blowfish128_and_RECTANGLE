@@ -5,4 +5,4 @@ _Additional Links_
 - Report/Document/Software: https://drive.google.com/drive/folders/1fKtbtstxodVe0sSPo0TdXqlOCt10U29m?usp=drive_link
 
 _F-function Module Simulation's Result:_
-![image](https://github.com/user-attachm
+![image](https://github.com/user-attachments/assets/9d254d20-1129-458a-a87b-970364e48a54)
