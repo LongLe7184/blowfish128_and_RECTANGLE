@@ -81,7 +81,11 @@ module tb_blowfish128_ffunc;
 
 		//Input value phase
 		X_tb <= 64'h 1234_5678_abcd_ef01;
-
+	
+		#200 RstN_tb <= 0;
+		#10 RstN_tb <= 1;
+		X_tb <= 64'h fedc_ba09_8765_4321;
+		
 		#200 $finish;
 	end
 

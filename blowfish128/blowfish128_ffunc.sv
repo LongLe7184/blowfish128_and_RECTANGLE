@@ -2,7 +2,7 @@
 // Function: Blowfish-128's F-function Module
 //-----------------------------------------------------------
 // Author	: Long Le, Manh Nguyen
-// Date  	: Feb-5th, 2025
+// Date  	: Feb-8th, 2025
 // Description	: F-function module used in encrypting process
 //-----------------------------------------------------------
 
