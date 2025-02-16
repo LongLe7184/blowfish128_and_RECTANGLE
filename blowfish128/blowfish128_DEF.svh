@@ -1,9 +1,9 @@
 //-----------------------------------------------------------
-// Function: Blowfish-128's Definition
+// Header: Blowfish-128's Definition
 //-----------------------------------------------------------
 // Author	: Long Le, Manh Nguyen
 // Date  	: Feb-11th, 2025
-// Description	: Contain S-Boxes's values
+// Description	: Contain Macros holding S-Boxes's values
 //-----------------------------------------------------------
 
 
