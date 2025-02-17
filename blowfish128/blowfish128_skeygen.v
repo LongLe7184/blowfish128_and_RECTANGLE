@@ -7,8 +7,8 @@
 //-----------------------------------------------------------
 
 module skeygen (
-	input clk,
-	input rst,
+	input Clk,
+	input RstN,
 	input [63:0] key0,
 	input [63:0] key1,
 	input [63:0] key2,
@@ -19,7 +19,7 @@ module skeygen (
 	input [63:0] key7,
 	input [3:0] key_length,
 	input Encrypt,
-	input enable,
+	input Enable,
 	
 	output skey_ready,
 	output [31:0] P1,
@@ -93,8 +93,8 @@ module skeygen (
 	
 	assign skey_ready = ready;
 	
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
+    always @(posedge Clk or negedge RstN) begin
+        if (!RstN) begin
             state_machine <= IDLE;
             ready <= 0;
             i <= 0;
@@ -105,7 +105,7 @@ module skeygen (
         end else begin
             case (state_machine)
                 IDLE: begin
-                    if (enable) begin
+                    if (Enable) begin
                         state_machine <= XOR_KEY;
 			            ready <= 0;
                         i <= 0;
@@ -131,6 +131,9 @@ module skeygen (
 				    state_machine <= IDLE;
                     ready <= 1; // Signal that P-array is ready
                 end
+				
+				default:
+					state_machine <= IDLE;
             endcase
         end
     end	

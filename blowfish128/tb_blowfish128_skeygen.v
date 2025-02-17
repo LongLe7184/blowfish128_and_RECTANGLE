@@ -3,26 +3,26 @@
 
 module skeygen_tb;
     // Testbench signals
-    reg clk;
-    reg rst;
+    reg Clk;
+    reg RstN;
     reg [63:0] key0, key1, key2, key3, key4, key5, key6, key7;
     reg [3:0] key_length;
     reg Encrypt;
-    reg enable;
+    reg Enable;
     
     wire skey_ready;
     wire [31:0] P1, P2, P3, P4, P5, P6, P7, P8, P9, P10;
     wire [31:0] P11, P12, P13, P14, P15, P16, P17, P18, P19, P20;
     
     // Instantiate the module under test
-    skeygen uut (
-        .clk(clk),
-        .rst(rst),
+    skeygen2 uut (
+        .Clk(Clk),
+        .RstN(RstN),
         .key0(key0), .key1(key1), .key2(key2), .key3(key3),
         .key4(key4), .key5(key5), .key6(key6), .key7(key7),
         .key_length(key_length),
         .Encrypt(Encrypt),
-        .enable(enable),
+        .Enable(Enable),
         .skey_ready(skey_ready),
         .P1(P1), .P2(P2), .P3(P3), .P4(P4), .P5(P5),
         .P6(P6), .P7(P7), .P8(P8), .P9(P9), .P10(P10),
@@ -32,8 +32,8 @@ module skeygen_tb;
 
     // Clock generation
 	initial begin	
-		#0 clk = 0;
-		forever #1 clk = ~clk;
+		#0 Clk = 0;
+		forever #1 Clk = ~Clk;
 	end
 	
 	initial begin
@@ -43,9 +43,8 @@ module skeygen_tb;
     
 	initial begin
         // Initialize signals
-        clk = 0;
-        rst = 1;
-        enable = 0;
+        RstN = 0;
+        Enable = 0;
         Encrypt = 1;
         key_length = 4;
         
@@ -60,14 +59,14 @@ module skeygen_tb;
         key7 = 64'h99AABBCCDDEEFF00;
         
         // Reset sequence
-        #10 rst = 0;
-        #10 enable = 1;
+        #10 RstN = 1;
+        #10 Enable = 1;
         
         // Wait for skey_ready
         wait(skey_ready);
         
         // Disable the module
-        enable = 0;
+        Enable = 0;
         
         // Print P-array values
         $display("P-array values:");
