@@ -1,7 +1,7 @@
 
 `timescale 1ns / 1ps
 
-module skeygen_tb;
+module tb_blowfish128_skeygen_v2;
     // Testbench signals
     reg Clk;
     reg RstN;
@@ -15,7 +15,7 @@ module skeygen_tb;
     wire [31:0] P11, P12, P13, P14, P15, P16, P17, P18, P19, P20;
     
     // Instantiate the module under test
-    skeygen2 uut (
+    blowfish128_skeygen_v2 uut (
         .Clk(Clk),
         .RstN(RstN),
         .key0(key0), .key1(key1), .key2(key2), .key3(key3),
