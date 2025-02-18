@@ -44,7 +44,6 @@ module blowfish128_skeygen_v2 (
 	);
 
 	//Internal signal
-	reg [31:0] p_initial [0:19];      	// Contain initial value of p_array
 	reg [31:0] p_array   [0:19]; 		// Contain value of p_array
 	reg [1:0]  state_machine;		// Contain state of state machine
 	wire [447:0] key;
