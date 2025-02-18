@@ -20,7 +20,6 @@ module blowfish128_skeygen_v2 (
 	input [3:0] key_length,
 	input Encrypt,
 	input Enable,
-
 	output skey_ready,
 	output [31:0] P1,
 	output [31:0] P2,
@@ -57,26 +56,26 @@ module blowfish128_skeygen_v2 (
 
 	assign key = {key7, key6, key5, key4, key3, key2, key1, key0};
 
-	assign P1 = p_array[0];
-	assign P2 = p_array[1];
-	assign P3 = p_array[2];
-	assign P4 = p_array[3];
-	assign P5 = p_array[4];
-	assign P6 = p_array[5];
-	assign P7 = p_array[6];
-	assign P8 = p_array[7];
-	assign P9 = p_array[8];
-	assign P10 = p_array[9];
-	assign P11 = p_array[10];
-	assign P12 = p_array[11];
-	assign P13 = p_array[12];
-	assign P14 = p_array[13];
-	assign P15 = p_array[14];
-	assign P16 = p_array[15];
-	assign P17 = p_array[16];
-	assign P18 = p_array[17];
-	assign P19 = p_array[18];
-	assign P20 = p_array[19];
+	assign P1  = (Encrypt) ? p_array[0] : p_array[19];
+	assign P2  = (Encrypt) ? p_array[1] : p_array[18];
+	assign P3  = (Encrypt) ? p_array[2] : p_array[17];
+	assign P4  = (Encrypt) ? p_array[3] : p_array[16];
+	assign P5  = (Encrypt) ? p_array[4] : p_array[15];
+	assign P6  = (Encrypt) ? p_array[5] : p_array[14];
+	assign P7  = (Encrypt) ? p_array[6] : p_array[13];
+	assign P8  = (Encrypt) ? p_array[7] : p_array[12];
+	assign P9  = (Encrypt) ? p_array[8] : p_array[11];
+	assign P10 = (Encrypt) ? p_array[9] : p_array[10];
+	assign P11 = (Encrypt) ? p_array[10] : p_array[9];
+	assign P12 = (Encrypt) ? p_array[11] : p_array[8];
+	assign P13 = (Encrypt) ? p_array[12] : p_array[7];
+	assign P14 = (Encrypt) ? p_array[12] : p_array[6];
+	assign P15 = (Encrypt) ? p_array[14] : p_array[5];
+	assign P16 = (Encrypt) ? p_array[15] : p_array[4];
+	assign P17 = (Encrypt) ? p_array[16] : p_array[3];
+	assign P18 = (Encrypt) ? p_array[17] : p_array[2];
+	assign P19 = (Encrypt) ? p_array[18] : p_array[1];
+	assign P20 = (Encrypt) ? p_array[19] : p_array[0];
 
 	assign skey_ready = ready;
 
@@ -106,6 +105,8 @@ module blowfish128_skeygen_v2 (
 			p_array[19] <= 32'h3ac372e6;
 		end else begin
 			case (state_machine)
+
+				//IDLE state
 				IDLE: begin
 					if (Enable) begin
 						state_machine <= XOR_KEY;
@@ -113,729 +114,361 @@ module blowfish128_skeygen_v2 (
 					end
 				end
 
+				//XOR_KEY state
 				XOR_KEY: begin
 					ready <= 0;
-					if (Encrypt) begin
-						case (key_length)
-							4'd0: begin
-								p_array[0] <= p_array[0] ^ key[0 +: 32];
-								p_array[1] <= p_array[1] ^ key[0 +: 32];
-								p_array[2] <= p_array[2] ^ key[0 +: 32];
-								p_array[3] <= p_array[3] ^ key[0 +: 32];
-								p_array[4] <= p_array[4] ^ key[0 +: 32];
-								p_array[5] <= p_array[5] ^ key[0 +: 32];
-								p_array[6] <= p_array[6] ^ key[0 +: 32];
-								p_array[7] <= p_array[7] ^ key[0 +: 32];
-								p_array[8] <= p_array[8] ^ key[0 +: 32];
-								p_array[9] <= p_array[9] ^ key[0 +: 32];
-								p_array[10] <= p_array[10] ^ key[0 +: 32];
-								p_array[11] <= p_array[11] ^ key[0 +: 32];
-								p_array[12] <= p_array[12] ^ key[0 +: 32];
-								p_array[13] <= p_array[13] ^ key[0 +: 32];
-								p_array[14] <= p_array[14] ^ key[0 +: 32];
-								p_array[15] <= p_array[15] ^ key[0 +: 32];
-								p_array[16] <= p_array[16] ^ key[0 +: 32];
-								p_array[17] <= p_array[17] ^ key[0 +: 32];
-								p_array[18] <= p_array[18] ^ key[0 +: 32];
-								p_array[19] <= p_array[19] ^ key[0 +: 32];
-							end
 
-							4'd1: begin
-								p_array[0] <= p_array[0] ^ key[0 +: 32];
-								p_array[1] <= p_array[1] ^ key[32 +: 32];
-								p_array[2] <= p_array[2] ^ key[0 +: 32];
-								p_array[3] <= p_array[3] ^ key[32 +: 32];
-								p_array[4] <= p_array[4] ^ key[0 +: 32];
-								p_array[5] <= p_array[5] ^ key[32 +: 32];
-								p_array[6] <= p_array[6] ^ key[0 +: 32];
-								p_array[7] <= p_array[7] ^ key[32 +: 32];
-								p_array[8] <= p_array[8] ^ key[0 +: 32];
-								p_array[9] <= p_array[9] ^ key[32 +: 32];
-								p_array[10] <= p_array[10] ^ key[0 +: 32];
-								p_array[11] <= p_array[11] ^ key[32 +: 32];
-								p_array[12] <= p_array[12] ^ key[0 +: 32];
-								p_array[13] <= p_array[13] ^ key[32 +: 32];
-								p_array[14] <= p_array[14] ^ key[0 +: 32];
-								p_array[15] <= p_array[15] ^ key[32 +: 32];
-								p_array[16] <= p_array[16] ^ key[0 +: 32];
-								p_array[17] <= p_array[17] ^ key[32 +: 32];
-								p_array[18] <= p_array[18] ^ key[0 +: 32];
-								p_array[19] <= p_array[19] ^ key[32 +: 32];
-							end
+					case (key_length)
 
-							4'd2: begin
-								p_array[0] <= p_array[0] ^ key[0 +: 32];
-								p_array[1] <= p_array[1] ^ key[32 +: 32];
-								p_array[2] <= p_array[2] ^ key[64 +: 32];
-								p_array[3] <= p_array[3] ^ key[0 +: 32];
-								p_array[4] <= p_array[4] ^ key[32 +: 32];
-								p_array[5] <= p_array[5] ^ key[64 +: 32];
-								p_array[6] <= p_array[6] ^ key[0 +: 32];
-								p_array[7] <= p_array[7] ^ key[32 +: 32];
-								p_array[8] <= p_array[8] ^ key[64 +: 32];
-								p_array[9] <= p_array[9] ^ key[0 +: 32];
-								p_array[10] <= p_array[10] ^ key[32 +: 32];
-								p_array[11] <= p_array[11] ^ key[64 +: 32];
-								p_array[12] <= p_array[12] ^ key[0 +: 32];
-								p_array[13] <= p_array[13] ^ key[32 +: 32];
-								p_array[14] <= p_array[14] ^ key[64 +: 32];
-								p_array[15] <= p_array[15] ^ key[0 +: 32];
-								p_array[16] <= p_array[16] ^ key[32 +: 32];
-								p_array[17] <= p_array[17] ^ key[64 +: 32];
-								p_array[18] <= p_array[18] ^ key[0 +: 32];
-								p_array[19] <= p_array[19] ^ key[32 +: 32];
-							end
+						//32-bit key length
+						4'd1: begin
+							p_array[0] <= p_array[0] ^ key[0 +: 32];
+							p_array[1] <= p_array[1] ^ key[0 +: 32];
+							p_array[2] <= p_array[2] ^ key[0 +: 32];
+							p_array[3] <= p_array[3] ^ key[0 +: 32];
+							p_array[4] <= p_array[4] ^ key[0 +: 32];
+							p_array[5] <= p_array[5] ^ key[0 +: 32];
+							p_array[6] <= p_array[6] ^ key[0 +: 32];
+							p_array[7] <= p_array[7] ^ key[0 +: 32];
+							p_array[8] <= p_array[8] ^ key[0 +: 32];
+							p_array[9] <= p_array[9] ^ key[0 +: 32];
+							p_array[10] <= p_array[10] ^ key[0 +: 32];
+							p_array[11] <= p_array[11] ^ key[0 +: 32];
+							p_array[12] <= p_array[12] ^ key[0 +: 32];
+							p_array[13] <= p_array[13] ^ key[0 +: 32];
+							p_array[14] <= p_array[14] ^ key[0 +: 32];
+							p_array[15] <= p_array[15] ^ key[0 +: 32];
+							p_array[16] <= p_array[16] ^ key[0 +: 32];
+							p_array[17] <= p_array[17] ^ key[0 +: 32];
+							p_array[18] <= p_array[18] ^ key[0 +: 32];
+							p_array[19] <= p_array[19] ^ key[0 +: 32];
+						end
 
-							4'd3: begin
-								p_array[0] <= p_array[0] ^ key[0 +: 32];
-								p_array[1] <= p_array[1] ^ key[32 +: 32];
-								p_array[2] <= p_array[2] ^ key[64 +: 32];
-								p_array[3] <= p_array[3] ^ key[96 +: 32];
-								p_array[4] <= p_array[4] ^ key[0 +: 32];
-								p_array[5] <= p_array[5] ^ key[32 +: 32];
-								p_array[6] <= p_array[6] ^ key[64 +: 32];
-								p_array[7] <= p_array[7] ^ key[96 +: 32];
-								p_array[8] <= p_array[8] ^ key[0 +: 32];
-								p_array[9] <= p_array[9] ^ key[32 +: 32];
-								p_array[10] <= p_array[10] ^ key[64 +: 32];
-								p_array[11] <= p_array[11] ^ key[96 +: 32];
-								p_array[12] <= p_array[12] ^ key[0 +: 32];
-								p_array[13] <= p_array[13] ^ key[32 +: 32];
-								p_array[14] <= p_array[14] ^ key[64 +: 32];
-								p_array[15] <= p_array[15] ^ key[96 +: 32];
-								p_array[16] <= p_array[16] ^ key[0 +: 32];
-								p_array[17] <= p_array[17] ^ key[32 +: 32];
-								p_array[18] <= p_array[18] ^ key[64 +: 32];
-								p_array[19] <= p_array[19] ^ key[96 +: 32];
-							end
+						//64-bit key length
+						4'd2: begin
+							p_array[0] <= p_array[0] ^ key[0 +: 32];
+							p_array[1] <= p_array[1] ^ key[32 +: 32];
+							p_array[2] <= p_array[2] ^ key[0 +: 32];
+							p_array[3] <= p_array[3] ^ key[32 +: 32];
+							p_array[4] <= p_array[4] ^ key[0 +: 32];
+							p_array[5] <= p_array[5] ^ key[32 +: 32];
+							p_array[6] <= p_array[6] ^ key[0 +: 32];
+							p_array[7] <= p_array[7] ^ key[32 +: 32];
+							p_array[8] <= p_array[8] ^ key[0 +: 32];
+							p_array[9] <= p_array[9] ^ key[32 +: 32];
+							p_array[10] <= p_array[10] ^ key[0 +: 32];
+							p_array[11] <= p_array[11] ^ key[32 +: 32];
+							p_array[12] <= p_array[12] ^ key[0 +: 32];
+							p_array[13] <= p_array[13] ^ key[32 +: 32];
+							p_array[14] <= p_array[14] ^ key[0 +: 32];
+							p_array[15] <= p_array[15] ^ key[32 +: 32];
+							p_array[16] <= p_array[16] ^ key[0 +: 32];
+							p_array[17] <= p_array[17] ^ key[32 +: 32];
+							p_array[18] <= p_array[18] ^ key[0 +: 32];
+							p_array[19] <= p_array[19] ^ key[32 +: 32];
+						end
 
-							4'd4: begin
-								p_array[0] <= p_array[0] ^ key[0 +: 32];
-								p_array[1] <= p_array[1] ^ key[32 +: 32];
-								p_array[2] <= p_array[2] ^ key[64 +: 32];
-								p_array[3] <= p_array[3] ^ key[96 +: 32];
-								p_array[4] <= p_array[4] ^ key[128 +: 32];
-								p_array[5] <= p_array[5] ^ key[0 +: 32];
-								p_array[6] <= p_array[6] ^ key[32 +: 32];
-								p_array[7] <= p_array[7] ^ key[64 +: 32];
-								p_array[8] <= p_array[8] ^ key[96 +: 32];
-								p_array[9] <= p_array[9] ^ key[128 +: 32];
-								p_array[10] <= p_array[10] ^ key[0 +: 32];
-								p_array[11] <= p_array[11] ^ key[32 +: 32];
-								p_array[12] <= p_array[12] ^ key[64 +: 32];
-								p_array[13] <= p_array[13] ^ key[96 +: 32];
-								p_array[14] <= p_array[14] ^ key[128 +: 32];
-								p_array[15] <= p_array[15] ^ key[0 +: 32];
-								p_array[16] <= p_array[16] ^ key[32 +: 32];
-								p_array[17] <= p_array[17] ^ key[64 +: 32];
-								p_array[18] <= p_array[18] ^ key[96 +: 32];
-								p_array[19] <= p_array[19] ^ key[128 +: 32];
-							end
+						//96-bit key length
+						4'd3: begin
+							p_array[0] <= p_array[0] ^ key[0 +: 32];
+							p_array[1] <= p_array[1] ^ key[32 +: 32];
+							p_array[2] <= p_array[2] ^ key[64 +: 32];
+							p_array[3] <= p_array[3] ^ key[0 +: 32];
+							p_array[4] <= p_array[4] ^ key[32 +: 32];
+							p_array[5] <= p_array[5] ^ key[64 +: 32];
+							p_array[6] <= p_array[6] ^ key[0 +: 32];
+							p_array[7] <= p_array[7] ^ key[32 +: 32];
+							p_array[8] <= p_array[8] ^ key[64 +: 32];
+							p_array[9] <= p_array[9] ^ key[0 +: 32];
+							p_array[10] <= p_array[10] ^ key[32 +: 32];
+							p_array[11] <= p_array[11] ^ key[64 +: 32];
+							p_array[12] <= p_array[12] ^ key[0 +: 32];
+							p_array[13] <= p_array[13] ^ key[32 +: 32];
+							p_array[14] <= p_array[14] ^ key[64 +: 32];
+							p_array[15] <= p_array[15] ^ key[0 +: 32];
+							p_array[16] <= p_array[16] ^ key[32 +: 32];
+							p_array[17] <= p_array[17] ^ key[64 +: 32];
+							p_array[18] <= p_array[18] ^ key[0 +: 32];
+							p_array[19] <= p_array[19] ^ key[32 +: 32];
+						end
 
-							4'd5: begin
-								p_array[0] <= p_array[0] ^ key[0 +: 32];
-								p_array[1] <= p_array[1] ^ key[32 +: 32];
-								p_array[2] <= p_array[2] ^ key[64 +: 32];
-								p_array[3] <= p_array[3] ^ key[96 +: 32];
-								p_array[4] <= p_array[4] ^ key[128 +: 32];
-								p_array[5] <= p_array[5] ^ key[160 +: 32];
-								p_array[6] <= p_array[6] ^ key[0 +: 32];
-								p_array[7] <= p_array[7] ^ key[32 +: 32];
-								p_array[8] <= p_array[8] ^ key[64 +: 32];
-								p_array[9] <= p_array[9] ^ key[96 +: 32];
-								p_array[10] <= p_array[10] ^ key[128 +: 32];
-								p_array[11] <= p_array[11] ^ key[160 +: 32];
-								p_array[12] <= p_array[12] ^ key[0 +: 32];
-								p_array[13] <= p_array[13] ^ key[32 +: 32];
-								p_array[14] <= p_array[14] ^ key[64 +: 32];
-								p_array[15] <= p_array[15] ^ key[96 +: 32];
-								p_array[16] <= p_array[16] ^ key[128 +: 32];
-								p_array[17] <= p_array[17] ^ key[160 +: 32];
-								p_array[18] <= p_array[18] ^ key[0 +: 32];
-								p_array[19] <= p_array[19] ^ key[32 +: 32];
-							end
+						//128-bit key length
+						4'd4: begin
+							p_array[0] <= p_array[0] ^ key[0 +: 32];
+							p_array[1] <= p_array[1] ^ key[32 +: 32];
+							p_array[2] <= p_array[2] ^ key[64 +: 32];
+							p_array[3] <= p_array[3] ^ key[96 +: 32];
+							p_array[4] <= p_array[4] ^ key[0 +: 32];
+							p_array[5] <= p_array[5] ^ key[32 +: 32];
+							p_array[6] <= p_array[6] ^ key[64 +: 32];
+							p_array[7] <= p_array[7] ^ key[96 +: 32];
+							p_array[8] <= p_array[8] ^ key[0 +: 32];
+							p_array[9] <= p_array[9] ^ key[32 +: 32];
+							p_array[10] <= p_array[10] ^ key[64 +: 32];
+							p_array[11] <= p_array[11] ^ key[96 +: 32];
+							p_array[12] <= p_array[12] ^ key[0 +: 32];
+							p_array[13] <= p_array[13] ^ key[32 +: 32];
+							p_array[14] <= p_array[14] ^ key[64 +: 32];
+							p_array[15] <= p_array[15] ^ key[96 +: 32];
+							p_array[16] <= p_array[16] ^ key[0 +: 32];
+							p_array[17] <= p_array[17] ^ key[32 +: 32];
+							p_array[18] <= p_array[18] ^ key[64 +: 32];
+							p_array[19] <= p_array[19] ^ key[96 +: 32];
+						end
 
-							4'd6: begin
-								p_array[0] <= p_array[0] ^ key[0 +: 32];
-								p_array[1] <= p_array[1] ^ key[32 +: 32];
-								p_array[2] <= p_array[2] ^ key[64 +: 32];
-								p_array[3] <= p_array[3] ^ key[96 +: 32];
-								p_array[4] <= p_array[4] ^ key[128 +: 32];
-								p_array[5] <= p_array[5] ^ key[160 +: 32];
-								p_array[6] <= p_array[6] ^ key[192 +: 32];
-								p_array[7] <= p_array[7] ^ key[0 +: 32];
-								p_array[8] <= p_array[8] ^ key[32 +: 32];
-								p_array[9] <= p_array[9] ^ key[64 +: 32];
-								p_array[10] <= p_array[10] ^ key[96 +: 32];
-								p_array[11] <= p_array[11] ^ key[128 +: 32];
-								p_array[12] <= p_array[12] ^ key[160 +: 32];
-								p_array[13] <= p_array[13] ^ key[192 +: 32];
-								p_array[14] <= p_array[14] ^ key[0 +: 32];
-								p_array[15] <= p_array[15] ^ key[32 +: 32];
-								p_array[16] <= p_array[16] ^ key[64 +: 32];
-								p_array[17] <= p_array[17] ^ key[96 +: 32];
-								p_array[18] <= p_array[18] ^ key[128 +: 32];
-								p_array[19] <= p_array[19] ^ key[160 +: 32];
-							end
+						//160-bit key length
+						4'd5: begin
+							p_array[0] <= p_array[0] ^ key[0 +: 32];
+							p_array[1] <= p_array[1] ^ key[32 +: 32];
+							p_array[2] <= p_array[2] ^ key[64 +: 32];
+							p_array[3] <= p_array[3] ^ key[96 +: 32];
+							p_array[4] <= p_array[4] ^ key[128 +: 32];
+							p_array[5] <= p_array[5] ^ key[0 +: 32];
+							p_array[6] <= p_array[6] ^ key[32 +: 32];
+							p_array[7] <= p_array[7] ^ key[64 +: 32];
+							p_array[8] <= p_array[8] ^ key[96 +: 32];
+							p_array[9] <= p_array[9] ^ key[128 +: 32];
+							p_array[10] <= p_array[10] ^ key[0 +: 32];
+							p_array[11] <= p_array[11] ^ key[32 +: 32];
+							p_array[12] <= p_array[12] ^ key[64 +: 32];
+							p_array[13] <= p_array[13] ^ key[96 +: 32];
+							p_array[14] <= p_array[14] ^ key[128 +: 32];
+							p_array[15] <= p_array[15] ^ key[0 +: 32];
+							p_array[16] <= p_array[16] ^ key[32 +: 32];
+							p_array[17] <= p_array[17] ^ key[64 +: 32];
+							p_array[18] <= p_array[18] ^ key[96 +: 32];
+							p_array[19] <= p_array[19] ^ key[128 +: 32];
+						end
 
-							4'd7: begin
-								p_array[0] <= p_array[0] ^ key[0 +: 32];
-								p_array[1] <= p_array[1] ^ key[32 +: 32];
-								p_array[2] <= p_array[2] ^ key[64 +: 32];
-								p_array[3] <= p_array[3] ^ key[96 +: 32];
-								p_array[4] <= p_array[4] ^ key[128 +: 32];
-								p_array[5] <= p_array[5] ^ key[160 +: 32];
-								p_array[6] <= p_array[6] ^ key[192 +: 32];
-								p_array[7] <= p_array[7] ^ key[224 +: 32];
-								p_array[8] <= p_array[8] ^ key[0 +: 32];
-								p_array[9] <= p_array[9] ^ key[32 +: 32];
-								p_array[10] <= p_array[10] ^ key[64 +: 32];
-								p_array[11] <= p_array[11] ^ key[96 +: 32];
-								p_array[12] <= p_array[12] ^ key[128 +: 32];
-								p_array[13] <= p_array[13] ^ key[160 +: 32];
-								p_array[14] <= p_array[14] ^ key[192 +: 32];
-								p_array[15] <= p_array[15] ^ key[224 +: 32];
-								p_array[16] <= p_array[16] ^ key[0 +: 32];
-								p_array[17] <= p_array[17] ^ key[32 +: 32];
-								p_array[18] <= p_array[18] ^ key[64 +: 32];
-								p_array[19] <= p_array[19] ^ key[96 +: 32];
-							end
+						//192-bit key length
+						4'd6: begin
+							p_array[0] <= p_array[0] ^ key[0 +: 32];
+							p_array[1] <= p_array[1] ^ key[32 +: 32];
+							p_array[2] <= p_array[2] ^ key[64 +: 32];
+							p_array[3] <= p_array[3] ^ key[96 +: 32];
+							p_array[4] <= p_array[4] ^ key[128 +: 32];
+							p_array[5] <= p_array[5] ^ key[160 +: 32];
+							p_array[6] <= p_array[6] ^ key[0 +: 32];
+							p_array[7] <= p_array[7] ^ key[32 +: 32];
+							p_array[8] <= p_array[8] ^ key[64 +: 32];
+							p_array[9] <= p_array[9] ^ key[96 +: 32];
+							p_array[10] <= p_array[10] ^ key[128 +: 32];
+							p_array[11] <= p_array[11] ^ key[160 +: 32];
+							p_array[12] <= p_array[12] ^ key[0 +: 32];
+							p_array[13] <= p_array[13] ^ key[32 +: 32];
+							p_array[14] <= p_array[14] ^ key[64 +: 32];
+							p_array[15] <= p_array[15] ^ key[96 +: 32];
+							p_array[16] <= p_array[16] ^ key[128 +: 32];
+							p_array[17] <= p_array[17] ^ key[160 +: 32];
+							p_array[18] <= p_array[18] ^ key[0 +: 32];
+							p_array[19] <= p_array[19] ^ key[32 +: 32];
+						end
 
-							4'd8: begin
-								p_array[0] <= p_array[0] ^ key[0 +: 32];
-								p_array[1] <= p_array[1] ^ key[32 +: 32];
-								p_array[2] <= p_array[2] ^ key[64 +: 32];
-								p_array[3] <= p_array[3] ^ key[96 +: 32];
-								p_array[4] <= p_array[4] ^ key[128 +: 32];
-								p_array[5] <= p_array[5] ^ key[160 +: 32];
-								p_array[6] <= p_array[6] ^ key[192 +: 32];
-								p_array[7] <= p_array[7] ^ key[224 +: 32];
-								p_array[8] <= p_array[8] ^ key[256 +: 32];
-								p_array[9] <= p_array[9] ^ key[0 +: 32];
-								p_array[10] <= p_array[10] ^ key[32 +: 32];
-								p_array[11] <= p_array[11] ^ key[64 +: 32];
-								p_array[12] <= p_array[12] ^ key[96 +: 32];
-								p_array[13] <= p_array[13] ^ key[128 +: 32];
-								p_array[14] <= p_array[14] ^ key[160 +: 32];
-								p_array[15] <= p_array[15] ^ key[192 +: 32];
-								p_array[16] <= p_array[16] ^ key[224 +: 32];
-								p_array[17] <= p_array[17] ^ key[256 +: 32];
-								p_array[18] <= p_array[18] ^ key[0 +: 32];
-								p_array[19] <= p_array[19] ^ key[32 +: 32];
-							end
+						//224-bit key length
+						4'd7: begin
+							p_array[0] <= p_array[0] ^ key[0 +: 32];
+							p_array[1] <= p_array[1] ^ key[32 +: 32];
+							p_array[2] <= p_array[2] ^ key[64 +: 32];
+							p_array[3] <= p_array[3] ^ key[96 +: 32];
+							p_array[4] <= p_array[4] ^ key[128 +: 32];
+							p_array[5] <= p_array[5] ^ key[160 +: 32];
+							p_array[6] <= p_array[6] ^ key[192 +: 32];
+							p_array[7] <= p_array[7] ^ key[0 +: 32];
+							p_array[8] <= p_array[8] ^ key[32 +: 32];
+							p_array[9] <= p_array[9] ^ key[64 +: 32];
+							p_array[10] <= p_array[10] ^ key[96 +: 32];
+							p_array[11] <= p_array[11] ^ key[128 +: 32];
+							p_array[12] <= p_array[12] ^ key[160 +: 32];
+							p_array[13] <= p_array[13] ^ key[192 +: 32];
+							p_array[14] <= p_array[14] ^ key[0 +: 32];
+							p_array[15] <= p_array[15] ^ key[32 +: 32];
+							p_array[16] <= p_array[16] ^ key[64 +: 32];
+							p_array[17] <= p_array[17] ^ key[96 +: 32];
+							p_array[18] <= p_array[18] ^ key[128 +: 32];
+							p_array[19] <= p_array[19] ^ key[160 +: 32];
+						end
 
-							4'd9: begin
-								p_array[0] <= p_array[0] ^ key[0 +: 32];
-								p_array[1] <= p_array[1] ^ key[32 +: 32];
-								p_array[2] <= p_array[2] ^ key[64 +: 32];
-								p_array[3] <= p_array[3] ^ key[96 +: 32];
-								p_array[4] <= p_array[4] ^ key[128 +: 32];
-								p_array[5] <= p_array[5] ^ key[160 +: 32];
-								p_array[6] <= p_array[6] ^ key[192 +: 32];
-								p_array[7] <= p_array[7] ^ key[224 +: 32];
-								p_array[8] <= p_array[8] ^ key[256 +: 32];
-								p_array[9] <= p_array[9] ^ key[288 +: 32];
-								p_array[10] <= p_array[10] ^ key[0 +: 32];
-								p_array[11] <= p_array[11] ^ key[32 +: 32];
-								p_array[12] <= p_array[12] ^ key[64 +: 32];
-								p_array[13] <= p_array[13] ^ key[96 +: 32];
-								p_array[14] <= p_array[14] ^ key[128 +: 32];
-								p_array[15] <= p_array[15] ^ key[160 +: 32];
-								p_array[16] <= p_array[16] ^ key[192 +: 32];
-								p_array[17] <= p_array[17] ^ key[224 +: 32];
-								p_array[18] <= p_array[18] ^ key[256 +: 32];
-								p_array[19] <= p_array[19] ^ key[288 +: 32];
-							end
+						//256-bit key length
+						4'd8: begin
+							p_array[0] <= p_array[0] ^ key[0 +: 32];
+							p_array[1] <= p_array[1] ^ key[32 +: 32];
+							p_array[2] <= p_array[2] ^ key[64 +: 32];
+							p_array[3] <= p_array[3] ^ key[96 +: 32];
+							p_array[4] <= p_array[4] ^ key[128 +: 32];
+							p_array[5] <= p_array[5] ^ key[160 +: 32];
+							p_array[6] <= p_array[6] ^ key[192 +: 32];
+							p_array[7] <= p_array[7] ^ key[224 +: 32];
+							p_array[8] <= p_array[8] ^ key[0 +: 32];
+							p_array[9] <= p_array[9] ^ key[32 +: 32];
+							p_array[10] <= p_array[10] ^ key[64 +: 32];
+							p_array[11] <= p_array[11] ^ key[96 +: 32];
+							p_array[12] <= p_array[12] ^ key[128 +: 32];
+							p_array[13] <= p_array[13] ^ key[160 +: 32];
+							p_array[14] <= p_array[14] ^ key[192 +: 32];
+							p_array[15] <= p_array[15] ^ key[224 +: 32];
+							p_array[16] <= p_array[16] ^ key[0 +: 32];
+							p_array[17] <= p_array[17] ^ key[32 +: 32];
+							p_array[18] <= p_array[18] ^ key[64 +: 32];
+							p_array[19] <= p_array[19] ^ key[96 +: 32];
+						end
 
-							4'd10: begin
-								p_array[0] <= p_array[0] ^ key[0 +: 32];
-								p_array[1] <= p_array[1] ^ key[32 +: 32];
-								p_array[2] <= p_array[2] ^ key[64 +: 32];
-								p_array[3] <= p_array[3] ^ key[96 +: 32];
-								p_array[4] <= p_array[4] ^ key[128 +: 32];
-								p_array[5] <= p_array[5] ^ key[160 +: 32];
-								p_array[6] <= p_array[6] ^ key[192 +: 32];
-								p_array[7] <= p_array[7] ^ key[224 +: 32];
-								p_array[8] <= p_array[8] ^ key[256 +: 32];
-								p_array[9] <= p_array[9] ^ key[288 +: 32];
-								p_array[10] <= p_array[10] ^ key[320 +: 32];
-								p_array[11] <= p_array[11] ^ key[0 +: 32];
-								p_array[12] <= p_array[12] ^ key[32 +: 32];
-								p_array[13] <= p_array[13] ^ key[64 +: 32];
-								p_array[14] <= p_array[14] ^ key[96 +: 32];
-								p_array[15] <= p_array[15] ^ key[128 +: 32];
-								p_array[16] <= p_array[16] ^ key[160 +: 32];
-								p_array[17] <= p_array[17] ^ key[192 +: 32];
-								p_array[18] <= p_array[18] ^ key[224 +: 32];
-								p_array[19] <= p_array[19] ^ key[256 +: 32];
-							end
+						//288-bit key length
+						4'd9: begin
+							p_array[0] <= p_array[0] ^ key[0 +: 32];
+							p_array[1] <= p_array[1] ^ key[32 +: 32];
+							p_array[2] <= p_array[2] ^ key[64 +: 32];
+							p_array[3] <= p_array[3] ^ key[96 +: 32];
+							p_array[4] <= p_array[4] ^ key[128 +: 32];
+							p_array[5] <= p_array[5] ^ key[160 +: 32];
+							p_array[6] <= p_array[6] ^ key[192 +: 32];
+							p_array[7] <= p_array[7] ^ key[224 +: 32];
+							p_array[8] <= p_array[8] ^ key[256 +: 32];
+							p_array[9] <= p_array[9] ^ key[0 +: 32];
+							p_array[10] <= p_array[10] ^ key[32 +: 32];
+							p_array[11] <= p_array[11] ^ key[64 +: 32];
+							p_array[12] <= p_array[12] ^ key[96 +: 32];
+							p_array[13] <= p_array[13] ^ key[128 +: 32];
+							p_array[14] <= p_array[14] ^ key[160 +: 32];
+							p_array[15] <= p_array[15] ^ key[192 +: 32];
+							p_array[16] <= p_array[16] ^ key[224 +: 32];
+							p_array[17] <= p_array[17] ^ key[256 +: 32];
+							p_array[18] <= p_array[18] ^ key[0 +: 32];
+							p_array[19] <= p_array[19] ^ key[32 +: 32];
+						end
 
-							4'd11: begin
-								p_array[0] <= p_array[0] ^ key[0 +: 32];
-								p_array[1] <= p_array[1] ^ key[32 +: 32];
-								p_array[2] <= p_array[2] ^ key[64 +: 32];
-								p_array[3] <= p_array[3] ^ key[96 +: 32];
-								p_array[4] <= p_array[4] ^ key[128 +: 32];
-								p_array[5] <= p_array[5] ^ key[160 +: 32];
-								p_array[6] <= p_array[6] ^ key[192 +: 32];
-								p_array[7] <= p_array[7] ^ key[224 +: 32];
-								p_array[8] <= p_array[8] ^ key[256 +: 32];
-								p_array[9] <= p_array[9] ^ key[288 +: 32];
-								p_array[10] <= p_array[10] ^ key[320 +: 32];
-								p_array[11] <= p_array[11] ^ key[352 +: 32];
-								p_array[12] <= p_array[12] ^ key[0 +: 32];
-								p_array[13] <= p_array[13] ^ key[32 +: 32];
-								p_array[14] <= p_array[14] ^ key[64 +: 32];
-								p_array[15] <= p_array[15] ^ key[96 +: 32];
-								p_array[16] <= p_array[16] ^ key[128 +: 32];
-								p_array[17] <= p_array[17] ^ key[160 +: 32];
-								p_array[18] <= p_array[18] ^ key[192 +: 32];
-								p_array[19] <= p_array[19] ^ key[224 +: 32];
-							end
+						//320-bit key length
+						4'd10: begin
+							p_array[0] <= p_array[0] ^ key[0 +: 32];
+							p_array[1] <= p_array[1] ^ key[32 +: 32];
+							p_array[2] <= p_array[2] ^ key[64 +: 32];
+							p_array[3] <= p_array[3] ^ key[96 +: 32];
+							p_array[4] <= p_array[4] ^ key[128 +: 32];
+							p_array[5] <= p_array[5] ^ key[160 +: 32];
+							p_array[6] <= p_array[6] ^ key[192 +: 32];
+							p_array[7] <= p_array[7] ^ key[224 +: 32];
+							p_array[8] <= p_array[8] ^ key[256 +: 32];
+							p_array[9] <= p_array[9] ^ key[288 +: 32];
+							p_array[10] <= p_array[10] ^ key[0 +: 32];
+							p_array[11] <= p_array[11] ^ key[32 +: 32];
+							p_array[12] <= p_array[12] ^ key[64 +: 32];
+							p_array[13] <= p_array[13] ^ key[96 +: 32];
+							p_array[14] <= p_array[14] ^ key[128 +: 32];
+							p_array[15] <= p_array[15] ^ key[160 +: 32];
+							p_array[16] <= p_array[16] ^ key[192 +: 32];
+							p_array[17] <= p_array[17] ^ key[224 +: 32];
+							p_array[18] <= p_array[18] ^ key[256 +: 32];
+							p_array[19] <= p_array[19] ^ key[288 +: 32];
+						end
 
-							4'd12: begin
-								p_array[0] <= p_array[0] ^ key[0 +: 32];
-								p_array[1] <= p_array[1] ^ key[32 +: 32];
-								p_array[2] <= p_array[2] ^ key[64 +: 32];
-								p_array[3] <= p_array[3] ^ key[96 +: 32];
-								p_array[4] <= p_array[4] ^ key[128 +: 32];
-								p_array[5] <= p_array[5] ^ key[160 +: 32];
-								p_array[6] <= p_array[6] ^ key[192 +: 32];
-								p_array[7] <= p_array[7] ^ key[224 +: 32];
-								p_array[8] <= p_array[8] ^ key[256 +: 32];
-								p_array[9] <= p_array[9] ^ key[288 +: 32];
-								p_array[10] <= p_array[10] ^ key[320 +: 32];
-								p_array[11] <= p_array[11] ^ key[352 +: 32];
-								p_array[12] <= p_array[12] ^ key[384 +: 32];
-								p_array[13] <= p_array[13] ^ key[0 +: 32];
-								p_array[14] <= p_array[14] ^ key[32 +: 32];
-								p_array[15] <= p_array[15] ^ key[64 +: 32];
-								p_array[16] <= p_array[16] ^ key[96 +: 32];
-								p_array[17] <= p_array[17] ^ key[128 +: 32];
-								p_array[18] <= p_array[18] ^ key[160 +: 32];
-								p_array[19] <= p_array[19] ^ key[192 +: 32];
-							end
+						//352-bit key length
+						4'd11: begin
+							p_array[0] <= p_array[0] ^ key[0 +: 32];
+							p_array[1] <= p_array[1] ^ key[32 +: 32];
+							p_array[2] <= p_array[2] ^ key[64 +: 32];
+							p_array[3] <= p_array[3] ^ key[96 +: 32];
+							p_array[4] <= p_array[4] ^ key[128 +: 32];
+							p_array[5] <= p_array[5] ^ key[160 +: 32];
+							p_array[6] <= p_array[6] ^ key[192 +: 32];
+							p_array[7] <= p_array[7] ^ key[224 +: 32];
+							p_array[8] <= p_array[8] ^ key[256 +: 32];
+							p_array[9] <= p_array[9] ^ key[288 +: 32];
+							p_array[10] <= p_array[10] ^ key[320 +: 32];
+							p_array[11] <= p_array[11] ^ key[0 +: 32];
+							p_array[12] <= p_array[12] ^ key[32 +: 32];
+							p_array[13] <= p_array[13] ^ key[64 +: 32];
+							p_array[14] <= p_array[14] ^ key[96 +: 32];
+							p_array[15] <= p_array[15] ^ key[128 +: 32];
+							p_array[16] <= p_array[16] ^ key[160 +: 32];
+							p_array[17] <= p_array[17] ^ key[192 +: 32];
+							p_array[18] <= p_array[18] ^ key[224 +: 32];
+							p_array[19] <= p_array[19] ^ key[256 +: 32];
+						end
 
-							4'd13: begin
-								p_array[0] <= p_array[0] ^ key[0 +: 32];
-								p_array[1] <= p_array[1] ^ key[32 +: 32];
-								p_array[2] <= p_array[2] ^ key[64 +: 32];
-								p_array[3] <= p_array[3] ^ key[96 +: 32];
-								p_array[4] <= p_array[4] ^ key[128 +: 32];
-								p_array[5] <= p_array[5] ^ key[160 +: 32];
-								p_array[6] <= p_array[6] ^ key[192 +: 32];
-								p_array[7] <= p_array[7] ^ key[224 +: 32];
-								p_array[8] <= p_array[8] ^ key[256 +: 32];
-								p_array[9] <= p_array[9] ^ key[288 +: 32];
-								p_array[10] <= p_array[10] ^ key[320 +: 32];
-								p_array[11] <= p_array[11] ^ key[352 +: 32];
-								p_array[12] <= p_array[12] ^ key[384 +: 32];
-								p_array[13] <= p_array[13] ^ key[416 +: 32];
-								p_array[14] <= p_array[14] ^ key[0 +: 32];
-								p_array[15] <= p_array[15] ^ key[32 +: 32];
-								p_array[16] <= p_array[16] ^ key[64 +: 32];
-								p_array[17] <= p_array[17] ^ key[96 +: 32];
-								p_array[18] <= p_array[18] ^ key[128 +: 32];
-								p_array[19] <= p_array[19] ^ key[160 +: 32];
-							end
-						endcase
-					end else begin
-						case (key_length)
-							4'd0: begin
-								p_array[19] <= p_array[19] ^ key[0 +: 32];
-								p_array[18] <= p_array[18] ^ key[0 +: 32];
-								p_array[17] <= p_array[17] ^ key[0 +: 32];
-								p_array[16] <= p_array[16] ^ key[0 +: 32];
-								p_array[15] <= p_array[15] ^ key[0 +: 32];
-								p_array[14] <= p_array[14] ^ key[0 +: 32];
-								p_array[13] <= p_array[13] ^ key[0 +: 32];
-								p_array[12] <= p_array[12] ^ key[0 +: 32];
-								p_array[11] <= p_array[11] ^ key[0 +: 32];
-								p_array[10] <= p_array[10] ^ key[0 +: 32];
-								p_array[9] <= p_array[9] ^ key[0 +: 32];
-								p_array[8] <= p_array[8] ^ key[0 +: 32];
-								p_array[7] <= p_array[7] ^ key[0 +: 32];
-								p_array[6] <= p_array[6] ^ key[0 +: 32];
-								p_array[5] <= p_array[5] ^ key[0 +: 32];
-								p_array[4] <= p_array[4] ^ key[0 +: 32];
-								p_array[3] <= p_array[3] ^ key[0 +: 32];
-								p_array[2] <= p_array[2] ^ key[0 +: 32];
-								p_array[1] <= p_array[1] ^ key[0 +: 32];
-								p_array[0] <= p_array[0] ^ key[0 +: 32];
-								state_machine <= UPDATE_P;
-							end
+						//384-bit key length
+						4'd12: begin
+							p_array[0] <= p_array[0] ^ key[0 +: 32];
+							p_array[1] <= p_array[1] ^ key[32 +: 32];
+							p_array[2] <= p_array[2] ^ key[64 +: 32];
+							p_array[3] <= p_array[3] ^ key[96 +: 32];
+							p_array[4] <= p_array[4] ^ key[128 +: 32];
+							p_array[5] <= p_array[5] ^ key[160 +: 32];
+							p_array[6] <= p_array[6] ^ key[192 +: 32];
+							p_array[7] <= p_array[7] ^ key[224 +: 32];
+							p_array[8] <= p_array[8] ^ key[256 +: 32];
+							p_array[9] <= p_array[9] ^ key[288 +: 32];
+							p_array[10] <= p_array[10] ^ key[320 +: 32];
+							p_array[11] <= p_array[11] ^ key[352 +: 32];
+							p_array[12] <= p_array[12] ^ key[0 +: 32];
+							p_array[13] <= p_array[13] ^ key[32 +: 32];
+							p_array[14] <= p_array[14] ^ key[64 +: 32];
+							p_array[15] <= p_array[15] ^ key[96 +: 32];
+							p_array[16] <= p_array[16] ^ key[128 +: 32];
+							p_array[17] <= p_array[17] ^ key[160 +: 32];
+							p_array[18] <= p_array[18] ^ key[192 +: 32];
+							p_array[19] <= p_array[19] ^ key[224 +: 32];
+						end
 
-							4'd1: begin
-								p_array[19] <= p_array[19] ^ key[0 +: 32];
-								p_array[18] <= p_array[18] ^ key[32 +: 32];
-								p_array[17] <= p_array[17] ^ key[0 +: 32];
-								p_array[16] <= p_array[16] ^ key[32 +: 32];
-								p_array[15] <= p_array[15] ^ key[0 +: 32];
-								p_array[14] <= p_array[14] ^ key[32 +: 32];
-								p_array[13] <= p_array[13] ^ key[0 +: 32];
-								p_array[12] <= p_array[12] ^ key[32 +: 32];
-								p_array[11] <= p_array[11] ^ key[0 +: 32];
-								p_array[10] <= p_array[10] ^ key[32 +: 32];
-								p_array[9] <= p_array[9] ^ key[0 +: 32];
-								p_array[8] <= p_array[8] ^ key[32 +: 32];
-								p_array[7] <= p_array[7] ^ key[0 +: 32];
-								p_array[6] <= p_array[6] ^ key[32 +: 32];
-								p_array[5] <= p_array[5] ^ key[0 +: 32];
-								p_array[4] <= p_array[4] ^ key[32 +: 32];
-								p_array[3] <= p_array[3] ^ key[0 +: 32];
-								p_array[2] <= p_array[2] ^ key[32 +: 32];
-								p_array[1] <= p_array[1] ^ key[0 +: 32];
-								p_array[0] <= p_array[0] ^ key[32 +: 32];
-								state_machine <= UPDATE_P;
-							end
+						//416-bit key length
+						4'd13: begin
+							p_array[0] <= p_array[0] ^ key[0 +: 32];
+							p_array[1] <= p_array[1] ^ key[32 +: 32];
+							p_array[2] <= p_array[2] ^ key[64 +: 32];
+							p_array[3] <= p_array[3] ^ key[96 +: 32];
+							p_array[4] <= p_array[4] ^ key[128 +: 32];
+							p_array[5] <= p_array[5] ^ key[160 +: 32];
+							p_array[6] <= p_array[6] ^ key[192 +: 32];
+							p_array[7] <= p_array[7] ^ key[224 +: 32];
+							p_array[8] <= p_array[8] ^ key[256 +: 32];
+							p_array[9] <= p_array[9] ^ key[288 +: 32];
+							p_array[10] <= p_array[10] ^ key[320 +: 32];
+							p_array[11] <= p_array[11] ^ key[352 +: 32];
+							p_array[12] <= p_array[12] ^ key[384 +: 32];
+							p_array[13] <= p_array[13] ^ key[0 +: 32];
+							p_array[14] <= p_array[14] ^ key[32 +: 32];
+							p_array[15] <= p_array[15] ^ key[64 +: 32];
+							p_array[16] <= p_array[16] ^ key[96 +: 32];
+							p_array[17] <= p_array[17] ^ key[128 +: 32];
+							p_array[18] <= p_array[18] ^ key[160 +: 32];
+							p_array[19] <= p_array[19] ^ key[192 +: 32];
+						end
 
-							4'd2: begin
-								p_array[19] <= p_array[19] ^ key[0 +: 32];
-								p_array[18] <= p_array[18] ^ key[32 +: 32];
-								p_array[17] <= p_array[17] ^ key[64 +: 32];
-								p_array[16] <= p_array[16] ^ key[0 +: 32];
-								p_array[15] <= p_array[15] ^ key[32 +: 32];
-								p_array[14] <= p_array[14] ^ key[64 +: 32];
-								p_array[13] <= p_array[13] ^ key[0 +: 32];
-								p_array[12] <= p_array[12] ^ key[32 +: 32];
-								p_array[11] <= p_array[11] ^ key[64 +: 32];
-								p_array[10] <= p_array[10] ^ key[0 +: 32];
-								p_array[9] <= p_array[9] ^ key[32 +: 32];
-								p_array[8] <= p_array[8] ^ key[64 +: 32];
-								p_array[7] <= p_array[7] ^ key[0 +: 32];
-								p_array[6] <= p_array[6] ^ key[32 +: 32];
-								p_array[5] <= p_array[5] ^ key[64 +: 32];
-								p_array[4] <= p_array[4] ^ key[0 +: 32];
-								p_array[3] <= p_array[3] ^ key[32 +: 32];
-								p_array[2] <= p_array[2] ^ key[64 +: 32];
-								p_array[1] <= p_array[1] ^ key[0 +: 32];
-								p_array[0] <= p_array[0] ^ key[32 +: 32];
-								state_machine <= UPDATE_P;
-							end
+						//448-bit key length
+						4'd14: begin
+							p_array[0] <= p_array[0] ^ key[0 +: 32];
+							p_array[1] <= p_array[1] ^ key[32 +: 32];
+							p_array[2] <= p_array[2] ^ key[64 +: 32];
+							p_array[3] <= p_array[3] ^ key[96 +: 32];
+							p_array[4] <= p_array[4] ^ key[128 +: 32];
+							p_array[5] <= p_array[5] ^ key[160 +: 32];
+							p_array[6] <= p_array[6] ^ key[192 +: 32];
+							p_array[7] <= p_array[7] ^ key[224 +: 32];
+							p_array[8] <= p_array[8] ^ key[256 +: 32];
+							p_array[9] <= p_array[9] ^ key[288 +: 32];
+							p_array[10] <= p_array[10] ^ key[320 +: 32];
+							p_array[11] <= p_array[11] ^ key[352 +: 32];
+							p_array[12] <= p_array[12] ^ key[384 +: 32];
+							p_array[13] <= p_array[13] ^ key[416 +: 32];
+							p_array[14] <= p_array[14] ^ key[0 +: 32];
+							p_array[15] <= p_array[15] ^ key[32 +: 32];
+							p_array[16] <= p_array[16] ^ key[64 +: 32];
+							p_array[17] <= p_array[17] ^ key[96 +: 32];
+							p_array[18] <= p_array[18] ^ key[128 +: 32];
+							p_array[19] <= p_array[19] ^ key[160 +: 32];
+						end
+					endcase
 
-							4'd3: begin
-								p_array[19] <= p_array[19] ^ key[0 +: 32];
-								p_array[18] <= p_array[18] ^ key[32 +: 32];
-								p_array[17] <= p_array[17] ^ key[64 +: 32];
-								p_array[16] <= p_array[16] ^ key[96 +: 32];
-								p_array[15] <= p_array[15] ^ key[0 +: 32];
-								p_array[14] <= p_array[14] ^ key[32 +: 32];
-								p_array[13] <= p_array[13] ^ key[64 +: 32];
-								p_array[12] <= p_array[12] ^ key[96 +: 32];
-								p_array[11] <= p_array[11] ^ key[0 +: 32];
-								p_array[10] <= p_array[10] ^ key[32 +: 32];
-								p_array[9] <= p_array[9] ^ key[64 +: 32];
-								p_array[8] <= p_array[8] ^ key[96 +: 32];
-								p_array[7] <= p_array[7] ^ key[0 +: 32];
-								p_array[6] <= p_array[6] ^ key[32 +: 32];
-								p_array[5] <= p_array[5] ^ key[64 +: 32];
-								p_array[4] <= p_array[4] ^ key[96 +: 32];
-								p_array[3] <= p_array[3] ^ key[0 +: 32];
-								p_array[2] <= p_array[2] ^ key[32 +: 32];
-								p_array[1] <= p_array[1] ^ key[64 +: 32];
-								p_array[0] <= p_array[0] ^ key[96 +: 32];
-								state_machine <= UPDATE_P;
-							end
-
-							4'd4: begin
-								p_array[19] <= p_array[19] ^ key[0 +: 32];
-								p_array[18] <= p_array[18] ^ key[32 +: 32];
-								p_array[17] <= p_array[17] ^ key[64 +: 32];
-								p_array[16] <= p_array[16] ^ key[96 +: 32];
-								p_array[15] <= p_array[15] ^ key[128 +: 32];
-								p_array[14] <= p_array[14] ^ key[0 +: 32];
-								p_array[13] <= p_array[13] ^ key[32 +: 32];
-								p_array[12] <= p_array[12] ^ key[64 +: 32];
-								p_array[11] <= p_array[11] ^ key[96 +: 32];
-								p_array[10] <= p_array[10] ^ key[128 +: 32];
-								p_array[9] <= p_array[9] ^ key[0 +: 32];
-								p_array[8] <= p_array[8] ^ key[32 +: 32];
-								p_array[7] <= p_array[7] ^ key[64 +: 32];
-								p_array[6] <= p_array[6] ^ key[96 +: 32];
-								p_array[5] <= p_array[5] ^ key[128 +: 32];
-								p_array[4] <= p_array[4] ^ key[0 +: 32];
-								p_array[3] <= p_array[3] ^ key[32 +: 32];
-								p_array[2] <= p_array[2] ^ key[64 +: 32];
-								p_array[1] <= p_array[1] ^ key[96 +: 32];
-								p_array[0] <= p_array[0] ^ key[128 +: 32];
-								state_machine <= UPDATE_P;
-							end
-
-							4'd5: begin
-								p_array[19] <= p_array[19] ^ key[0 +: 32];
-								p_array[18] <= p_array[18] ^ key[32 +: 32];
-								p_array[17] <= p_array[17] ^ key[64 +: 32];
-								p_array[16] <= p_array[16] ^ key[96 +: 32];
-								p_array[15] <= p_array[15] ^ key[128 +: 32];
-								p_array[14] <= p_array[14] ^ key[160 +: 32];
-								p_array[13] <= p_array[13] ^ key[0 +: 32];
-								p_array[12] <= p_array[12] ^ key[32 +: 32];
-								p_array[11] <= p_array[11] ^ key[64 +: 32];
-								p_array[10] <= p_array[10] ^ key[96 +: 32];
-								p_array[9] <= p_array[9] ^ key[128 +: 32];
-								p_array[8] <= p_array[8] ^ key[160 +: 32];
-								p_array[7] <= p_array[7] ^ key[0 +: 32];
-								p_array[6] <= p_array[6] ^ key[32 +: 32];
-								p_array[5] <= p_array[5] ^ key[64 +: 32];
-								p_array[4] <= p_array[4] ^ key[96 +: 32];
-								p_array[3] <= p_array[3] ^ key[128 +: 32];
-								p_array[2] <= p_array[2] ^ key[160 +: 32];
-								p_array[1] <= p_array[1] ^ key[0 +: 32];
-								p_array[0] <= p_array[0] ^ key[32 +: 32];
-								state_machine <= UPDATE_P;
-							end
-
-							4'd6: begin
-								p_array[19] <= p_array[19] ^ key[0 +: 32];
-								p_array[18] <= p_array[18] ^ key[32 +: 32];
-								p_array[17] <= p_array[17] ^ key[64 +: 32];
-								p_array[16] <= p_array[16] ^ key[96 +: 32];
-								p_array[15] <= p_array[15] ^ key[128 +: 32];
-								p_array[14] <= p_array[14] ^ key[160 +: 32];
-								p_array[13] <= p_array[13] ^ key[192 +: 32];
-								p_array[12] <= p_array[12] ^ key[0 +: 32];
-								p_array[11] <= p_array[11] ^ key[32 +: 32];
-								p_array[10] <= p_array[10] ^ key[64 +: 32];
-								p_array[9] <= p_array[9] ^ key[96 +: 32];
-								p_array[8] <= p_array[8] ^ key[128 +: 32];
-								p_array[7] <= p_array[7] ^ key[160 +: 32];
-								p_array[6] <= p_array[6] ^ key[192 +: 32];
-								p_array[5] <= p_array[5] ^ key[0 +: 32];
-								p_array[4] <= p_array[4] ^ key[32 +: 32];
-								p_array[3] <= p_array[3] ^ key[64 +: 32];
-								p_array[2] <= p_array[2] ^ key[96 +: 32];
-								p_array[1] <= p_array[1] ^ key[128 +: 32];
-								p_array[0] <= p_array[0] ^ key[160 +: 32];
-								state_machine <= UPDATE_P;
-							end
-
-							4'd7: begin
-								p_array[19] <= p_array[19] ^ key[0 +: 32];
-								p_array[18] <= p_array[18] ^ key[32 +: 32];
-								p_array[17] <= p_array[17] ^ key[64 +: 32];
-								p_array[16] <= p_array[16] ^ key[96 +: 32];
-								p_array[15] <= p_array[15] ^ key[128 +: 32];
-								p_array[14] <= p_array[14] ^ key[160 +: 32];
-								p_array[13] <= p_array[13] ^ key[192 +: 32];
-								p_array[12] <= p_array[12] ^ key[224 +: 32];
-								p_array[11] <= p_array[11] ^ key[0 +: 32];
-								p_array[10] <= p_array[10] ^ key[32 +: 32];
-								p_array[9] <= p_array[9] ^ key[64 +: 32];
-								p_array[8] <= p_array[8] ^ key[96 +: 32];
-								p_array[7] <= p_array[7] ^ key[128 +: 32];
-								p_array[6] <= p_array[6] ^ key[160 +: 32];
-								p_array[5] <= p_array[5] ^ key[192 +: 32];
-								p_array[4] <= p_array[4] ^ key[224 +: 32];
-								p_array[3] <= p_array[3] ^ key[0 +: 32];
-								p_array[2] <= p_array[2] ^ key[32 +: 32];
-								p_array[1] <= p_array[1] ^ key[64 +: 32];
-								p_array[0] <= p_array[0] ^ key[96 +: 32];
-								state_machine <= UPDATE_P;
-							end
-
-							4'd8: begin
-								p_array[19] <= p_array[19] ^ key[0 +: 32];
-								p_array[18] <= p_array[18] ^ key[32 +: 32];
-								p_array[17] <= p_array[17] ^ key[64 +: 32];
-								p_array[16] <= p_array[16] ^ key[96 +: 32];
-								p_array[15] <= p_array[15] ^ key[128 +: 32];
-								p_array[14] <= p_array[14] ^ key[160 +: 32];
-								p_array[13] <= p_array[13] ^ key[192 +: 32];
-								p_array[12] <= p_array[12] ^ key[224 +: 32];
-								p_array[11] <= p_array[11] ^ key[256 +: 32];
-								p_array[10] <= p_array[10] ^ key[0 +: 32];
-								p_array[9] <= p_array[9] ^ key[32 +: 32];
-								p_array[8] <= p_array[8] ^ key[64 +: 32];
-								p_array[7] <= p_array[7] ^ key[96 +: 32];
-								p_array[6] <= p_array[6] ^ key[128 +: 32];
-								p_array[5] <= p_array[5] ^ key[160 +: 32];
-								p_array[4] <= p_array[4] ^ key[192 +: 32];
-								p_array[3] <= p_array[3] ^ key[224 +: 32];
-								p_array[2] <= p_array[2] ^ key[256 +: 32];
-								p_array[1] <= p_array[1] ^ key[0 +: 32];
-								p_array[0] <= p_array[0] ^ key[32 +: 32];
-								state_machine <= UPDATE_P;
-							end
-
-							4'd9: begin
-								p_array[19] <= p_array[19] ^ key[0 +: 32];
-								p_array[18] <= p_array[18] ^ key[32 +: 32];
-								p_array[17] <= p_array[17] ^ key[64 +: 32];
-								p_array[16] <= p_array[16] ^ key[96 +: 32];
-								p_array[15] <= p_array[15] ^ key[128 +: 32];
-								p_array[14] <= p_array[14] ^ key[160 +: 32];
-								p_array[13] <= p_array[13] ^ key[192 +: 32];
-								p_array[12] <= p_array[12] ^ key[224 +: 32];
-								p_array[11] <= p_array[11] ^ key[256 +: 32];
-								p_array[10] <= p_array[10] ^ key[288 +: 32];
-								p_array[9] <= p_array[9] ^ key[0 +: 32];
-								p_array[8] <= p_array[8] ^ key[32 +: 32];
-								p_array[7] <= p_array[7] ^ key[64 +: 32];
-								p_array[6] <= p_array[6] ^ key[96 +: 32];
-								p_array[5] <= p_array[5] ^ key[128 +: 32];
-								p_array[4] <= p_array[4] ^ key[160 +: 32];
-								p_array[3] <= p_array[3] ^ key[192 +: 32];
-								p_array[2] <= p_array[2] ^ key[224 +: 32];
-								p_array[1] <= p_array[1] ^ key[256 +: 32];
-								p_array[0] <= p_array[0] ^ key[288 +: 32];
-								state_machine <= UPDATE_P;
-							end
-
-							4'd10: begin
-								p_array[19] <= p_array[19] ^ key[0 +: 32];
-								p_array[18] <= p_array[18] ^ key[32 +: 32];
-								p_array[17] <= p_array[17] ^ key[64 +: 32];
-								p_array[16] <= p_array[16] ^ key[96 +: 32];
-								p_array[15] <= p_array[15] ^ key[128 +: 32];
-								p_array[14] <= p_array[14] ^ key[160 +: 32];
-								p_array[13] <= p_array[13] ^ key[192 +: 32];
-								p_array[12] <= p_array[12] ^ key[224 +: 32];
-								p_array[11] <= p_array[11] ^ key[256 +: 32];
-								p_array[10] <= p_array[10] ^ key[288 +: 32];
-								p_array[9] <= p_array[9] ^ key[320 +: 32];
-								p_array[8] <= p_array[8] ^ key[0 +: 32];
-								p_array[7] <= p_array[7] ^ key[32 +: 32];
-								p_array[6] <= p_array[6] ^ key[64 +: 32];
-								p_array[5] <= p_array[5] ^ key[96 +: 32];
-								p_array[4] <= p_array[4] ^ key[128 +: 32];
-								p_array[3] <= p_array[3] ^ key[160 +: 32];
-								p_array[2] <= p_array[2] ^ key[192 +: 32];
-								p_array[1] <= p_array[1] ^ key[224 +: 32];
-								p_array[0] <= p_array[0] ^ key[256 +: 32];
-								state_machine <= UPDATE_P;
-							end
-
-							4'd11: begin
-								p_array[19] <= p_array[19] ^ key[0 +: 32];
-								p_array[18] <= p_array[18] ^ key[32 +: 32];
-								p_array[17] <= p_array[17] ^ key[64 +: 32];
-								p_array[16] <= p_array[16] ^ key[96 +: 32];
-								p_array[15] <= p_array[15] ^ key[128 +: 32];
-								p_array[14] <= p_array[14] ^ key[160 +: 32];
-								p_array[13] <= p_array[13] ^ key[192 +: 32];
-								p_array[12] <= p_array[12] ^ key[224 +: 32];
-								p_array[11] <= p_array[11] ^ key[256 +: 32];
-								p_array[10] <= p_array[10] ^ key[288 +: 32];
-								p_array[9] <= p_array[9] ^ key[320 +: 32];
-								p_array[8] <= p_array[8] ^ key[352 +: 32];
-								p_array[7] <= p_array[7] ^ key[0 +: 32];
-								p_array[6] <= p_array[6] ^ key[32 +: 32];
-								p_array[5] <= p_array[5] ^ key[64 +: 32];
-								p_array[4] <= p_array[4] ^ key[96 +: 32];
-								p_array[3] <= p_array[3] ^ key[128 +: 32];
-								p_array[2] <= p_array[2] ^ key[160 +: 32];
-								p_array[1] <= p_array[1] ^ key[192 +: 32];
-								p_array[0] <= p_array[0] ^ key[224 +: 32];
-								state_machine <= UPDATE_P;
-							end
-
-							4'd12: begin
-								p_array[19] <= p_array[19] ^ key[0 +: 32];
-								p_array[18] <= p_array[18] ^ key[32 +: 32];
-								p_array[17] <= p_array[17] ^ key[64 +: 32];
-								p_array[16] <= p_array[16] ^ key[96 +: 32];
-								p_array[15] <= p_array[15] ^ key[128 +: 32];
-								p_array[14] <= p_array[14] ^ key[160 +: 32];
-								p_array[13] <= p_array[13] ^ key[192 +: 32];
-								p_array[12] <= p_array[12] ^ key[224 +: 32];
-								p_array[11] <= p_array[11] ^ key[256 +: 32];
-								p_array[10] <= p_array[10] ^ key[288 +: 32];
-								p_array[9] <= p_array[9] ^ key[320 +: 32];
-								p_array[8] <= p_array[8] ^ key[352 +: 32];
-								p_array[7] <= p_array[7] ^ key[384 +: 32];
-								p_array[6] <= p_array[6] ^ key[0 +: 32];
-								p_array[5] <= p_array[5] ^ key[32 +: 32];
-								p_array[4] <= p_array[4] ^ key[64 +: 32];
-								p_array[3] <= p_array[3] ^ key[96 +: 32];
-								p_array[2] <= p_array[2] ^ key[128 +: 32];
-								p_array[1] <= p_array[1] ^ key[160 +: 32];
-								p_array[0] <= p_array[0] ^ key[192 +: 32];
-								state_machine <= UPDATE_P;
-							end
-
-							4'd13: begin
-								p_array[19] <= p_array[19] ^ key[0 +: 32];
-								p_array[18] <= p_array[18] ^ key[32 +: 32];
-								p_array[17] <= p_array[17] ^ key[64 +: 32];
-								p_array[16] <= p_array[16] ^ key[96 +: 32];
-								p_array[15] <= p_array[15] ^ key[128 +: 32];
-								p_array[14] <= p_array[14] ^ key[160 +: 32];
-								p_array[13] <= p_array[13] ^ key[192 +: 32];
-								p_array[12] <= p_array[12] ^ key[224 +: 32];
-								p_array[11] <= p_array[11] ^ key[256 +: 32];
-								p_array[10] <= p_array[10] ^ key[288 +: 32];
-								p_array[9] <= p_array[9] ^ key[320 +: 32];
-								p_array[8] <= p_array[8] ^ key[352 +: 32];
-								p_array[7] <= p_array[7] ^ key[384 +: 32];
-								p_array[6] <= p_array[6] ^ key[416 +: 32];
-								p_array[5] <= p_array[5] ^ key[0 +: 32];
-								p_array[4] <= p_array[4] ^ key[32 +: 32];
-								p_array[3] <= p_array[3] ^ key[64 +: 32];
-								p_array[2] <= p_array[2] ^ key[96 +: 32];
-								p_array[1] <= p_array[1] ^ key[128 +: 32];
-								p_array[0] <= p_array[0] ^ key[160 +: 32];
-								state_machine <= UPDATE_P;
-							end
-
-							4'd14: begin
-								p_array[19] <= p_array[19] ^ key[0 +: 32];
-								p_array[18] <= p_array[18] ^ key[0 +: 32];
-								p_array[17] <= p_array[17] ^ key[0 +: 32];
-								p_array[16] <= p_array[16] ^ key[0 +: 32];
-								p_array[15] <= p_array[15] ^ key[0 +: 32];
-								p_array[14] <= p_array[14] ^ key[0 +: 32];
-								p_array[13] <= p_array[13] ^ key[0 +: 32];
-								p_array[12] <= p_array[12] ^ key[0 +: 32];
-								p_array[11] <= p_array[11] ^ key[0 +: 32];
-								p_array[10] <= p_array[10] ^ key[0 +: 32];
-								p_array[9] <= p_array[9] ^ key[0 +: 32];
-								p_array[8] <= p_array[8] ^ key[0 +: 32];
-								p_array[7] <= p_array[7] ^ key[0 +: 32];
-								p_array[6] <= p_array[6] ^ key[0 +: 32];
-								p_array[5] <= p_array[5] ^ key[0 +: 32];
-								p_array[4] <= p_array[4] ^ key[0 +: 32];
-								p_array[3] <= p_array[3] ^ key[0 +: 32];
-								p_array[2] <= p_array[2] ^ key[0 +: 32];
-								p_array[1] <= p_array[1] ^ key[0 +: 32];
-								p_array[0] <= p_array[0] ^ key[0 +: 32];
-								state_machine <= UPDATE_P;
-							end
-
-							4'd15: begin
-								p_array[19] <= p_array[19] ^ key[0 +: 32];
-								p_array[18] <= p_array[18] ^ key[32 +: 32];
-								p_array[17] <= p_array[17] ^ key[0 +: 32];
-								p_array[16] <= p_array[16] ^ key[32 +: 32];
-								p_array[15] <= p_array[15] ^ key[0 +: 32];
-								p_array[14] <= p_array[14] ^ key[32 +: 32];
-								p_array[13] <= p_array[13] ^ key[0 +: 32];
-								p_array[12] <= p_array[12] ^ key[32 +: 32];
-								p_array[11] <= p_array[11] ^ key[0 +: 32];
-								p_array[10] <= p_array[10] ^ key[32 +: 32];
-								p_array[9] <= p_array[9] ^ key[0 +: 32];
-								p_array[8] <= p_array[8] ^ key[32 +: 32];
-								p_array[7] <= p_array[7] ^ key[0 +: 32];
-								p_array[6] <= p_array[6] ^ key[32 +: 32];
-								p_array[5] <= p_array[5] ^ key[0 +: 32];
-								p_array[4] <= p_array[4] ^ key[32 +: 32];
-								p_array[3] <= p_array[3] ^ key[0 +: 32];
-								p_array[2] <= p_array[2] ^ key[32 +: 32];
-								p_array[1] <= p_array[1] ^ key[0 +: 32];
-								p_array[0] <= p_array[0] ^ key[32 +: 32];
-								state_machine <= UPDATE_P;
-							end
-						endcase
-					end
 					state_machine <= UPDATE_P;
 				end
 
+				//UPDATE_P state
 				UPDATE_P: begin
-					state_machine <= IDLE;
 					ready <= 1; // Signal that P-array is ready
+					state_machine <= IDLE;
 				end
-
+				
 				default:
 					state_machine <= IDLE;
+
 			endcase
 		end
 	end	
