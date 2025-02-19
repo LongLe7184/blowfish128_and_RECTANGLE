@@ -1,7 +1,7 @@
 
 `timescale 1ns / 1ps
 
-module tb_blowfish128_skeygen_v2;
+module tb_blowfish128_skeygen;
     // Testbench signals
     reg Clk;
     reg RstN;
@@ -63,10 +63,10 @@ module tb_blowfish128_skeygen_v2;
         #10 Enable = 1;
         
         // Wait for skey_ready
-        wait(skey_ready);
+        // wait(skey_ready);
         
         // Disable the module
-        Enable = 0;
+        // Enable = 0;
         
         // Print P-array values
         $display("P-array values:");

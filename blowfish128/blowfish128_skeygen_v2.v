@@ -52,6 +52,7 @@ module blowfish128_skeygen_v2 (
 	localparam IDLE = 2'b00;
 	localparam XOR_KEY = 2'b01;
 	localparam UPDATE_P = 2'b10;
+	localparam STANDBY = 2'b11;
 
 	assign key = {key7, key6, key5, key4, key3, key2, key1, key0};
 
@@ -462,11 +463,14 @@ module blowfish128_skeygen_v2 (
 				//UPDATE_P state
 				UPDATE_P: begin
 					ready <= 1; // Signal that P-array is ready
-					state_machine <= IDLE;
+					state_machine <= STANDBY;
 				end
 				
-				default:
-					state_machine <= IDLE;
+				//STANDBY state
+				STANDBY: begin
+					//RESERVED STATE
+					//Restart skey_gen if there's new key
+				end
 
 			endcase
 		end
