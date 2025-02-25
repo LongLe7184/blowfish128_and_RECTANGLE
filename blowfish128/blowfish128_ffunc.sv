@@ -1,5 +1,5 @@
 //-----------------------------------------------------------
-// Function: Blowfish-128's F-function Module
+// Module: Blowfish-128's F-function Module
 //-----------------------------------------------------------
 // Author	: Long Le, Manh Nguyen
 // Date  	: Feb-8th, 2025
@@ -7,9 +7,9 @@
 //-----------------------------------------------------------
 
 /* USING NOTE:
-*  This module's RstN signal is trigger by Global ResetN (IP Reset signal) OR
-*  the acknowledge signal from Feistel rounds. Reset is REQUIRE to clear
-*  previous values storing in this module and begin the state machine (IDLE
+*  This module reset state is trigger by Global ResetN (IP Reset signal) OR
+*  the Enable control signal from Feistel rounds. Reset is REQUIRE to clear
+*  previous values storing in this module and start the state machine (IDLE
 *  phase).
 * */
 
@@ -42,8 +42,8 @@ module blowfish128_ffunc(
 	state_t state, next_state;
 	
 	//State transition
-	always @(posedge Clk or negedge RstN) begin
-		if(~RstN) begin
+	always @(posedge Clk or negedge RstN or negedge Enable) begin
+		if(~RstN | ~Enable) begin
 			state <= IDLE;
 		end else begin
 			state <= next_state;
@@ -51,15 +51,15 @@ module blowfish128_ffunc(
 	end
 
 	//Next state
-	always @(RstN or valid_stage or valid_stage0 or valid_stage1 or valid_stage2 or valid_stage3)begin
+	always @(RstN or Enable or valid_stage or valid_stage0 or valid_stage1 or valid_stage2 or valid_stage3)begin
 		next_state = state;
 		case(state)
-			IDLE: 		if(RstN) 	 next_state = PREV_SBOX;
-			PREV_SBOX: 	if(valid_stage)  next_state = AFTER_SBOX;
-			AFTER_SBOX: 	if(valid_stage0) next_state = XOR_F;
-			XOR_F: 		if(valid_stage1) next_state = ADD;
-			ADD: 		if(valid_stage2) next_state = XOR_S;
-			XOR_S: 		if(valid_stage3) next_state = IDLE;
+			IDLE: 		if(RstN | Enable) next_state = PREV_SBOX;
+			PREV_SBOX: 	if(valid_stage)	  next_state = AFTER_SBOX;
+			AFTER_SBOX: 	if(valid_stage0)  next_state = XOR_F;
+			XOR_F: 		if(valid_stage1)  next_state = ADD;
+			ADD: 		if(valid_stage2)  next_state = XOR_S;
+			XOR_S: 		if(valid_stage3)  next_state = IDLE;
 		endcase
 	end
 
@@ -73,8 +73,8 @@ module blowfish128_ffunc(
 	assign SBox2[63:32]  = blowfish128_sbox2(g);
 	assign SBox2[31:0]   = blowfish128_sbox2(h);
 	
-	always @(posedge Clk or negedge RstN) begin
-		if(~RstN) begin
+	always @(posedge Clk or negedge RstN or negedge Enable) begin
+		if(~RstN | ~Enable) begin
 			//PREV_SBOX
 			a <= 8'b0;
 			b <= 8'b0;
