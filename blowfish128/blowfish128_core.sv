@@ -29,11 +29,11 @@ module blowfish128_core(
 	typedef enum logic [1:0] {
 		INITIAL,
 		FEISTEL,
-		PPROCESS,
+		PROCESS,
 		STANDBY
 	} step_t;
 	
-	step_t step;
+	step_t step, next_step;
 	
 	// logic [1:0] step;
 	logic [3:0] rCounter;
@@ -49,9 +49,28 @@ module blowfish128_core(
 	assign PArr[6] = (skey_ready) ? {P13, P14} : 64'h0;
 	assign PArr[7] = (skey_ready) ? {P15, P16} : 64'h0;
 
+	//State transition
 	always @(posedge Clk or negedge RstN) begin
 		if(~RstN) begin
 			step <= INITIAL;
+		end else begin
+			step <= next_step;
+		end
+	end
+
+	//Next state
+	always @(RstN or step or skey_ready or rCounter) begin
+		next_step = step;
+		case(step)
+			INITIAL: if(skey_ready) 	 next_step = FEISTEL;
+			FEISTEL: if(rCounter == 4'b1000) next_step = PROCESS;
+			PROCESS: 			 next_step = STANDBY;
+			STANDBY: 			 next_step = STANDBY;
+		endcase
+	end
+
+	always @(posedge Clk or negedge RstN) begin
+		if(~RstN) begin
 			rCounter <= 4'b0;
 			lH <= 64'b0;
 			rH <= 64'b0;
@@ -62,9 +81,6 @@ module blowfish128_core(
 					INITIAL: begin
 						lH <= plainText[127:64];
 						rH <= plainText[63:0];
-						if(skey_ready) begin
-							step <= FEISTEL;
-						end
 					end
 					FEISTEL: begin
 						if(~ffunc_ready) begin
@@ -79,13 +95,11 @@ module blowfish128_core(
 						if(rCounter == 4'b1000) begin
 							lH <= rH;
 							rH <= lH;
-							step <= PPROCESS;
 						end
 					end
-					PPROCESS: begin
+					PROCESS: begin
 						lH <= lH ^ ({P19, P20});
 						rH <= rH ^ ({P17, P18});
-						step <= STANDBY;
 					end
 					STANDBY: begin
 						//RESERVERD STATE

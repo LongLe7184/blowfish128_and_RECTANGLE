@@ -1,3 +1,11 @@
+//-----------------------------------------------------------
+// Module: Blowfish-128's Top Module
+//-----------------------------------------------------------
+// Author	: Long Le, Manh Nguyen
+// Date  	: Feb-25th, 2025
+// Description	: Connecting sub-modules
+//-----------------------------------------------------------
+
 module blowfish128_top(
 	//Global Control Signals
 	input Clk,
