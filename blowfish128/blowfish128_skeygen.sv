@@ -466,7 +466,7 @@ module blowfish128_skeygen (
 	assign P11 = (Encrypt) ? p_array[10] : p_array[9];
 	assign P12 = (Encrypt) ? p_array[11] : p_array[8];
 	assign P13 = (Encrypt) ? p_array[12] : p_array[7];
-	assign P14 = (Encrypt) ? p_array[12] : p_array[6];
+	assign P14 = (Encrypt) ? p_array[13] : p_array[6];
 	assign P15 = (Encrypt) ? p_array[14] : p_array[5];
 	assign P16 = (Encrypt) ? p_array[15] : p_array[4];
 	assign P17 = (Encrypt) ? p_array[16] : p_array[3];

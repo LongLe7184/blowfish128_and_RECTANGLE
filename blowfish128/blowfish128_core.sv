@@ -40,29 +40,14 @@ module blowfish128_core(
 	logic [63:0] lH, rH;
 	logic [63:0] PArr [7:0];
 
-	always @(posedge Clk or negedge RstN) begin
-		if(~RstN) begin
-			 PArr[0] <= 64'h0;
-			 PArr[1] <= 64'h0;
-			 PArr[2] <= 64'h0;
-			 PArr[3] <= 64'h0;
-			 PArr[4] <= 64'h0;
-			 PArr[5] <= 64'h0;
-			 PArr[6] <= 64'h0;
-			 PArr[7] <= 64'h0;
-		end else begin
-			if(skey_ready) begin
-				PArr[0] <= {P1, P2};
-				PArr[1] <= {P3, P4};
-				PArr[2] <= {P5, P6};
-				PArr[3] <= {P7, P8};
-				PArr[4] <= {P9, P10};
-				PArr[5] <= {P11, P12};
-				PArr[6] <= {P13, P14};
-				PArr[7] <= {P15, P16};
-			end
-		end
-	end
+	assign PArr[0] = (skey_ready) ? {P1, P2} : 64'h0;
+	assign PArr[1] = (skey_ready) ? {P3, P4} : 64'h0;
+	assign PArr[2] = (skey_ready) ? {P5, P6} : 64'h0;
+	assign PArr[3] = (skey_ready) ? {P7, P8} : 64'h0;
+	assign PArr[4] = (skey_ready) ? {P9, P10} : 64'h0;
+	assign PArr[5] = (skey_ready) ? {P11, P12} : 64'h0;
+	assign PArr[6] = (skey_ready) ? {P13, P14} : 64'h0;
+	assign PArr[7] = (skey_ready) ? {P15, P16} : 64'h0;
 
 	always @(posedge Clk or negedge RstN) begin
 		if(~RstN) begin
@@ -77,7 +62,9 @@ module blowfish128_core(
 					INITIAL: begin
 						lH <= plainText[127:64];
 						rH <= plainText[63:0];
-						step <= FEISTEL;
+						if(skey_ready) begin
+							step <= FEISTEL;
+						end
 					end
 					FEISTEL: begin
 						if(~ffunc_ready) begin
