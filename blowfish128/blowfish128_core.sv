@@ -50,8 +50,8 @@ module blowfish128_core(
 	assign PArr[7] = (skey_ready) ? {P15, P16} : 64'h0;
 
 	//State transition
-	always @(posedge Clk or negedge RstN) begin
-		if(~RstN) begin
+	always @(posedge Clk or negedge RstN or negedge Enable) begin
+		if(!RstN | !Enable) begin
 			step <= INITIAL;
 		end else begin
 			step <= next_step;
@@ -70,7 +70,7 @@ module blowfish128_core(
 	end
 
 	always @(posedge Clk or negedge RstN) begin
-		if(~RstN) begin
+		if(!RstN | !Enable) begin
 			rCounter <= 4'b0;
 			lH <= 64'b0;
 			rH <= 64'b0;

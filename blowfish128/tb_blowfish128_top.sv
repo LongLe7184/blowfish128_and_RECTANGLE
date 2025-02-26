@@ -53,6 +53,8 @@ module tb_blowfish128_top;
 		$dumpvars(1);
 	end
 
+	logic [127:0] cipher;
+
 	initial begin
 		//Reset phase
 		RstN_tb <= 0;
@@ -66,7 +68,22 @@ module tb_blowfish128_top;
 		key_length_tb <= 4'h2;
 		Encrypt_tb <= 1'h1;
 
-		#5000 $finish;
+		wait(cipherReady_tb);
+		cipher = cipherText_tb;
+		$display("%d Cipher Text: %h", $time, cipher);
+
+		#10 Enable_tb = 0;
+		#20 Enable_tb = 1;
+		plainText_tb <= cipher;
+		key0_tb <= 64'haabb_0918_2736_ccdd;
+		key_length_tb <= 4'h2;
+		Encrypt_tb <= 1'h0;
+		
+		wait(cipherReady_tb);
+		cipher = cipherText_tb;
+		$display("%d Cipher Text: %h", $time, cipher);
+
+		#200 $finish;
 	end
 
 endmodule
