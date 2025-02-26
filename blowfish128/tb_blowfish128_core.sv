@@ -68,7 +68,7 @@ module tb_blowfish128_core;
 	
 	initial begin
 		Clk_tb = 0;
-		forever #5 Clk_tb = ~Clk_tb;
+		forever #5 Clk_tb = !Clk_tb;
 	end
 
 	initial begin

@@ -10,6 +10,7 @@ module blowfish128_core(
 	input Clk,
 	input RstN,
 	input Enable,
+	input Encrypt,
 	input logic  [127:0] plainText,
 	output logic [127:0] cipherText,
 	output logic cipherReady,
@@ -29,44 +30,55 @@ module blowfish128_core(
 	typedef enum logic [1:0] {
 		INITIAL,
 		FEISTEL,
-		PPROCESS,
+		PROCESS,
 		STANDBY
 	} step_t;
 	
-	step_t step;
+	step_t step, next_step;
 	
-	// logic [1:0] step;
 	logic [3:0] rCounter;
 	logic [63:0] lH, rH;
 	logic [63:0] PArr [7:0];
 
-	always @(posedge Clk or negedge RstN) begin
-		if(~RstN) begin
-			 PArr[0] <= 64'h0;
-			 PArr[1] <= 64'h0;
-			 PArr[2] <= 64'h0;
-			 PArr[3] <= 64'h0;
-			 PArr[4] <= 64'h0;
-			 PArr[5] <= 64'h0;
-			 PArr[6] <= 64'h0;
-			 PArr[7] <= 64'h0;
+	assign PArr[0] = (!skey_ready)  ? 64'h0    :
+			 (Encrypt)	? {P1, P2} : {P19, P20};
+	assign PArr[1] = (!skey_ready)  ? 64'h0    :
+			 (Encrypt)	? {P3, P4} : {P17, P18};
+	assign PArr[2] = (!skey_ready)  ? 64'h0    :
+			 (Encrypt)	? {P5, P6} : {P15, P16};
+	assign PArr[3] = (!skey_ready)  ? 64'h0    :
+			 (Encrypt)	? {P7, P8} : {P13, P14};
+	assign PArr[4] = (!skey_ready)  ? 64'h0    :
+			 (Encrypt)	? {P9, P10} : {P11, P12};
+	assign PArr[5] = (!skey_ready)  ? 64'h0    :
+			 (Encrypt)	? {P11, P12} : {P9, P10};
+	assign PArr[6] = (!skey_ready)  ? 64'h0    :
+			 (Encrypt)	? {P13, P14} : {P7, P8};
+	assign PArr[7] = (!skey_ready)  ? 64'h0    :
+			 (Encrypt)	? {P15, P16} : {P5, P6};
+	
+	//State transition
+	always @(posedge Clk or negedge RstN or negedge Enable) begin
+		if(!RstN | !Enable) begin
+			step <= INITIAL;
 		end else begin
-			if(skey_ready) begin
-				PArr[0] <= {P1, P2};
-				PArr[1] <= {P3, P4};
-				PArr[2] <= {P5, P6};
-				PArr[3] <= {P7, P8};
-				PArr[4] <= {P9, P10};
-				PArr[5] <= {P11, P12};
-				PArr[6] <= {P13, P14};
-				PArr[7] <= {P15, P16};
-			end
+			step <= next_step;
 		end
 	end
 
+	//Next state
+	always @(RstN or step or skey_ready or rCounter) begin
+		next_step = step;
+		case(step)
+			INITIAL: if(skey_ready) 	 next_step = FEISTEL;
+			FEISTEL: if(rCounter == 4'b1000) next_step = PROCESS;
+			PROCESS: 			 next_step = STANDBY;
+			STANDBY: 			 next_step = STANDBY;
+		endcase
+	end
+
 	always @(posedge Clk or negedge RstN) begin
-		if(~RstN) begin
-			step <= INITIAL;
+		if(!RstN | !Enable) begin
 			rCounter <= 4'b0;
 			lH <= 64'b0;
 			rH <= 64'b0;
@@ -77,10 +89,9 @@ module blowfish128_core(
 					INITIAL: begin
 						lH <= plainText[127:64];
 						rH <= plainText[63:0];
-						step <= FEISTEL;
 					end
 					FEISTEL: begin
-						if(~ffunc_ready) begin
+						if(!ffunc_ready) begin
 							ffunc_enable <= 1'b1;
 							X <= lH ^ PArr[rCounter];
 						end else begin
@@ -92,13 +103,16 @@ module blowfish128_core(
 						if(rCounter == 4'b1000) begin
 							lH <= rH;
 							rH <= lH;
-							step <= PPROCESS;
 						end
 					end
-					PPROCESS: begin
-						lH <= lH ^ ({P19, P20});
-						rH <= rH ^ ({P17, P18});
-						step <= STANDBY;
+					PROCESS: begin
+						if(Encrypt) begin
+							lH <= lH ^ ({P19, P20});
+							rH <= rH ^ ({P17, P18});
+						end else begin
+							lH <= lH ^ ({P1, P2});
+							rH <= rH ^ ({P3, P4});
+						end
 					end
 					STANDBY: begin
 						//RESERVERD STATE
