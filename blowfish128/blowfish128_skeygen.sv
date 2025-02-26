@@ -10,7 +10,6 @@ module blowfish128_skeygen (
 	input Clk,
 	input RstN,
 	input Enable,
-	input Encrypt,
 	input [63:0] key0,
 	input [63:0] key1,
 	input [63:0] key2,
@@ -451,26 +450,26 @@ module blowfish128_skeygen (
 	end	
 
 	assign skey_ready = ready;
-
-	assign P1  = (Encrypt) ? p_array[0] : p_array[19];
-	assign P2  = (Encrypt) ? p_array[1] : p_array[18];
-	assign P3  = (Encrypt) ? p_array[2] : p_array[17];
-	assign P4  = (Encrypt) ? p_array[3] : p_array[16];
-	assign P5  = (Encrypt) ? p_array[4] : p_array[15];
-	assign P6  = (Encrypt) ? p_array[5] : p_array[14];
-	assign P7  = (Encrypt) ? p_array[6] : p_array[13];
-	assign P8  = (Encrypt) ? p_array[7] : p_array[12];
-	assign P9  = (Encrypt) ? p_array[8] : p_array[11];
-	assign P10 = (Encrypt) ? p_array[9] : p_array[10];
-	assign P11 = (Encrypt) ? p_array[10] : p_array[9];
-	assign P12 = (Encrypt) ? p_array[11] : p_array[8];
-	assign P13 = (Encrypt) ? p_array[12] : p_array[7];
-	assign P14 = (Encrypt) ? p_array[13] : p_array[6];
-	assign P15 = (Encrypt) ? p_array[14] : p_array[5];
-	assign P16 = (Encrypt) ? p_array[15] : p_array[4];
-	assign P17 = (Encrypt) ? p_array[16] : p_array[3];
-	assign P18 = (Encrypt) ? p_array[17] : p_array[2];
-	assign P19 = (Encrypt) ? p_array[18] : p_array[1];
-	assign P20 = (Encrypt) ? p_array[19] : p_array[0];
+	
+	assign P1 = p_array[0];
+	assign P2 = p_array[1];
+	assign P3 = p_array[2];
+	assign P4 = p_array[3];
+	assign P5 = p_array[4];
+	assign P6 = p_array[5];
+	assign P7 = p_array[6];
+	assign P8 = p_array[7];
+	assign P9 = p_array[8];
+	assign P10 = p_array[9];
+	assign P11 = p_array[10];
+	assign P12 = p_array[11];
+	assign P13 = p_array[12];
+	assign P14 = p_array[13];
+	assign P15 = p_array[14];
+	assign P16 = p_array[15];
+	assign P17 = p_array[16];
+	assign P18 = p_array[17];
+	assign P19 = p_array[18];
+	assign P20 = p_array[19];
 
 endmodule

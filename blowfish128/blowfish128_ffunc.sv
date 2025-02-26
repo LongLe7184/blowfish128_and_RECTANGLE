@@ -43,7 +43,7 @@ module blowfish128_ffunc(
 	
 	//State transition
 	always @(posedge Clk or negedge RstN or negedge Enable) begin
-		if(~RstN | ~Enable) begin
+		if(!RstN | !Enable) begin
 			state <= IDLE;
 		end else begin
 			state <= next_state;
@@ -74,7 +74,7 @@ module blowfish128_ffunc(
 	assign SBox2[31:0]   = blowfish128_sbox2(h);
 	
 	always @(posedge Clk or negedge RstN or negedge Enable) begin
-		if(~RstN | ~Enable) begin
+		if(!RstN | !Enable) begin
 			//PREV_SBOX
 			a <= 8'b0;
 			b <= 8'b0;

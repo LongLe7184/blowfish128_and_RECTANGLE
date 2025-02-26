@@ -1,4 +1,3 @@
-
 `timescale 1ns / 1ps
 
 module tb_blowfish128_skeygen;
@@ -7,7 +6,6 @@ module tb_blowfish128_skeygen;
     reg RstN;
     reg [63:0] key0, key1, key2, key3, key4, key5, key6, key7;
     reg [3:0] key_length;
-    reg Encrypt;
     reg Enable;
     
     wire skey_ready;
@@ -19,7 +17,6 @@ module tb_blowfish128_skeygen;
         .Clk(Clk),
         .RstN(RstN),
         .Enable(Enable),
-        .Encrypt(Encrypt),
         .key0(key0), .key1(key1), .key2(key2), .key3(key3),
         .key4(key4), .key5(key5), .key6(key6), .key7(key7),
         .key_length(key_length),
@@ -33,7 +30,7 @@ module tb_blowfish128_skeygen;
     // Clock generation
 	initial begin	
 		#0 Clk = 0;
-		forever #1 Clk = ~Clk;
+		forever #5 Clk = !Clk;
 	end
 	
 	initial begin
@@ -45,7 +42,6 @@ module tb_blowfish128_skeygen;
         // Initialize signals
         RstN = 0;
         Enable = 0;
-        Encrypt = 1;
         key_length = 4;
         
         // Example key values

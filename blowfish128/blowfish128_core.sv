@@ -10,6 +10,7 @@ module blowfish128_core(
 	input Clk,
 	input RstN,
 	input Enable,
+	input Encrypt,
 	input logic  [127:0] plainText,
 	output logic [127:0] cipherText,
 	output logic cipherReady,
@@ -35,20 +36,27 @@ module blowfish128_core(
 	
 	step_t step, next_step;
 	
-	// logic [1:0] step;
 	logic [3:0] rCounter;
 	logic [63:0] lH, rH;
 	logic [63:0] PArr [7:0];
 
-	assign PArr[0] = (skey_ready) ? {P1, P2} : 64'h0;
-	assign PArr[1] = (skey_ready) ? {P3, P4} : 64'h0;
-	assign PArr[2] = (skey_ready) ? {P5, P6} : 64'h0;
-	assign PArr[3] = (skey_ready) ? {P7, P8} : 64'h0;
-	assign PArr[4] = (skey_ready) ? {P9, P10} : 64'h0;
-	assign PArr[5] = (skey_ready) ? {P11, P12} : 64'h0;
-	assign PArr[6] = (skey_ready) ? {P13, P14} : 64'h0;
-	assign PArr[7] = (skey_ready) ? {P15, P16} : 64'h0;
-
+	assign PArr[0] = (!skey_ready)  ? 64'h0    :
+			 (Encrypt)	? {P1, P2} : {P19, P20};
+	assign PArr[1] = (!skey_ready)  ? 64'h0    :
+			 (Encrypt)	? {P3, P4} : {P17, P18};
+	assign PArr[2] = (!skey_ready)  ? 64'h0    :
+			 (Encrypt)	? {P5, P6} : {P15, P16};
+	assign PArr[3] = (!skey_ready)  ? 64'h0    :
+			 (Encrypt)	? {P7, P8} : {P13, P14};
+	assign PArr[4] = (!skey_ready)  ? 64'h0    :
+			 (Encrypt)	? {P9, P10} : {P11, P12};
+	assign PArr[5] = (!skey_ready)  ? 64'h0    :
+			 (Encrypt)	? {P11, P12} : {P9, P10};
+	assign PArr[6] = (!skey_ready)  ? 64'h0    :
+			 (Encrypt)	? {P13, P14} : {P7, P8};
+	assign PArr[7] = (!skey_ready)  ? 64'h0    :
+			 (Encrypt)	? {P15, P16} : {P5, P6};
+	
 	//State transition
 	always @(posedge Clk or negedge RstN or negedge Enable) begin
 		if(!RstN | !Enable) begin
@@ -83,7 +91,7 @@ module blowfish128_core(
 						rH <= plainText[63:0];
 					end
 					FEISTEL: begin
-						if(~ffunc_ready) begin
+						if(!ffunc_ready) begin
 							ffunc_enable <= 1'b1;
 							X <= lH ^ PArr[rCounter];
 						end else begin
@@ -98,8 +106,13 @@ module blowfish128_core(
 						end
 					end
 					PROCESS: begin
-						lH <= lH ^ ({P19, P20});
-						rH <= rH ^ ({P17, P18});
+						if(Encrypt) begin
+							lH <= lH ^ ({P19, P20});
+							rH <= rH ^ ({P17, P18});
+						end else begin
+							lH <= lH ^ ({P1, P2});
+							rH <= rH ^ ({P3, P4});
+						end
 					end
 					STANDBY: begin
 						//RESERVERD STATE

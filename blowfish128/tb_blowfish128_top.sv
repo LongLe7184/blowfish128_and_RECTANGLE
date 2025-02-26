@@ -45,7 +45,7 @@ module tb_blowfish128_top;
 
 	initial begin
 		Clk_tb = 0;
-		forever #5 Clk_tb = ~Clk_tb;
+		forever #5 Clk_tb = !Clk_tb;
 	end
 
 	initial begin
@@ -73,11 +73,12 @@ module tb_blowfish128_top;
 		$display("%d Cipher Text: %h", $time, cipher);
 
 		#10 Enable_tb = 0;
-		#20 Enable_tb = 1;
+		#10
 		plainText_tb <= cipher;
 		key0_tb <= 64'haabb_0918_2736_ccdd;
 		key_length_tb <= 4'h2;
 		Encrypt_tb <= 1'h0;
+		#20 Enable_tb = 1;
 		
 		wait(cipherReady_tb);
 		cipher = cipherText_tb;
