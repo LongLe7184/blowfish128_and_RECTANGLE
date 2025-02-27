@@ -44,8 +44,9 @@ module tb_blowfish128_top;
 	);
 
 	initial begin
-		Clk_tb = 0;
-		forever #5 Clk_tb = !Clk_tb;
+		Clk_tb = 1;
+		//fClk = 50MHz
+		forever #10 Clk_tb = !Clk_tb;
 	end
 
 	initial begin
@@ -59,8 +60,8 @@ module tb_blowfish128_top;
 		//Reset phase
 		RstN_tb <= 0;
 		Enable_tb <= 0;
-		#50 RstN_tb <= 1;
-		#5 Enable_tb <= 1;
+		#60 RstN_tb <= 1;
+		#20 Enable_tb <= 1;
 
 		//Input value phase
 		plainText_tb <= 128'h1234_56ab_cd13_2536_1234_56ab_cd13_2536;
@@ -72,19 +73,19 @@ module tb_blowfish128_top;
 		cipher = cipherText_tb;
 		$display("%d Cipher Text: %h", $time, cipher);
 
-		#10 Enable_tb = 0;
-		#10
+		#40 Enable_tb = 0;
+		#40
 		plainText_tb <= cipher;
 		key0_tb <= 64'haabb_0918_2736_ccdd;
 		key_length_tb <= 4'h2;
 		Encrypt_tb <= 1'h0;
-		#20 Enable_tb = 1;
+		Enable_tb = 1;
 		
 		wait(cipherReady_tb);
 		cipher = cipherText_tb;
 		$display("%d Cipher Text: %h", $time, cipher);
 
-		#200 $finish;
+		#100 $finish;
 	end
 
 endmodule
