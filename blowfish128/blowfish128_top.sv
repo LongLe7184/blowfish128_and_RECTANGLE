@@ -21,7 +21,6 @@ module blowfish128_top(
 	input logic [63:0] key4,
 	input logic [63:0] key5,
 	input logic [63:0] key6,
-	input logic [63:0] key7,
 	input logic [3:0] key_length,
 	//cipherText Output
 	output logic [127:0] cipherText,
@@ -87,7 +86,6 @@ module blowfish128_top(
 		.key4(key4),
 		.key5(key5),
 		.key6(key6),
-		.key7(key7),
 		.key_length(key_length),
 		//core interface signals
 		.skey_ready(skey_ready),

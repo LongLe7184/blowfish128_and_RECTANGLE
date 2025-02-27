@@ -8,6 +8,10 @@
 
 `include "blowfish128_DEF.svh"
 
+//Include Guards - avoid declare multiple times
+`ifndef SBOX
+`define SBOX
+
 function logic [31:0] blowfish128_sbox1(input [7:0] sbox_in);
 	case (sbox_in[7:0])
 		8'h00: blowfish128_sbox1[31:0] = `SBOX1_ELEMENT_000;
@@ -530,4 +534,7 @@ function logic [31:0] blowfish128_sbox2(input [7:0] sbox_in);
 		8'hFF: blowfish128_sbox2[31:0] = `SBOX2_ELEMENT_255;
 		default: blowfish128_sbox2[31:0] = 32'hXXXXXXXX;
 	endcase
+	
 endfunction: blowfish128_sbox2
+
+`endif

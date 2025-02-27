@@ -51,7 +51,7 @@ module blowfish128_ffunc(
 	end
 
 	//Next state
-	always @(RstN or Enable or valid_stage or valid_stage0 or valid_stage1 or valid_stage2 or valid_stage3) begin
+	always @(RstN or Enable or state or valid_stage or valid_stage0 or valid_stage1 or valid_stage2 or valid_stage3) begin
 		next_state = state;
 		case(state)
 			IDLE: 		if(RstN | Enable) next_state = PREV_SBOX;
