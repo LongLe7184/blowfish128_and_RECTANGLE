@@ -77,7 +77,7 @@ module blowfish128_core(
 		endcase
 	end
 
-	always @(posedge Clk or negedge RstN) begin
+	always @(posedge Clk or negedge RstN or negedge Enable) begin
 		if(!RstN | !Enable) begin
 			rCounter <= 4'b0;
 			lH <= 64'b0;
@@ -124,6 +124,6 @@ module blowfish128_core(
 	end
 
 	assign cipherText = {lH, rH};
-	assign cipherReady = (step == STANDBY)? 1 : 0;
+	assign cipherReady = (step == STANDBY)? 1'b1 : 1'b0;
 
 endmodule

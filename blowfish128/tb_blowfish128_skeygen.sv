@@ -4,7 +4,7 @@ module tb_blowfish128_skeygen;
     // Testbench signals
     reg Clk;
     reg RstN;
-    reg [63:0] key0, key1, key2, key3, key4, key5, key6, key7;
+    reg [63:0] key0, key1, key2, key3, key4, key5, key6;
     reg [3:0] key_length;
     reg Enable;
     
@@ -18,7 +18,7 @@ module tb_blowfish128_skeygen;
         .RstN(RstN),
         .Enable(Enable),
         .key0(key0), .key1(key1), .key2(key2), .key3(key3),
-        .key4(key4), .key5(key5), .key6(key6), .key7(key7),
+        .key4(key4), .key5(key5), .key6(key6),
         .key_length(key_length),
         .skey_ready(skey_ready),
         .P1(P1), .P2(P2), .P3(P3), .P4(P4), .P5(P5),
@@ -52,7 +52,6 @@ module tb_blowfish128_skeygen;
         key4 = 64'h1234567890ABCDEF;
         key5 = 64'h0FEDCBA987654321;
         key6 = 64'h1122334455667788;
-        key7 = 64'h99AABBCCDDEEFF00;
         
         // Reset sequence
         #10 RstN = 1;

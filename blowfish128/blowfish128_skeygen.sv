@@ -17,7 +17,6 @@ module blowfish128_skeygen (
 	input [63:0] key4,
 	input [63:0] key5,
 	input [63:0] key6,
-	input [63:0] key7,
 	input [3:0] key_length,
 	//core interface signals
 	output skey_ready,
@@ -55,7 +54,7 @@ module blowfish128_skeygen (
 	wire [447:0] key;
 	reg ready;
 
-	assign key = {key7, key6, key5, key4, key3, key2, key1, key0};
+	assign key = {key6, key5, key4, key3, key2, key1, key0};
 
 
 	always @(posedge Clk or negedge RstN or negedge Enable) begin
