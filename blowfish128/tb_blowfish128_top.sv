@@ -15,7 +15,6 @@ module tb_blowfish128_top;
 	logic [63:0] key4_tb;
 	logic [63:0] key5_tb;
 	logic [63:0] key6_tb;
-	logic [63:0] key7_tb;
 	logic [3:0] key_length_tb;
 	//cipherText Output
 	logic [127:0] cipherText_tb;
@@ -36,7 +35,6 @@ module tb_blowfish128_top;
 		.key4(key4_tb),
 		.key5(key5_tb),
 		.key6(key6_tb),
-		.key7(key7_tb),
 		.key_length(key_length_tb),
 		//cipherText Output
 		.cipherText(cipherText_tb),
