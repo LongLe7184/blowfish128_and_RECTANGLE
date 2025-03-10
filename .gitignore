@@ -1,3 +1,4 @@
-#Ignore Quartus '.bak' files
+#Ignoring files having following extention:
 
 *.bak
+*.txt

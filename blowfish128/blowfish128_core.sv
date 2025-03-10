@@ -91,16 +91,17 @@ module blowfish128_core(
 						rH <= plainText[63:0];
 					end
 					FEISTEL: begin
-						if(!ffunc_ready) begin
-							ffunc_enable <= 1'b1;
-							X <= lH ^ PArr[rCounter];
+						if(rCounter != 4'b1000) begin
+							if(!ffunc_ready) begin
+								ffunc_enable <= 1'b1;
+								X <= lH ^ PArr[rCounter];
+							end else begin
+								lH <= rH ^ Y;
+								rH <= X;
+								rCounter <= rCounter + 1'b1;
+								ffunc_enable <= 1'b0;
+							end
 						end else begin
-							lH <= rH ^ Y;
-							rH <= X;
-							rCounter <= rCounter + 1'b1;
-							ffunc_enable <= 1'b0;
-						end
-						if(rCounter == 4'b1000) begin
 							lH <= rH;
 							rH <= lH;
 						end

@@ -3,14 +3,14 @@
 //-----------------------------------------------------------
 // Author	: Long Le, Manh Nguyen
 // Date  	: Feb-5th, 2025
-// Description	: Contains 2 Subtitution Boxes, each has 256 elements 32-bit
+// Description	: Contains 2 Substitution Boxes, each has 256 elements 32-bit
 //-----------------------------------------------------------
 
 `include "blowfish128_DEF.svh"
 
 //Include Guards - avoid declare multiple times
-`ifndef SBOX
-`define SBOX
+`ifndef BLOWFISH128_SBOX
+`define BLOWFISH128_SBOX
 
 function logic [31:0] blowfish128_sbox1(input [7:0] sbox_in);
 	case (sbox_in[7:0])
