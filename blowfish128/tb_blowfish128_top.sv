@@ -64,6 +64,12 @@ module tb_blowfish128_top;
 		//Input value phase
 		plainText_tb <= 128'h1234_56ab_cd13_2536_1234_56ab_cd13_2536;
 		key0_tb <= 64'haabb_0918_2736_ccdd;
+		key1_tb <= 64'h0;
+		key2_tb <= 64'h0;
+		key3_tb <= 64'h0;
+		key4_tb <= 64'h0;
+		key5_tb <= 64'h0;
+		key6_tb <= 64'h0;
 		key_length_tb <= 4'h2;
 		Encrypt_tb <= 1'h1;
 
