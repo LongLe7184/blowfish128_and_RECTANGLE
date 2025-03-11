@@ -1,30 +1,26 @@
 `timescale 1ns / 1ps
 
-module tb_RECTANGLE128_skeygen;
+module tb_RECTANGLE128_top;
 	// Testbench signals
-	reg Clk;
-	reg RstN;
-	reg Enable;
-	reg [63:0] key0, key1;
-
-	wire flush, WE;
-	wire [4:0] WAddr, round_counter;
-	wire [63:0] KeyIn;
+	logic Clk, RstN, Enable, Encrypt, cipherReady;
+	logic [63:0] plainText, cipherText, key0, key1;
+	
+	logic flush, WE;
+	logic [4:0] WAddr, round_counter;
+	logic [63:0] KeyIn, KeyOut;
     
-    // Instantiate the module under test
-	RECTANGLE128_skeygen uut (
+	// Instantiate the module under test
+	RECTANGLE128_top uut(
 		.Clk(Clk),
 		.RstN(RstN),
 		.Enable(Enable),
+		.plainText(plainText),
+		.Encrypt(Encrypt),
 		.key0(key0),
 		.key1(key1),
-		.flush(flush),
-		.WE(WE),
-		.WAddr(WAddr),
-		.KeyIn(KeyIn)
+		.cipherText(cipherText),
+		.cipherReady(cipherReady)
 	);
-
-	assign round_counter = uut.round_counter;
 
 	// Clock generation
 	initial begin	
@@ -43,7 +39,6 @@ module tb_RECTANGLE128_skeygen;
 		Enable = 0;
 
 		// Example key values
-		// aabb09182736ccddaabb09182736ccdd
 		key0 = 64'hAABB09182736CCDD;
 		key1 = 64'hAABB09182736CCDD;
 

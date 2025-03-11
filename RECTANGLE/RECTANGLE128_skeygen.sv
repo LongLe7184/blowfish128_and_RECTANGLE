@@ -15,10 +15,10 @@ module RECTANGLE128_skeygen(
 	input [63:0] key0,
 	input [63:0] key1,
 	//Local memory interface signals
-	output flush_mem,
-	output WE_mem,
-	output [4:0] WAddr_mem,
-	output [63:0] KeyIn_mem
+	output flush,
+	output WE,
+	output [4:0] WAddr,
+	output [63:0] KeyIn
 	);
 
 	logic [4:0] RC [25:1];
@@ -119,16 +119,15 @@ module RECTANGLE128_skeygen(
 		end
 	end
 
-	assign KeyIn_mem = { ini_row3[15:0],
+	assign KeyIn = { ini_row3[15:0],
 			     ini_row2[15:0],
 			     ini_row1[15:0],
 			     ini_row0[15:0] };
 
-	assign WAddr_mem = ((round_counter == 5'd0) || (round_counter == 5'd27)) ? 5'd0 : (round_counter - 1'b1);
-	assign WE_mem = ((round_counter == 5'd0) || (round_counter == 5'd27)) ? 1'b0 : 1'b1;
+	assign WAddr = ((round_counter == 5'd0) || (round_counter == 5'd27)) ? 5'd0 : (round_counter - 1'b1);
+	assign WE = ((round_counter == 5'd0) || (round_counter == 5'd27)) ? 1'b0 : 1'b1;
 	
 	//RESERVED: flush memory whenever input a new key
-	assign flush_mem = 1'b0;
-	
+	assign flush = RstN;
 
 endmodule
