@@ -1,3 +1,11 @@
+//-----------------------------------------------------------
+// Function: REACTANGLE128's Skey Memmory
+//-----------------------------------------------------------
+// Author	: Long Le, Manh Nguyen
+// Date  	: Mar-9th, 2025
+// Description	: Storing generated subkeys
+//-----------------------------------------------------------
+
 module RECTANGLE128_skeymem(
 	input Clk,
 	input flush,

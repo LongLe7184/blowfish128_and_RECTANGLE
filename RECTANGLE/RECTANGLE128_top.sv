@@ -1,3 +1,11 @@
+//-----------------------------------------------------------
+// Module: RECTANGLE128's Top Module
+//-----------------------------------------------------------
+// Author	: Long Le, Manh Nguyen
+// Date  	: Mar-12th, 2025
+// Description	: Connecting RECTANGLE128's sub-modules
+//-----------------------------------------------------------
+
 module RECTANGLE128_top(
 	input Clk,
 	input RstN,
@@ -18,7 +26,7 @@ module RECTANGLE128_top(
 	//skeymem & core signals
 	logic skey_ready;
 	logic [4:0] RAddr;
-	logic [63:0] KeyOut;
+	logic [63:0] roundKey;
 
 	RECTANGLE128_skeygen RECTANGLE128_skeygen(
 		.Clk(Clk),
@@ -42,8 +50,22 @@ module RECTANGLE128_top(
 		.KeyIn(KeyIn),
 		//core Interface
 		.RAddr(RAddr),
-		.KeyOut(KeyOut),
+		.KeyOut(roundKey),
 		.skey_ready(skey_ready)
+	);
+
+	RECTANGLE128_core RECTANGLE128_core(
+		.Clk(Clk),
+		.RstN(RstN),
+		.Enable(Enable),
+		.Encrypt(Encrypt),
+		.plainText(plainText),
+		.cipherText(cipherText),
+		.cipherReady(cipherReady),
+		//skey_mem Interface
+		.skey_ready(skey_ready),
+		.roundKey(roundKey),
+		.RAddr(RAddr)
 	);
 
 endmodule
