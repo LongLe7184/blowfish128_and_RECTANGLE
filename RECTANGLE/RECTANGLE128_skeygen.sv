@@ -1,7 +1,7 @@
 //-----------------------------------------------------------
 // Function: REACTANGLE128's Skeygen Module
 //-----------------------------------------------------------
-// Author	: Manh Nguyen, Long Le
+// Author	: Long Le, Manh Nguyen
 // Date  	: Mar-9th, 2025
 // Description	: Generating Sub-Keys base on Key Schedule
 //-----------------------------------------------------------
@@ -15,10 +15,10 @@ module RECTANGLE128_skeygen(
 	input [63:0] key0,
 	input [63:0] key1,
 	//Local memory interface signals
-	output flush_mem,
-	output WE_mem,
-	output [4:0] WAddr_mem,
-	output [63:0] KeyIn_mem
+	output flush,
+	output WE,
+	output [4:0] WAddr,
+	output [63:0] KeyIn
 	);
 
 	logic [4:0] RC [25:1];
@@ -54,11 +54,6 @@ module RECTANGLE128_skeygen(
 	assign RC[25] = 5'h1D;
 
 	logic [31:0] ini_row0, ini_row1, ini_row2, ini_row3;
-	//Matrix Implementation
-	// assign ini_row0 = key0[31:0];
-	// assign ini_row1 = key0[63:32];
-	// assign ini_row2 = key1[31:0];
-	// assign ini_row3 = key1[63:32];
 
 	logic [3:0] sbox_out0, sbox_out1, sbox_out2, sbox_out3, sbox_out4, sbox_out5, sbox_out6, sbox_out7;
 	//Column Substitution
@@ -119,16 +114,15 @@ module RECTANGLE128_skeygen(
 		end
 	end
 
-	assign KeyIn_mem = { ini_row3[15:0],
-			     ini_row2[15:0],
-			     ini_row1[15:0],
-			     ini_row0[15:0] };
+	assign KeyIn = { ini_row3[15:0],
+			 ini_row2[15:0],
+			 ini_row1[15:0],
+			 ini_row0[15:0] };
 
-	assign WAddr_mem = ((round_counter == 5'd0) || (round_counter == 5'd27)) ? 5'd0 : (round_counter - 1'b1);
-	assign WE_mem = ((round_counter == 5'd0) || (round_counter == 5'd27)) ? 1'b0 : 1'b1;
+	assign WAddr = ((round_counter == 5'd0) || (round_counter == 5'd27)) ? 5'd0 : (round_counter - 1'b1);
+	assign WE = ((round_counter == 5'd0) || (round_counter == 5'd27)) ? 1'b0 : 1'b1;
 	
 	//RESERVED: flush memory whenever input a new key
-	assign flush_mem = 1'b0;
-	
+	assign flush = RstN;
 
 endmodule

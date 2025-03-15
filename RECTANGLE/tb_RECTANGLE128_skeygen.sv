@@ -7,9 +7,9 @@ module tb_RECTANGLE128_skeygen;
 	reg Enable;
 	reg [63:0] key0, key1;
 
-	wire flush_mem, WE_mem;
-	wire [4:0] WAddr_mem, round_counter;
-	wire [63:0] KeyIn_mem;
+	wire flush, WE;
+	wire [4:0] WAddr, round_counter;
+	wire [63:0] KeyIn;
     
     // Instantiate the module under test
 	RECTANGLE128_skeygen uut (
@@ -18,10 +18,10 @@ module tb_RECTANGLE128_skeygen;
 		.Enable(Enable),
 		.key0(key0),
 		.key1(key1),
-		.flush_mem(flush_mem),
-		.WE_mem(WE_mem),
-		.WAddr_mem(WAddr_mem),
-		.KeyIn_mem(KeyIn_mem)
+		.flush(flush),
+		.WE(WE),
+		.WAddr(WAddr),
+		.KeyIn(KeyIn)
 	);
 
 	assign round_counter = uut.round_counter;
