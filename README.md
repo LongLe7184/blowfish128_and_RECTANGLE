@@ -14,7 +14,7 @@ _blowfish128's Simulation Result_
 RECTANGLE Block Cipher Algorithm
 
 _RECTANGLE128's Block Diagram_
-![image](https://github.com/user-attachments/assets/24104ee7-419b-4525-a470-60dd1463ca75)
+![image](https://github.com/user-attachments/assets/3fe061b7-9920-49d0-ae1d-a9bfaeb3d9b1)
 
 _RECTANGLE128's Simulation Result_
 ![image](https://github.com/user-attachments/assets/8dbc82b4-543b-45bd-991d-845e8ed41cd9)
