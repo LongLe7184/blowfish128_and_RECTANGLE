@@ -2,7 +2,7 @@
 
 # Open file handle
 open $fh, '<', "piDigits.txt" or die "Can't open file!";
-open $fo, '>', "./../blowfish128/blowfish128_DEF.svh" or die "Can't create file!";
+open $fo, '>', "./../rtl/blowfish128/blowfish128_DEF.svh" or die "Can't create file!";
 
 $n = 0;
 $bool = 0;

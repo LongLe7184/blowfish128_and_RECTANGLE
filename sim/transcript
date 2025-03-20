@@ -1,0 +1,16 @@
+# Reading C:/intelFPGA/17.0/modelsim_ase/tcl/vsim/pref.tcl
+# Loading project blowfish_and_RECTANGLE
+vsim -gui work.tb_RECTANGLE128_top -t ns
+# vsim -gui work.tb_RECTANGLE128_top -t ns 
+# Start time: 22:00:33 on Mar 20,2025
+# Loading sv_std.std
+# Loading work.tb_RECTANGLE128_top
+# Loading work.RECTANGLE128_top
+# Loading work.RECTANGLE128_skeygen_sv_unit
+# Loading work.RECTANGLE128_skeygen
+# Loading work.RECTANGLE128_skeymem
+# Loading work.RECTANGLE128_core_sv_unit
+# Loading work.RECTANGLE128_core
+# WARNING: No extended dataflow license exists
+# End time: 22:02:39 on Mar 20,2025, Elapsed time: 0:02:06
+# Errors: 0, Warnings: 1
