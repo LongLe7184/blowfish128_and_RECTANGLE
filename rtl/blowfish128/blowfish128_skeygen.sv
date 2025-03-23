@@ -2,8 +2,9 @@
 // Function: Blowfish-128's Skeygen Module
 //-----------------------------------------------------------
 // Author	: Manh Nguyen, Long Le
-// Date  	: Feb-8th, 2025
-// Description	: another version of skeygen module using switch case
+// Date  	: Mar-23rd, 2025
+// Description	: Skeygen 128-bit keylength module
+// 		  generating subkeys (use for integrate IP version)
 //-----------------------------------------------------------
 
 module blowfish128_skeygen (
@@ -98,6 +99,13 @@ module blowfish128_skeygen (
 
 					case (key_length)
 
+	/*---------------------		RESERVED CASES		---------------------
+	*
+	* Integrate version will use 128-bit key length only, the other key
+	* length will be use in needed
+	*
+	*----------------------------------------------------------------------------
+
 						//32-bit key length
 						4'd1: begin
 							p_array[0] <= p_array[0] ^ key[0 +: 32];
@@ -170,6 +178,10 @@ module blowfish128_skeygen (
 							p_array[19] <= p_array[19] ^ key[32 +: 32];
 						end
 
+	*----------------------------------------------------------------------------*
+	* 			END OF PART.1 RESERVED CASES
+	*----------------------------------------------------------------------------*/
+
 						//128-bit key length
 						4'd4: begin
 							p_array[0] <= p_array[0] ^ key[0 +: 32];
@@ -193,6 +205,10 @@ module blowfish128_skeygen (
 							p_array[18] <= p_array[18] ^ key[64 +: 32];
 							p_array[19] <= p_array[19] ^ key[96 +: 32];
 						end
+
+	/*----------------------------------------------------------------------------*
+	* 			CONTINUE PART.2 RESERVED CASES
+	*-----------------------------------------------------------------------------*
 
 						//160-bit key length
 						4'd5: begin
@@ -433,6 +449,11 @@ module blowfish128_skeygen (
 							p_array[18] <= p_array[18] ^ key[128 +: 32];
 							p_array[19] <= p_array[19] ^ key[160 +: 32];
 						end
+
+	*----------------------------------------------------------------------------*
+	* 			END OF PART.2 RESERVED CASES
+	*----------------------------------------------------------------------------*/
+
 					endcase
 					ready <= 1; // Signal that P-array is ready
 					state_machine <= STANDBY;
