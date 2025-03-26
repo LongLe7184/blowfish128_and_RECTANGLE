@@ -11,15 +11,17 @@ vsim -c -do "
 	# Specify the directory containing .sv files
 	set directory1 \"./../rtl/blowfish128\"
 	set directory2 \"./../rtl/RECTANGLE\"
-	set directory3 \"./../tb\"
+	set directory3 \"./../rtl\"
+	set directory4 \"./../tb\"
 
 	# Get the list of .sv files in the directory
 	set file_list1 [glob -nocomplain -directory \$directory1 *.sv]
 	set file_list2 [glob -nocomplain -directory \$directory2 *.sv]
 	set file_list3 [glob -nocomplain -directory \$directory3 *.sv]
+	set file_list4 [glob -nocomplain -directory \$directory4 *.sv]
 	
 	# Concatenate the list
-	set file_list [concat \$file_list1 \$file_list2 \$file_list3]
+	set file_list [concat \$file_list1 \$file_list2 \$file_list3 \$file_list4]
 
 	# Print out the list of .sv files
 	foreach file \$file_list {

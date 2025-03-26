@@ -1,10 +1,39 @@
 # Reading C:/intelFPGA/17.0/modelsim_ase/tcl/vsim/pref.tcl
 # Loading project blowfish_and_RECTANGLE
-vsim -gui work.tb_RECTANGLE128_top -t ns
-# vsim -gui work.tb_RECTANGLE128_top -t ns 
-# Start time: 22:00:33 on Mar 20,2025
+# Compile of blowfish128_core.sv was successful.
+# Compile of blowfish128_ffunc.sv was successful.
+# Compile of blowfish128_sbox.sv was successful.
+# Compile of blowfish128_skeygen.sv was successful.
+# Compile of blowfish128_top.sv was successful.
+# Compile of RECTANGLE128_core.sv was successful.
+# Compile of RECTANGLE128_sbox.sv was successful.
+# Compile of RECTANGLE128_skeygen.sv was successful.
+# Compile of RECTANGLE128_skeymem.sv was successful.
+# Compile of RECTANGLE128_top.sv was successful.
+# Compile of IBR128_core.sv was successful.
+# Compile of IBR128_encrypt.sv was successful.
+# Compile of IBR128_opmode.sv was successful.
+# Compile of tb_blowfish128_core.sv was successful.
+# Compile of tb_blowfish128_ffunc.sv was successful.
+# Compile of tb_blowfish128_skeygen.sv was successful.
+# Compile of tb_blowfish128_top.sv was successful.
+# Compile of tb_IBR128_core.sv was successful.
+# Compile of tb_RECTANGLE128_skeygen.sv was successful.
+# Compile of tb_RECTANGLE128_top.sv was successful.
+# 20 compiles, 0 failed with no errors.
+vsim -gui work.tb_IBR128_core -t ns
+# vsim -gui work.tb_IBR128_core -t ns 
+# Start time: 16:32:55 on Mar 26,2025
 # Loading sv_std.std
-# Loading work.tb_RECTANGLE128_top
+# Loading work.tb_IBR128_core
+# Loading work.IBR128_core
+# Loading work.IBR128_opmode
+# Loading work.IBR128_encrypt
+# Loading work.blowfish128_top
+# Loading work.blowfish128_core
+# Loading work.blowfish128_skeygen
+# Loading work.blowfish128_ffunc_sv_unit
+# Loading work.blowfish128_ffunc
 # Loading work.RECTANGLE128_top
 # Loading work.RECTANGLE128_skeygen_sv_unit
 # Loading work.RECTANGLE128_skeygen
@@ -12,5 +41,305 @@ vsim -gui work.tb_RECTANGLE128_top -t ns
 # Loading work.RECTANGLE128_core_sv_unit
 # Loading work.RECTANGLE128_core
 # WARNING: No extended dataflow license exists
-# End time: 22:02:39 on Mar 20,2025, Elapsed time: 0:02:06
+add wave -position insertpoint  \
+sim:/tb_IBR128_core/Clk_tb \
+sim:/tb_IBR128_core/RstN_tb \
+sim:/tb_IBR128_core/Enable_tb \
+sim:/tb_IBR128_core/SA_tb \
+sim:/tb_IBR128_core/Encrypt_tb \
+sim:/tb_IBR128_core/OB_tb \
+sim:/tb_IBR128_core/SOM_tb \
+sim:/tb_IBR128_core/plainText_tb \
+sim:/tb_IBR128_core/cipherText_tb \
+sim:/tb_IBR128_core/IV_tb \
+sim:/tb_IBR128_core/cipherReady_tb \
+sim:/tb_IBR128_core/key0_tb \
+sim:/tb_IBR128_core/key1_tb \
+sim:/tb_IBR128_core/counter_tb
+add wave -position insertpoint  \
+sim:/tb_IBR128_core/IBR128_core/Clk \
+sim:/tb_IBR128_core/IBR128_core/RstN \
+sim:/tb_IBR128_core/IBR128_core/Enable \
+sim:/tb_IBR128_core/IBR128_core/SA \
+sim:/tb_IBR128_core/IBR128_core/Encrypt \
+sim:/tb_IBR128_core/IBR128_core/SOM \
+sim:/tb_IBR128_core/IBR128_core/plainText \
+sim:/tb_IBR128_core/IBR128_core/IV \
+sim:/tb_IBR128_core/IBR128_core/OB \
+sim:/tb_IBR128_core/IBR128_core/key0 \
+sim:/tb_IBR128_core/IBR128_core/key1 \
+sim:/tb_IBR128_core/IBR128_core/cipherText \
+sim:/tb_IBR128_core/IBR128_core/cipherReady \
+sim:/tb_IBR128_core/IBR128_core/encrypt \
+sim:/tb_IBR128_core/IBR128_core/block_start \
+sim:/tb_IBR128_core/IBR128_core/sa \
+sim:/tb_IBR128_core/IBR128_core/block_ready \
+sim:/tb_IBR128_core/IBR128_core/pData \
+sim:/tb_IBR128_core/IBR128_core/eData
+add wave -position insertpoint  \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/Clk \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/RstN \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/Enable \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/Encrypt \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/SOM \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/OB \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/plainText \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/key0 \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/key1 \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/SA \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/IV \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/cipherText \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/cipherReady \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/encrypt \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/block_start \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/pData \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/sa \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/block_ready \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/eData \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/modeSel \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/counter \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/cipherText_reg \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/cipherReady_reg
+add wave -position insertpoint  \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/Clk \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/RstN \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/key0 \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/key1 \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/encrypt \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/block_start \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/pData \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/sa \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/block_ready \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/eData \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/blowfish_en \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/rectangle_en \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/blowfish_eText \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/blowfish_eReady \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/rectangle_eText1 \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/rectangle_eText2 \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/rectangle_eReady1
+run -a
+# ** Note: $finish    : D:/designIP/blowfish128_and_RECTANGLE/tb/tb_IBR128_core.sv(64)
+#    Time: 2520 ns  Iteration: 0  Instance: /tb_IBR128_core
+# 1
+# Break in Module tb_IBR128_core at D:/designIP/blowfish128_and_RECTANGLE/tb/tb_IBR128_core.sv line 64
+# Compile of blowfish128_core.sv was successful.
+# Compile of blowfish128_ffunc.sv was successful.
+# Compile of blowfish128_sbox.sv was successful.
+# Compile of blowfish128_skeygen.sv was successful.
+# Compile of blowfish128_top.sv was successful.
+# Compile of RECTANGLE128_core.sv was successful.
+# Compile of RECTANGLE128_sbox.sv was successful.
+# Compile of RECTANGLE128_skeygen.sv was successful.
+# Compile of RECTANGLE128_skeymem.sv was successful.
+# Compile of RECTANGLE128_top.sv was successful.
+# Compile of IBR128_core.sv was successful.
+# Compile of IBR128_encrypt.sv was successful.
+# Compile of IBR128_opmode.sv was successful.
+# Compile of tb_blowfish128_core.sv was successful.
+# Compile of tb_blowfish128_ffunc.sv was successful.
+# Compile of tb_blowfish128_skeygen.sv was successful.
+# Compile of tb_blowfish128_top.sv was successful.
+# Compile of tb_IBR128_core.sv was successful.
+# Compile of tb_RECTANGLE128_skeygen.sv was successful.
+# Compile of tb_RECTANGLE128_top.sv was successful.
+# 20 compiles, 0 failed with no errors.
+restart -f
+# Closing VCD file "dump.vcd"
+# Loading work.tb_IBR128_core
+# Loading work.IBR128_core
+# Loading work.IBR128_opmode
+# Loading work.IBR128_encrypt
+# Loading work.blowfish128_top
+# Loading work.blowfish128_core
+# Loading work.blowfish128_skeygen
+# Loading work.blowfish128_ffunc_sv_unit
+# Loading work.blowfish128_ffunc
+# Loading work.RECTANGLE128_top
+# Loading work.RECTANGLE128_skeygen_sv_unit
+# Loading work.RECTANGLE128_skeygen
+# Loading work.RECTANGLE128_skeymem
+# Loading work.RECTANGLE128_core_sv_unit
+# Loading work.RECTANGLE128_core
+run -a
+# ** Note: $finish    : D:/designIP/blowfish128_and_RECTANGLE/tb/tb_IBR128_core.sv(64)
+#    Time: 2520 ns  Iteration: 0  Instance: /tb_IBR128_core
+# 1
+# Break in Module tb_IBR128_core at D:/designIP/blowfish128_and_RECTANGLE/tb/tb_IBR128_core.sv line 64
+# Compile of blowfish128_core.sv was successful.
+# Compile of blowfish128_ffunc.sv was successful.
+# Compile of blowfish128_sbox.sv was successful.
+# Compile of blowfish128_skeygen.sv was successful.
+# Compile of blowfish128_top.sv was successful.
+# Compile of RECTANGLE128_core.sv was successful.
+# Compile of RECTANGLE128_sbox.sv was successful.
+# Compile of RECTANGLE128_skeygen.sv was successful.
+# Compile of RECTANGLE128_skeymem.sv was successful.
+# Compile of RECTANGLE128_top.sv was successful.
+# Compile of IBR128_core.sv was successful.
+# Compile of IBR128_encrypt.sv was successful.
+# Compile of IBR128_opmode.sv was successful.
+# Compile of tb_blowfish128_core.sv was successful.
+# Compile of tb_blowfish128_ffunc.sv was successful.
+# Compile of tb_blowfish128_skeygen.sv was successful.
+# Compile of tb_blowfish128_top.sv was successful.
+# Compile of tb_IBR128_core.sv was successful.
+# Compile of tb_RECTANGLE128_skeygen.sv was successful.
+# Compile of tb_RECTANGLE128_top.sv was successful.
+# 20 compiles, 0 failed with no errors.
+vsim -gui -t ns work.tb_IBR128_core
+# End time: 16:54:39 on Mar 26,2025, Elapsed time: 0:21:44
 # Errors: 0, Warnings: 1
+# vsim -gui -t ns work.tb_IBR128_core 
+# Start time: 16:54:39 on Mar 26,2025
+# Loading sv_std.std
+# Loading work.tb_IBR128_core
+# Loading work.IBR128_core
+# Loading work.IBR128_opmode
+# Loading work.IBR128_encrypt
+# Loading work.blowfish128_top
+# Loading work.blowfish128_core
+# Loading work.blowfish128_skeygen
+# Loading work.blowfish128_ffunc_sv_unit
+# Loading work.blowfish128_ffunc
+# Loading work.RECTANGLE128_top
+# Loading work.RECTANGLE128_skeygen_sv_unit
+# Loading work.RECTANGLE128_skeygen
+# Loading work.RECTANGLE128_skeymem
+# Loading work.RECTANGLE128_core_sv_unit
+# Loading work.RECTANGLE128_core
+add wave -position insertpoint  \
+sim:/tb_IBR128_core/Clk_tb \
+sim:/tb_IBR128_core/RstN_tb \
+sim:/tb_IBR128_core/Enable_tb \
+sim:/tb_IBR128_core/SA_tb \
+sim:/tb_IBR128_core/Encrypt_tb \
+sim:/tb_IBR128_core/OB_tb \
+sim:/tb_IBR128_core/SOM_tb \
+sim:/tb_IBR128_core/plainText_tb \
+sim:/tb_IBR128_core/cipherText_tb \
+sim:/tb_IBR128_core/IV_tb \
+sim:/tb_IBR128_core/cipherReady_tb \
+sim:/tb_IBR128_core/key0_tb \
+sim:/tb_IBR128_core/key1_tb \
+sim:/tb_IBR128_core/counter_tb
+add wave -position insertpoint  \
+sim:/tb_IBR128_core/IBR128_core/Clk \
+sim:/tb_IBR128_core/IBR128_core/RstN \
+sim:/tb_IBR128_core/IBR128_core/Enable \
+sim:/tb_IBR128_core/IBR128_core/SA \
+sim:/tb_IBR128_core/IBR128_core/Encrypt \
+sim:/tb_IBR128_core/IBR128_core/SOM \
+sim:/tb_IBR128_core/IBR128_core/plainText \
+sim:/tb_IBR128_core/IBR128_core/IV \
+sim:/tb_IBR128_core/IBR128_core/OB \
+sim:/tb_IBR128_core/IBR128_core/key0 \
+sim:/tb_IBR128_core/IBR128_core/key1 \
+sim:/tb_IBR128_core/IBR128_core/cipherText \
+sim:/tb_IBR128_core/IBR128_core/cipherReady \
+sim:/tb_IBR128_core/IBR128_core/encrypt \
+sim:/tb_IBR128_core/IBR128_core/block_start \
+sim:/tb_IBR128_core/IBR128_core/sa \
+sim:/tb_IBR128_core/IBR128_core/block_ready \
+sim:/tb_IBR128_core/IBR128_core/pData \
+sim:/tb_IBR128_core/IBR128_core/eData
+add wave -position insertpoint  \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/Clk \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/RstN \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/Enable \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/Encrypt \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/SOM \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/OB \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/plainText \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/key0 \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/key1 \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/SA \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/IV \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/cipherText \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/cipherReady \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/encrypt \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/block_start \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/pData \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/sa \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/block_ready \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/eData \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/modeSel \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/counter \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/cipherText_reg \
+sim:/tb_IBR128_core/IBR128_core/IBR128_opmode/cipherReady_reg
+add wave -position insertpoint  \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/Clk \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/RstN \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/key0 \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/key1 \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/encrypt \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/block_start \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/pData \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/sa \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/block_ready \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/eData \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/blowfish_en \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/rectangle_en \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/blowfish_eText \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/blowfish_eReady \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/rectangle_eText1 \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/rectangle_eText2 \
+sim:/tb_IBR128_core/IBR128_core/IBR128_encrypt/rectangle_eReady1
+# WARNING: No extended dataflow license exists
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf D:/designIP/blowfish128_and_RECTANGLE/sim/wave_IBR.do
+run -a
+# ** Note: $finish    : D:/designIP/blowfish128_and_RECTANGLE/tb/tb_IBR128_core.sv(64)
+#    Time: 2520 ns  Iteration: 0  Instance: /tb_IBR128_core
+# 1
+# Break in Module tb_IBR128_core at D:/designIP/blowfish128_and_RECTANGLE/tb/tb_IBR128_core.sv line 64
+# Compile of IBR128_opmode.sv was successful.
+restart -f
+# Closing VCD file "dump.vcd"
+# Loading work.IBR128_opmode
+run -a
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Note: $finish    : D:/designIP/blowfish128_and_RECTANGLE/tb/tb_IBR128_core.sv(64)
+#    Time: 2520 ns  Iteration: 0  Instance: /tb_IBR128_core
+# 1
+# Break in Module tb_IBR128_core at D:/designIP/blowfish128_and_RECTANGLE/tb/tb_IBR128_core.sv line 64
+# Compile of IBR128_opmode.sv was successful.
+# Compile of tb_IBR128_core.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart -f
+# Closing VCD file "dump.vcd"
+# Loading work.tb_IBR128_core
+# Loading work.IBR128_opmode
+run -a
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Note: $finish    : D:/designIP/blowfish128_and_RECTANGLE/tb/tb_IBR128_core.sv(64)
+#    Time: 2540 ns  Iteration: 0  Instance: /tb_IBR128_core
+# 1
+# Break in Module tb_IBR128_core at D:/designIP/blowfish128_and_RECTANGLE/tb/tb_IBR128_core.sv line 64
+# Compile of tb_IBR128_core.sv was successful.
+restart -f
+# Closing VCD file "dump.vcd"
+# Loading work.tb_IBR128_core
+run -a
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Note: $finish    : D:/designIP/blowfish128_and_RECTANGLE/tb/tb_IBR128_core.sv(73)
+#    Time: 2560 ns  Iteration: 0  Instance: /tb_IBR128_core
+# 1
+# Break in Module tb_IBR128_core at D:/designIP/blowfish128_and_RECTANGLE/tb/tb_IBR128_core.sv line 73
+# Compile of IBR128_opmode.sv was successful.
+restart -f
+# Closing VCD file "dump.vcd"
+# Loading work.IBR128_opmode
+run -a
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Note: $finish    : D:/designIP/blowfish128_and_RECTANGLE/tb/tb_IBR128_core.sv(73)
+#    Time: 2560 ns  Iteration: 0  Instance: /tb_IBR128_core
+# 1
+# Break in Module tb_IBR128_core at D:/designIP/blowfish128_and_RECTANGLE/tb/tb_IBR128_core.sv line 73

@@ -5,6 +5,15 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	tb_RECTANGLE128_top
 
+} {} {}} D:/designIP/blowfish128_and_RECTANGLE/rtl/IBR128_encrypt.sv {1 {vlog -work work -sv -stats=none D:/designIP/blowfish128_and_RECTANGLE/rtl/IBR128_encrypt.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module RECTANGLE128_top
+-- Compiling module blowfish128_top
+-- Compiling module IBR128_encrypt
+
+Top level modules:
+	IBR128_encrypt
+
 } {} {}} D:/designIP/blowfish128_and_RECTANGLE/rtl/blowfish128/blowfish128_sbox.sv {1 {vlog -work work -sv -stats=none D:/designIP/blowfish128_and_RECTANGLE/rtl/blowfish128/blowfish128_sbox.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 
@@ -32,6 +41,20 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	tb_blowfish128_skeygen
 
+} {} {}} D:/designIP/blowfish128_and_RECTANGLE/rtl/IBR128_core.sv {1 {vlog -work work -sv -stats=none D:/designIP/blowfish128_and_RECTANGLE/rtl/IBR128_core.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module IBR128_core
+
+Top level modules:
+	IBR128_core
+
+} {} {}} D:/designIP/blowfish128_and_RECTANGLE/tb/tb_IBR128_core.sv {1 {vlog -work work -sv -stats=none D:/designIP/blowfish128_and_RECTANGLE/tb/tb_IBR128_core.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module tb_IBR128_core
+
+Top level modules:
+	tb_IBR128_core
+
 } {} {}} D:/designIP/blowfish128_and_RECTANGLE/rtl/RECTANGLE/RECTANGLE128_skeygen.sv {1 {vlog -work work -sv -stats=none D:/designIP/blowfish128_and_RECTANGLE/rtl/RECTANGLE/RECTANGLE128_skeygen.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling package RECTANGLE128_skeygen_sv_unit
@@ -55,13 +78,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	tb_blowfish128_core
 
-} {} {}} D:/designIP/blowfish128_and_RECTANGLE/rtl/blowfish128/blowfish128_top.sv {1 {vlog -work work -sv -stats=none D:/designIP/blowfish128_and_RECTANGLE/rtl/blowfish128/blowfish128_top.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module blowfish128_top
-
-Top level modules:
-	blowfish128_top
-
 } {} {}} D:/designIP/blowfish128_and_RECTANGLE/tb/tb_blowfish128_ffunc.sv {1 {vlog -work work -sv -stats=none D:/designIP/blowfish128_and_RECTANGLE/tb/tb_blowfish128_ffunc.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module tb_blowfish128_ffunc
@@ -69,12 +85,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	tb_blowfish128_ffunc
 
-} {} {}} D:/designIP/blowfish128_and_RECTANGLE/tb/tb_blowfish128_top.sv {1 {vlog -work work -sv -stats=none D:/designIP/blowfish128_and_RECTANGLE/tb/tb_blowfish128_top.sv
+} {} {}} D:/designIP/blowfish128_and_RECTANGLE/rtl/blowfish128/blowfish128_top.sv {1 {vlog -work work -sv -stats=none D:/designIP/blowfish128_and_RECTANGLE/rtl/blowfish128/blowfish128_top.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module tb_blowfish128_top
+-- Compiling module blowfish128_top
 
 Top level modules:
-	tb_blowfish128_top
+	blowfish128_top
 
 } {} {}} D:/designIP/blowfish128_and_RECTANGLE/rtl/RECTANGLE/RECTANGLE128_core.sv {1 {vlog -work work -sv -stats=none D:/designIP/blowfish128_and_RECTANGLE/rtl/RECTANGLE/RECTANGLE128_core.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -83,6 +99,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	RECTANGLE128_core
+
+} {} {}} D:/designIP/blowfish128_and_RECTANGLE/tb/tb_blowfish128_top.sv {1 {vlog -work work -sv -stats=none D:/designIP/blowfish128_and_RECTANGLE/tb/tb_blowfish128_top.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module tb_blowfish128_top
+
+Top level modules:
+	tb_blowfish128_top
 
 } {} {}} D:/designIP/blowfish128_and_RECTANGLE/rtl/RECTANGLE/RECTANGLE128_top.sv {1 {vlog -work work -sv -stats=none D:/designIP/blowfish128_and_RECTANGLE/rtl/RECTANGLE/RECTANGLE128_top.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
