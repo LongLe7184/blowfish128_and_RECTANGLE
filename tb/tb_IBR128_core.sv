@@ -45,13 +45,14 @@ module tb_IBR128_core;
 
 	//Start a transaction
 		//Prepare Input
-		SA_tb <= 1'b0;
+		SA_tb <= 1'b1;
 		Encrypt_tb <= 1'b1;
 		SOM_tb <= 2'h2;
 		plainText_tb <= 128'h1234_56ab_cd13_2536_1234_56ab_cd13_2536;
 		key1_tb <= 64'haabb_0918_2736_ccdd;
 		key0_tb <= 64'h9988_1234_5670_1122;
 		IV_tb <= 128'h1111_2222_3333_4444_5555_6666_7777_8888;
+		// IV_tb <= 128'hffff_ffff_ffff_ffff_ffff_ffff_ffff_ffff;
 		FB_tb <= 1'b1;
 		//Enable IP
 		#20 Enable_tb <= 1;
@@ -68,7 +69,18 @@ module tb_IBR128_core;
 		#20 Enable_tb <= 1'b1;
 		
 		wait(cipherReady_tb);
+		
+	//Start new transaction
+		#100 Enable_tb <= 1'b0;
+		
 		#20
+		plainText_tb <= 128'h1010_1010_1010_1010_1010_1010_1010_1010;
+		FB_tb <= 1'b0;
+		//Enable IP
+		#20 Enable_tb <= 1'b1;
+		
+		wait(cipherReady_tb);
+
 		#200 $finish;
 	end
 
