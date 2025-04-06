@@ -1,5 +1,5 @@
-#Ignoring sim folder (from Mar-23rd)
-sim/
+#Stop ignoring sim folder (from April-6th)
+#sim/
 #Ignoring files having following extention:
 *.bak
 *.txt
