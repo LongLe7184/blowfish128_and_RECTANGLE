@@ -1,3 +1,11 @@
+//-----------------------------------------------------------
+// Function: IBR128 Core Module
+//-----------------------------------------------------------
+// Author	: Long Le, Manh Nguyen
+// Date  	: April-5th, 2025
+// Description	: Connecting IBR128's opmode & encrypt module
+//-----------------------------------------------------------
+
 module IBR128_core(
 	input Clk,
 	input RstN,

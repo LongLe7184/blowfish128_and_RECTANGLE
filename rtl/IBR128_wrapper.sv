@@ -1,3 +1,11 @@
+//-----------------------------------------------------------
+// Module: IBR128 wrapper (IBR128's Top Level Module)
+//-----------------------------------------------------------
+// Author	: Long Le, Manh Nguyen
+// Date  	: April-5th, 2025
+// Description	: Connects CSR module with CORE module
+//-----------------------------------------------------------
+
 module IBR128_wrapper(
 	input Clk,
 	input RstN,

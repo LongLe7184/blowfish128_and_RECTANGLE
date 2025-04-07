@@ -1,3 +1,11 @@
+//-----------------------------------------------------------
+// Function: IBR128 CSR Module
+//-----------------------------------------------------------
+// Author	: Long Le, Manh Nguyen
+// Date  	: April-5th, 2025
+// Description	: Implements CTRL, STATUS, DATA regs adapt with Avalon Bus
+//-----------------------------------------------------------
+
 module IBR128_csr(
 	input Clk,
 	input RstN,
@@ -57,7 +65,7 @@ module IBR128_csr(
 	assign FB = ctrl_reg[5];
 
 	/*STATUS REGISTER MAPPING*/
-	assign status_reg = {24'h0, ctrl_reg[5], ctrl_reg[4:3], ctrl_reg[2], ctrl_reg[1], cipherReady}; 
+	assign status_reg = {26'h0, ctrl_reg[5], ctrl_reg[4:3], ctrl_reg[2], ctrl_reg[1], cipherReady}; 
 
 	/*DATA REGISTER MAPPING*/
 	assign IV = {data_reg[IBR128_IV3], data_reg[IBR128_IV2], data_reg[IBR128_IV1], data_reg[IBR128_IV0]};
@@ -105,7 +113,9 @@ module IBR128_csr(
 	end
 	
 	always @(posedge Clk or negedge RstN) begin
-		if(CS & Read) begin
+		if(!RstN) begin
+			RData <= 32'h0;
+		end else if(CS & Read) begin
 			case(Addr)
 				IBR128_CT0: RData <= data_ro_reg[IBR128_CT0];
 				IBR128_CT1: RData <= data_ro_reg[IBR128_CT1];

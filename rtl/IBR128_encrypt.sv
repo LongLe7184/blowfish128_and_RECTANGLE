@@ -1,3 +1,11 @@
+//-----------------------------------------------------------
+// Function: IBR128 Encrypt Sub-Module
+//-----------------------------------------------------------
+// Author	: Long Le, Manh Nguyen
+// Date  	: April-5th, 2025
+// Description	: Contains Blowfish128 & 2 RECTANGLE128 blocks
+//-----------------------------------------------------------
+
 `include "./RECTANGLE/RECTANGLE128_top.sv"
 `include "./blowfish128/blowfish128_top.sv"
 

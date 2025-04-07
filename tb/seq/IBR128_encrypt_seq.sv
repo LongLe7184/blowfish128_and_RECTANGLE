@@ -3,6 +3,7 @@ import uvm_pkg::*;
 `include "uvm_macros.svh"
 
 class IBR128_encrypt_seq extends uvm_sequence;
+
 	`uvm_object_utils(IBR128_encrypt_seq)
 
 	function new(string name="IBR128_encrypt_seq");
@@ -20,15 +21,20 @@ class IBR128_encrypt_seq extends uvm_sequence;
 		//Init IP with IV, key and plainText
 		for(int i=0; i<12; i++) begin
 			start_item(item);
+			item.CS = 1;
 			item.Addr = i;
 			item.Write = 1;
 			item.Read = 0;
-			if(i<=0 && i<4)
+			if(i>=0 && i<4) begin
+				item.trns_type = IV_TRANS;
 				item.WData = IV[ 32*i +: 32 ];
-			if(i<=4 && i<8)
+			end else if(i>=4 && i<8) begin
+				item.trns_type = KEY_TRANS;
 				item.WData = key[ 32*(i-4) +: 32 ];
-			if(i<=8 && i<12)
+			end else if(i>=8 && i<12) begin
+				item.trns_type = PLAINTEXT_TRANS;
 				item.WData = plainText[ 32*(i-8) +: 32 ];
+			end
 			`uvm_info("SEQ", "Generate new item: ", UVM_LOW)
 			item.print();
 			finish_item(item);
@@ -36,6 +42,7 @@ class IBR128_encrypt_seq extends uvm_sequence;
 
 		//Enable IP with CTRL flags
 		start_item(item);
+		item.trns_type = CMD_TRANS;
 		item.Addr = 5'h10;
 		item.Write = 1;
 		item.Read = 0;

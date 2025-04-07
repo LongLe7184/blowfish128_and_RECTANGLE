@@ -1,4 +1,14 @@
 package IBR128_pkg;
+	typedef enum logic[2:0] {
+		IV_TRANS,
+		KEY_TRANS,
+		PLAINTEXT_TRANS,
+		CIPHERTEXT_TRANS,
+		CMD_TRANS,
+		STATUS_TRANS,
+		NOP_TRANS
+	} transtype;
+	
 	import uvm_pkg::*;
 	`include "uvm_macros.svh"
 	`include "IBR128_base_item.sv"
@@ -9,4 +19,6 @@ package IBR128_pkg;
 	`include "IBR128_scoreboard.sv"
 	`include "IBR128_env.sv"
 	`include "IBR128_base_test.sv"
-endpackage
+
+
+endpackage : IBR128_pkg

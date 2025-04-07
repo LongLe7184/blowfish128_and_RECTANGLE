@@ -6,6 +6,9 @@
 // Description	: Connecting RECTANGLE128's sub-modules
 //-----------------------------------------------------------
 
+`ifndef RECTANGLE128_TOP
+`define RECTANGLE128_TOP
+
 module RECTANGLE128_top(
 	input Clk,
 	input RstN,
@@ -69,3 +72,5 @@ module RECTANGLE128_top(
 	);
 
 endmodule
+
+`endif

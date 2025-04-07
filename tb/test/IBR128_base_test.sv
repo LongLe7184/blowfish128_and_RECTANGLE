@@ -28,8 +28,8 @@ class IBR128_base_test extends uvm_test;
 		phase.raise_objection(this);
 		apply_resetN();
 		seq.start(env.agent.sqcr);
-		#2500;
 		phase.drop_objection(this);
+		phase.phase_done.set_drain_time(this, 200ns);
 	endtask
 
 	virtual task apply_resetN();

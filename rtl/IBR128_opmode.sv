@@ -1,3 +1,14 @@
+//-----------------------------------------------------------
+// Function: IBR128 Op. Mode Sub-Module
+//-----------------------------------------------------------
+// Author	: Long Le, Manh Nguyen
+// Date  	: April-5th, 2025
+// Description	: Implements 3 Block Cipher Operation Mode: CBC, OFB, CTR
+// 		  - CBC: Cipher Block Chaining
+// 		  - OFB: Output Feedback Mode
+// 		  - CTR: Counter Mode
+//-----------------------------------------------------------
+
 module IBR128_opmode(
 	input Clk,
 	input RstN,
@@ -52,7 +63,6 @@ module IBR128_opmode(
 		.S(ctr)
 	);
 
-	//Reset Sequence
 	always @(posedge Clk or negedge RstN or negedge Enable) begin
 		if(!RstN | !Enable) begin
 			encrypt <= 1'b0;
@@ -61,63 +71,51 @@ module IBR128_opmode(
 			sa <= 1'b0;
 			cipherText_reg <= 128'b0;
 			cipherReady_reg <= 1'b0;
-		end
-	end
-
-	//Initial Sequence
-	always @(posedge Clk or negedge RstN) begin
-		if(!RstN) begin
-			nextBlock_input <= 128'b0;
-		end else if (Enable & FB & !block_ready) begin
-			nextBlock_input <= IV;
-		end
-	end
-
-	//CBC BCOM Implementation
-	always @(posedge Clk) begin
-		if (Enable && (modeSel == CBC)) begin
-			if(!block_ready) begin
-				encrypt <= Encrypt;
-				block_start <= 1'b1;
-				pData <= (Encrypt) ? (nextBlock_input ^ plainText) : plainText;
-				sa <= SA;	
-			end else begin
-				nextBlock_input <= (Encrypt) ? eData : plainText;
-				cipherText_reg <= (Encrypt) ? eData : (eData ^ nextBlock_input);
-				cipherReady_reg <= block_ready;
-			end
-		end
-	end
-
-	//OFB BCOM Implementation
-	always @(posedge Clk) begin
-		if(Enable && (modeSel == OFB)) begin
-			if(!block_ready) begin
-				encrypt <= 1'b1;
-				block_start <= 1'b1;
-				pData <= nextBlock_input;
-				sa <= SA;
-			end else begin
-				nextBlock_input <= eData;
-				cipherText_reg <= eData ^ plainText;
-				cipherReady_reg <= block_ready;
-			end
-		end
-	end
-
-	//CTR BCOM Implementation
-	always @(posedge Clk) begin
-		if(Enable && (modeSel == CTR)) begin
-			if(!block_ready) begin
-				encrypt <= 1'b1;
-				block_start <= 1'b1;
-				pData <= nextBlock_input;
-				sa <= SA;
-			end else begin
-				nextBlock_input <= ctr;
-				cipherText_reg <= eData ^ plainText;
-				cipherReady_reg <= block_ready;
-			end
+		end else if (Enable) begin
+			case(modeSel)
+				//CBC BCOM Implementation
+				CBC: begin
+					if(!block_ready) begin
+						nextBlock_input <= (FB) ? IV : 128'h0;
+						encrypt <= Encrypt;
+						block_start <= 1'b1;
+						pData <= (Encrypt) ? (nextBlock_input ^ plainText) : plainText;
+						sa <= SA;	
+					end else begin
+						nextBlock_input <= (Encrypt) ? eData : plainText;
+						cipherText_reg <= (Encrypt) ? eData : (eData ^ nextBlock_input);
+						cipherReady_reg <= block_ready;
+					end
+				end
+				//OFB BCOM Implementation
+				OFB: begin
+					if(!block_ready) begin
+						nextBlock_input <= (FB) ? IV : 128'h0;
+						encrypt <= 1'b1;
+						block_start <= 1'b1;
+						pData <= nextBlock_input;
+						sa <= SA;
+					end else begin
+						nextBlock_input <= eData;
+						cipherText_reg <= eData ^ plainText;
+						cipherReady_reg <= block_ready;
+					end
+				end
+				//CTR BCOM Implementation
+				CTR: begin
+					if(!block_ready) begin
+						nextBlock_input <= (FB) ? IV : 128'h0;
+						encrypt <= 1'b1;
+						block_start <= 1'b1;
+						pData <= nextBlock_input;
+						sa <= SA;
+					end else begin
+						nextBlock_input <= ctr;
+						cipherText_reg <= eData ^ plainText;
+						cipherReady_reg <= block_ready;
+					end
+				end
+			endcase
 		end
 	end
 

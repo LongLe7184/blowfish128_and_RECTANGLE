@@ -25,6 +25,8 @@ class IBR128_monitor extends uvm_monitor;
 			@(posedge vif.Clk);
 			if(vif.CS) begin
 				IBR128_base_item base_item = new;
+				base_item.trns_type = trans_type_determination(vif.Addr); 
+				base_item.CS = vif.CS;
 				base_item.Addr = vif.Addr;
 				base_item.Write = vif.Write;
 				base_item.Read = vif.Read;
@@ -41,4 +43,23 @@ class IBR128_monitor extends uvm_monitor;
 		end
 		`uvm_info("MON", "Exit runphase", UVM_LOW)
 	endtask: run_phase
+
+	virtual function transtype trans_type_determination(bit [4:0] addr);
+		if(addr>=0 && addr<4) 
+			return IV_TRANS;
+		 else if(addr>=4 && addr<8) 
+			return KEY_TRANS;
+		 else if(addr>=8 && addr<12) 
+			return PLAINTEXT_TRANS;
+		 else if(addr>=12 && addr<16) 
+			return CIPHERTEXT_TRANS;
+		 else if(addr==16) 
+			return CMD_TRANS;
+		 else if(addr==17) 
+			return STATUS_TRANS;
+		 else 
+			return NOP_TRANS;
+		
+	endfunction : trans_type_determination
+
 endclass

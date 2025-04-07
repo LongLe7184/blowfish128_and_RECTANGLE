@@ -6,6 +6,9 @@
 // Description	: Connecting sub-modules
 //-----------------------------------------------------------
 
+`ifndef BLOWFISH128_TOP
+`define BLOWFISH128_TOP
+
 module blowfish128_top(
 	//Global Control Signals
 	input Clk,
@@ -122,3 +125,5 @@ module blowfish128_top(
 	);
 
 endmodule
+
+`endif

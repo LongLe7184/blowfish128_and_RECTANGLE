@@ -79,14 +79,13 @@ puts "Starting simulation..."
 #vlog -sv -dpiheader $UVM_HOME/src/dpi/uvm_dpi.h $UVM_HOME/src/dpi/uvm_dpi.cc
 # This should create the necessary shared library
 #vsim -sv_lib $UVM_HOME/lib/uvm_dpi -t 1ps -novopt work.IBR128_tb_top +UVM_TESTNAME=IBR128_base_test
-#vsim -t 1ps -novopt -uvmhome $UVM_HOME work.IBR128_tb_top +UVM_TESTNAME=IBR128_base_test
 vsim -t 1ps -novopt work.IBR128_tb_top +UVM_TESTNAME=IBR128_base_test +UVM_NO_DPI
 
 # Optionally add waveforms
 # do wave.do
 
 # Run simulation for a reasonable time
-run 5000ns
+run -all
 
 puts "Simulation complete."
 # Exit QuestaSim (comment this out if you want to explore simulation results)

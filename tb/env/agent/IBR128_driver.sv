@@ -30,7 +30,7 @@ class IBR128_driver extends uvm_driver #(IBR128_base_item);
 
 	virtual task drive_item(IBR128_base_item base_item);
 		@(posedge vif.Clk);
-		vif.CS <= 1;
+		vif.CS <= base_item.CS;
 		vif.Addr <= base_item.Addr;
 		vif.Write <= base_item.Write;
 		vif.Read <= base_item.Read;
