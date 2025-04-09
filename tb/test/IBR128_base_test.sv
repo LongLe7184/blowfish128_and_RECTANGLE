@@ -24,10 +24,12 @@ class IBR128_base_test extends uvm_test;
 	endfunction
 	
 	virtual task run_phase(uvm_phase phase);
-		IBR128_encrypt_seq seq = IBR128_encrypt_seq::type_id::create("seq");
+		// IBR128_encrypt_seq seq1 = IBR128_encrypt_seq::type_id::create("seq1");
+		IBR128_blowfish_cbc_seq seq2 = IBR128_blowfish_cbc_seq::type_id::create("seq2");
 		phase.raise_objection(this);
 		apply_resetN();
-		seq.start(env.agent.sqcr);
+		// seq1.start(env.agent.sqcr);
+		seq2.start(env.agent.sqcr);
 		phase.drop_objection(this);
 		phase.phase_done.set_drain_time(this, 200ns);
 	endtask

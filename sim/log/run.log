@@ -2,7 +2,7 @@ Reading C:/questasim64_10.2c/tcl/vsim/pref.tcl
 
 # 10.2c
 
-# do setup.tcl 
+# do setup_v2.tcl 
 # D:/designIP/blowfish128_and_RECTANGLE
 # D:/designIP/blowfish128_and_RECTANGLE/rtl
 # D:/designIP/blowfish128_and_RECTANGLE/tb
@@ -18,73 +18,89 @@ Compiling UVM library...
 # Top level modules:
 # 	--none--
 Compiling RTL files...
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling module RECTANGLE128_skeymem
-# 
-# Top level modules:
-# 	RECTANGLE128_skeymem
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling package RECTANGLE128_skeygen_sv_unit
-# -- Compiling module RECTANGLE128_skeygen
-# 
-# Top level modules:
-# 	RECTANGLE128_skeygen
+# D:/designIP/blowfish128_and_RECTANGLE/rtl/RECTANGLE
 # QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
 # -- Compiling package RECTANGLE128_core_sv_unit
 # -- Compiling module RECTANGLE128_core
 # 
 # Top level modules:
 # 	RECTANGLE128_core
+[DEBUG] Compiled: D:/designIP/blowfish128_and_RECTANGLE/rtl/RECTANGLE/RECTANGLE128_core.sv
+# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# 
+# Top level modules:
+# 	--none--
+[DEBUG] Compiled: D:/designIP/blowfish128_and_RECTANGLE/rtl/RECTANGLE/RECTANGLE128_sbox.sv
+# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling package RECTANGLE128_skeygen_sv_unit
+# -- Compiling module RECTANGLE128_skeygen
+# 
+# Top level modules:
+# 	RECTANGLE128_skeygen
+[DEBUG] Compiled: D:/designIP/blowfish128_and_RECTANGLE/rtl/RECTANGLE/RECTANGLE128_skeygen.sv
+# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module RECTANGLE128_skeymem
+# 
+# Top level modules:
+# 	RECTANGLE128_skeymem
+[DEBUG] Compiled: D:/designIP/blowfish128_and_RECTANGLE/rtl/RECTANGLE/RECTANGLE128_skeymem.sv
 # QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
 # -- Compiling module RECTANGLE128_top
 # 
 # Top level modules:
 # 	RECTANGLE128_top
+[DEBUG] Compiled: D:/designIP/blowfish128_and_RECTANGLE/rtl/RECTANGLE/RECTANGLE128_top.sv
+# D:/designIP/blowfish128_and_RECTANGLE/rtl/blowfish128
 # QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+[DEBUG] Compiled: D:/designIP/blowfish128_and_RECTANGLE/rtl/blowfish128/blowfish128_DEF.svh
 # QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module blowfish128_core
 # 
 # Top level modules:
-# 	--none--
+# 	blowfish128_core
+[DEBUG] Compiled: D:/designIP/blowfish128_and_RECTANGLE/rtl/blowfish128/blowfish128_core.sv
 # QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
 # -- Compiling package blowfish128_ffunc_sv_unit
 # -- Compiling module blowfish128_ffunc
 # 
 # Top level modules:
 # 	blowfish128_ffunc
+[DEBUG] Compiled: D:/designIP/blowfish128_and_RECTANGLE/rtl/blowfish128/blowfish128_ffunc.sv
+# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# 
+# Top level modules:
+# 	--none--
+[DEBUG] Compiled: D:/designIP/blowfish128_and_RECTANGLE/rtl/blowfish128/blowfish128_sbox.sv
 # QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
 # -- Compiling module blowfish128_skeygen
 # 
 # Top level modules:
 # 	blowfish128_skeygen
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling module blowfish128_core
-# 
-# Top level modules:
-# 	blowfish128_core
+[DEBUG] Compiled: D:/designIP/blowfish128_and_RECTANGLE/rtl/blowfish128/blowfish128_skeygen.sv
 # QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
 # -- Compiling module blowfish128_top
 # 
 # Top level modules:
 # 	blowfish128_top
+[DEBUG] Compiled: D:/designIP/blowfish128_and_RECTANGLE/rtl/blowfish128/blowfish128_top.sv
 # QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
 # -- Compiling module IBR128_adder
 # 
 # Top level modules:
 # 	IBR128_adder
+[DEBUG] Compiled: D:/designIP/blowfish128_and_RECTANGLE/rtl/IBR128_adder.sv
 # QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling module IBR128_opmode
+# -- Compiling module IBR128_core
 # 
 # Top level modules:
-# 	IBR128_opmode
+# 	IBR128_core
+[DEBUG] Compiled: D:/designIP/blowfish128_and_RECTANGLE/rtl/IBR128_core.sv
 # QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
 # -- Compiling module IBR128_csr
 # 
 # Top level modules:
 # 	IBR128_csr
+[DEBUG] Compiled: D:/designIP/blowfish128_and_RECTANGLE/rtl/IBR128_csr.sv
 # QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
 # -- Compiling module RECTANGLE128_top
 # -- Compiling module blowfish128_top
@@ -92,22 +108,23 @@ Compiling RTL files...
 # 
 # Top level modules:
 # 	IBR128_encrypt
+[DEBUG] Compiled: D:/designIP/blowfish128_and_RECTANGLE/rtl/IBR128_encrypt.sv
 # QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling module IBR128_core
+# -- Compiling module IBR128_opmode
 # 
 # Top level modules:
-# 	IBR128_core
+# 	IBR128_opmode
+[DEBUG] Compiled: D:/designIP/blowfish128_and_RECTANGLE/rtl/IBR128_opmode.sv
 # QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
 # -- Compiling module IBR128_wrapper
 # 
 # Top level modules:
 # 	IBR128_wrapper
+[DEBUG] Compiled: D:/designIP/blowfish128_and_RECTANGLE/rtl/IBR128_wrapper.sv
 Compiling testbench files...
 # QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
 # -- Compiling package IBR128_pkg
 # -- Importing package uvm_pkg
-# ** Warning: D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_encrypt_seq.sv(5): (vlog-2181) Use of a parameterized class uvm_sequence as a type creates a default specialization.
-# 
 # 
 # Top level modules:
 # 	--none--
@@ -122,20 +139,29 @@ Compiling testbench files...
 # -- Importing package uvm_pkg
 # ** Warning: D:/uvm/UVM/1.2/src/base/uvm_event.svh(40): (vlog-2181) Use of a parameterized class uvm_event_callback as a type creates a default specialization.
 # 
-# ** Warning: D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_encrypt_seq.sv(5): (vlog-2181) Use of a parameterized class uvm_sequence as a type creates a default specialization.
-# 
 # -- Compiling module IBR128_wrapper
 # -- Compiling module IBR128_tb_top
 # 
 # Top level modules:
 # 	IBR128_tb_top
+# D:/designIP/blowfish128_and_RECTANGLE/tb/seq
 # QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
 # 
 # Top level modules:
 # 	--none--
 # QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# ** Warning: D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_encrypt_seq.sv(5): (vlog-2181) Use of a parameterized class uvm_sequence as a type creates a default specialization.
 # 
+# Top level modules:
+# 	--none--
+# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# 
+# Top level modules:
+# 	--none--
+# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# 
+# Top level modules:
+# 	--none--
+# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
 # 
 # Top level modules:
 # 	--none--
@@ -152,6 +178,7 @@ Compiling testbench files...
 # 
 # Top level modules:
 # 	--none--
+# D:/designIP/blowfish128_and_RECTANGLE/tb/env
 # QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
 # 
 # Top level modules:
@@ -160,13 +187,14 @@ Compiling testbench files...
 # 
 # Top level modules:
 # 	--none--
+# D:/designIP/blowfish128_and_RECTANGLE/tb/test
 # QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
 # 
 # Top level modules:
 # 	--none--
 Starting simulation...
 # vsim +UVM_TESTNAME=IBR128_base_test +UVM_NO_DPI -t 1ps -novopt work.IBR128_tb_top 
-# Loading C:\Users\ADMIN\AppData\Local\Temp\ADMIN@ASUS-A15_dpi_69504\win64_gcc-4.5.0\export_tramp.dll
+# Loading C:\Users\ADMIN\AppData\Local\Temp\ADMIN@ASUS-A15_dpi_56720\win64_gcc-4.5.0\export_tramp.dll
 # //  Questa Sim-64
 # //  Version 10.2c Unknown Platform Jul 19 2013
 # //
@@ -228,8 +256,8 @@ Starting simulation...
 # Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/work.RECTANGLE128_core_sv_unit
 # Loading work.RECTANGLE128_core_sv_unit
 # Loading work.RECTANGLE128_core
-# Compiling C:\Users\ADMIN\AppData\Local\Temp\ADMIN@ASUS-A15_dpi_69504\win64_gcc-4.5.0\exportwrapper.c
-# Loading C:\Users\ADMIN\AppData\Local\Temp\ADMIN@ASUS-A15_dpi_69504\win64_gcc-4.5.0\dpi_auto_compile.dll
+# Compiling C:\Users\ADMIN\AppData\Local\Temp\ADMIN@ASUS-A15_dpi_56720\win64_gcc-4.5.0\exportwrapper.c
+# Loading C:\Users\ADMIN\AppData\Local\Temp\ADMIN@ASUS-A15_dpi_56720\win64_gcc-4.5.0\dpi_auto_compile.dll
 # UVM_INFO D:/uvm/UVM/1.2/src/base/uvm_root.svh(392) @ 0: reporter [UVM/RELNOTES] 
 # ----------------------------------------------------------------
 # UVM-1.2
@@ -280,277 +308,305 @@ Starting simulation...
 # UVM_INFO D:/uvm/UVM/1.2/src/base/uvm_traversal.svh(279) @ 0: reporter [UVM/COMP/NAMECHECK] This implementation of the component name checks requires DPI to be enabled
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_monitor.sv(22) @ 0: uvm_test_top.env.agent.mon [MON] Enter runphase
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(24) @ 0: uvm_test_top.env.agent.drv [DRV] Wait for item from seqcr
-# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_encrypt_seq.sv(38) @ 180000: uvm_test_top.env.agent.sqcr@@seq [SEQ] Generate new item: 
-# --------------------------------------------------------------------------------------
-# Name                           Type              Size  Value                          
-# --------------------------------------------------------------------------------------
-# item                           IBR128_base_item  -     @640                           
-#   trns_type                    transtype         3     IV_TRANS                       
-#   CS                           integral          1     'h1                            
-#   Addr                         integral          5     'h0                            
-#   Write                        integral          1     'h1                            
-#   Read                         integral          1     'h0                            
-#   WData                        integral          32    'h77778888                     
-#   RData                        integral          32    'h0                            
-#   begin_time                   time              64    180000                         
-#   depth                        int               32    'd2                            
-#   parent sequence (name)       string            3     seq                            
-#   parent sequence (full name)  string            31    uvm_test_top.env.agent.sqcr.seq
-#   sequencer                    string            27    uvm_test_top.env.agent.sqcr    
-# --------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------
+# Name         Type             Size  Value                             
+# ----------------------------------------------------------------------
+# seq_item     IBR128_seq_item  -     @640                              
+#   Operation  operation        1     ENCRYPT                           
+#   Algorithm  algorithm        1     BLOWFISH                          
+#   BCOM       bcom             2     CBC                               
+#   BlockNum   integral         32    'h1                               
+#   IV         integral         128   'h11112222333344445555666677778888
+#   PData      integral         128   'h123456abcd132536123456abcd132536
+#   EData      integral         128   'h0                               
+# ----------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_init_seq.sv(36) @ 180000: uvm_test_top.env.agent.sqcr@@init_seq [SEQ] Generate new item: 
+# -------------------------------------------------------------------------------------------
+# Name                           Type              Size  Value                               
+# -------------------------------------------------------------------------------------------
+# base_item                      IBR128_base_item  -     @652                                
+#   trns_type                    transtype         3     IV_TRANS                            
+#   CS                           integral          1     'h1                                 
+#   Addr                         integral          5     'h0                                 
+#   Write                        integral          1     'h1                                 
+#   Read                         integral          1     'h0                                 
+#   WData                        integral          32    'h77778888                          
+#   RData                        integral          32    'h0                                 
+#   begin_time                   time              64    180000                              
+#   depth                        int               32    'd2                                 
+#   parent sequence (name)       string            8     init_seq                            
+#   parent sequence (full name)  string            36    uvm_test_top.env.agent.sqcr.init_seq
+#   sequencer                    string            27    uvm_test_top.env.agent.sqcr         
+# -------------------------------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(28) @ 200000: uvm_test_top.env.agent.drv [DRV] Drive to DUT:
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(24) @ 200000: uvm_test_top.env.agent.drv [DRV] Wait for item from seqcr
-# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_encrypt_seq.sv(38) @ 200000: uvm_test_top.env.agent.sqcr@@seq [SEQ] Generate new item: 
-# --------------------------------------------------------------------------------------
-# Name                           Type              Size  Value                          
-# --------------------------------------------------------------------------------------
-# item                           IBR128_base_item  -     @640                           
-#   trns_type                    transtype         3     IV_TRANS                       
-#   CS                           integral          1     'h1                            
-#   Addr                         integral          5     'h1                            
-#   Write                        integral          1     'h1                            
-#   Read                         integral          1     'h0                            
-#   WData                        integral          32    'h55556666                     
-#   RData                        integral          32    'h0                            
-#   begin_time                   time              64    200000                         
-#   depth                        int               32    'd2                            
-#   parent sequence (name)       string            3     seq                            
-#   parent sequence (full name)  string            31    uvm_test_top.env.agent.sqcr.seq
-#   sequencer                    string            27    uvm_test_top.env.agent.sqcr    
-# --------------------------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_init_seq.sv(36) @ 200000: uvm_test_top.env.agent.sqcr@@init_seq [SEQ] Generate new item: 
+# -------------------------------------------------------------------------------------------
+# Name                           Type              Size  Value                               
+# -------------------------------------------------------------------------------------------
+# base_item                      IBR128_base_item  -     @652                                
+#   trns_type                    transtype         3     IV_TRANS                            
+#   CS                           integral          1     'h1                                 
+#   Addr                         integral          5     'h1                                 
+#   Write                        integral          1     'h1                                 
+#   Read                         integral          1     'h0                                 
+#   WData                        integral          32    'h55556666                          
+#   RData                        integral          32    'h0                                 
+#   begin_time                   time              64    200000                              
+#   depth                        int               32    'd2                                 
+#   parent sequence (name)       string            8     init_seq                            
+#   parent sequence (full name)  string            36    uvm_test_top.env.agent.sqcr.init_seq
+#   sequencer                    string            27    uvm_test_top.env.agent.sqcr         
+# -------------------------------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(28) @ 220000: uvm_test_top.env.agent.drv [DRV] Drive to DUT:
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(24) @ 220000: uvm_test_top.env.agent.drv [DRV] Wait for item from seqcr
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_monitor.sv(40) @ 220000: uvm_test_top.env.agent.mon [IBR128_monitor] Monitor captures packet: trans=IV_trans cs=0x1 addr=0x0 wr=0x1 rd=0x0 wdata=0x77778888 rdata=0x0
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/IBR128_scoreboard.sv(25) @ 220000: uvm_test_top.env.scoreboard [SCB] write function
-# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_encrypt_seq.sv(38) @ 220000: uvm_test_top.env.agent.sqcr@@seq [SEQ] Generate new item: 
-# --------------------------------------------------------------------------------------
-# Name                           Type              Size  Value                          
-# --------------------------------------------------------------------------------------
-# item                           IBR128_base_item  -     @640                           
-#   trns_type                    transtype         3     IV_TRANS                       
-#   CS                           integral          1     'h1                            
-#   Addr                         integral          5     'h2                            
-#   Write                        integral          1     'h1                            
-#   Read                         integral          1     'h0                            
-#   WData                        integral          32    'h33334444                     
-#   RData                        integral          32    'h0                            
-#   begin_time                   time              64    220000                         
-#   depth                        int               32    'd2                            
-#   parent sequence (name)       string            3     seq                            
-#   parent sequence (full name)  string            31    uvm_test_top.env.agent.sqcr.seq
-#   sequencer                    string            27    uvm_test_top.env.agent.sqcr    
-# --------------------------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_init_seq.sv(36) @ 220000: uvm_test_top.env.agent.sqcr@@init_seq [SEQ] Generate new item: 
+# -------------------------------------------------------------------------------------------
+# Name                           Type              Size  Value                               
+# -------------------------------------------------------------------------------------------
+# base_item                      IBR128_base_item  -     @652                                
+#   trns_type                    transtype         3     IV_TRANS                            
+#   CS                           integral          1     'h1                                 
+#   Addr                         integral          5     'h2                                 
+#   Write                        integral          1     'h1                                 
+#   Read                         integral          1     'h0                                 
+#   WData                        integral          32    'h33334444                          
+#   RData                        integral          32    'h0                                 
+#   begin_time                   time              64    220000                              
+#   depth                        int               32    'd2                                 
+#   parent sequence (name)       string            8     init_seq                            
+#   parent sequence (full name)  string            36    uvm_test_top.env.agent.sqcr.init_seq
+#   sequencer                    string            27    uvm_test_top.env.agent.sqcr         
+# -------------------------------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(28) @ 240000: uvm_test_top.env.agent.drv [DRV] Drive to DUT:
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(24) @ 240000: uvm_test_top.env.agent.drv [DRV] Wait for item from seqcr
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_monitor.sv(40) @ 240000: uvm_test_top.env.agent.mon [IBR128_monitor] Monitor captures packet: trans=IV_trans cs=0x1 addr=0x1 wr=0x1 rd=0x0 wdata=0x55556666 rdata=0x0
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/IBR128_scoreboard.sv(25) @ 240000: uvm_test_top.env.scoreboard [SCB] write function
-# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_encrypt_seq.sv(38) @ 240000: uvm_test_top.env.agent.sqcr@@seq [SEQ] Generate new item: 
-# --------------------------------------------------------------------------------------
-# Name                           Type              Size  Value                          
-# --------------------------------------------------------------------------------------
-# item                           IBR128_base_item  -     @640                           
-#   trns_type                    transtype         3     IV_TRANS                       
-#   CS                           integral          1     'h1                            
-#   Addr                         integral          5     'h3                            
-#   Write                        integral          1     'h1                            
-#   Read                         integral          1     'h0                            
-#   WData                        integral          32    'h11112222                     
-#   RData                        integral          32    'h0                            
-#   begin_time                   time              64    240000                         
-#   depth                        int               32    'd2                            
-#   parent sequence (name)       string            3     seq                            
-#   parent sequence (full name)  string            31    uvm_test_top.env.agent.sqcr.seq
-#   sequencer                    string            27    uvm_test_top.env.agent.sqcr    
-# --------------------------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_init_seq.sv(36) @ 240000: uvm_test_top.env.agent.sqcr@@init_seq [SEQ] Generate new item: 
+# -------------------------------------------------------------------------------------------
+# Name                           Type              Size  Value                               
+# -------------------------------------------------------------------------------------------
+# base_item                      IBR128_base_item  -     @652                                
+#   trns_type                    transtype         3     IV_TRANS                            
+#   CS                           integral          1     'h1                                 
+#   Addr                         integral          5     'h3                                 
+#   Write                        integral          1     'h1                                 
+#   Read                         integral          1     'h0                                 
+#   WData                        integral          32    'h11112222                          
+#   RData                        integral          32    'h0                                 
+#   begin_time                   time              64    240000                              
+#   depth                        int               32    'd2                                 
+#   parent sequence (name)       string            8     init_seq                            
+#   parent sequence (full name)  string            36    uvm_test_top.env.agent.sqcr.init_seq
+#   sequencer                    string            27    uvm_test_top.env.agent.sqcr         
+# -------------------------------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(28) @ 260000: uvm_test_top.env.agent.drv [DRV] Drive to DUT:
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(24) @ 260000: uvm_test_top.env.agent.drv [DRV] Wait for item from seqcr
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_monitor.sv(40) @ 260000: uvm_test_top.env.agent.mon [IBR128_monitor] Monitor captures packet: trans=IV_trans cs=0x1 addr=0x2 wr=0x1 rd=0x0 wdata=0x33334444 rdata=0x0
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/IBR128_scoreboard.sv(25) @ 260000: uvm_test_top.env.scoreboard [SCB] write function
-# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_encrypt_seq.sv(38) @ 260000: uvm_test_top.env.agent.sqcr@@seq [SEQ] Generate new item: 
-# --------------------------------------------------------------------------------------
-# Name                           Type              Size  Value                          
-# --------------------------------------------------------------------------------------
-# item                           IBR128_base_item  -     @640                           
-#   trns_type                    transtype         3     KEY_TRANS                      
-#   CS                           integral          1     'h1                            
-#   Addr                         integral          5     'h4                            
-#   Write                        integral          1     'h1                            
-#   Read                         integral          1     'h0                            
-#   WData                        integral          32    'h56701122                     
-#   RData                        integral          32    'h0                            
-#   begin_time                   time              64    260000                         
-#   depth                        int               32    'd2                            
-#   parent sequence (name)       string            3     seq                            
-#   parent sequence (full name)  string            31    uvm_test_top.env.agent.sqcr.seq
-#   sequencer                    string            27    uvm_test_top.env.agent.sqcr    
-# --------------------------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_init_seq.sv(36) @ 260000: uvm_test_top.env.agent.sqcr@@init_seq [SEQ] Generate new item: 
+# -------------------------------------------------------------------------------------------
+# Name                           Type              Size  Value                               
+# -------------------------------------------------------------------------------------------
+# base_item                      IBR128_base_item  -     @652                                
+#   trns_type                    transtype         3     KEY_TRANS                           
+#   CS                           integral          1     'h1                                 
+#   Addr                         integral          5     'h4                                 
+#   Write                        integral          1     'h1                                 
+#   Read                         integral          1     'h0                                 
+#   WData                        integral          32    'h56701122                          
+#   RData                        integral          32    'h0                                 
+#   begin_time                   time              64    260000                              
+#   depth                        int               32    'd2                                 
+#   parent sequence (name)       string            8     init_seq                            
+#   parent sequence (full name)  string            36    uvm_test_top.env.agent.sqcr.init_seq
+#   sequencer                    string            27    uvm_test_top.env.agent.sqcr         
+# -------------------------------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(28) @ 280000: uvm_test_top.env.agent.drv [DRV] Drive to DUT:
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(24) @ 280000: uvm_test_top.env.agent.drv [DRV] Wait for item from seqcr
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_monitor.sv(40) @ 280000: uvm_test_top.env.agent.mon [IBR128_monitor] Monitor captures packet: trans=IV_trans cs=0x1 addr=0x3 wr=0x1 rd=0x0 wdata=0x11112222 rdata=0x0
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/IBR128_scoreboard.sv(25) @ 280000: uvm_test_top.env.scoreboard [SCB] write function
-# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_encrypt_seq.sv(38) @ 280000: uvm_test_top.env.agent.sqcr@@seq [SEQ] Generate new item: 
-# --------------------------------------------------------------------------------------
-# Name                           Type              Size  Value                          
-# --------------------------------------------------------------------------------------
-# item                           IBR128_base_item  -     @640                           
-#   trns_type                    transtype         3     KEY_TRANS                      
-#   CS                           integral          1     'h1                            
-#   Addr                         integral          5     'h5                            
-#   Write                        integral          1     'h1                            
-#   Read                         integral          1     'h0                            
-#   WData                        integral          32    'h99881234                     
-#   RData                        integral          32    'h0                            
-#   begin_time                   time              64    280000                         
-#   depth                        int               32    'd2                            
-#   parent sequence (name)       string            3     seq                            
-#   parent sequence (full name)  string            31    uvm_test_top.env.agent.sqcr.seq
-#   sequencer                    string            27    uvm_test_top.env.agent.sqcr    
-# --------------------------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_init_seq.sv(36) @ 280000: uvm_test_top.env.agent.sqcr@@init_seq [SEQ] Generate new item: 
+# -------------------------------------------------------------------------------------------
+# Name                           Type              Size  Value                               
+# -------------------------------------------------------------------------------------------
+# base_item                      IBR128_base_item  -     @652                                
+#   trns_type                    transtype         3     KEY_TRANS                           
+#   CS                           integral          1     'h1                                 
+#   Addr                         integral          5     'h5                                 
+#   Write                        integral          1     'h1                                 
+#   Read                         integral          1     'h0                                 
+#   WData                        integral          32    'h99881234                          
+#   RData                        integral          32    'h0                                 
+#   begin_time                   time              64    280000                              
+#   depth                        int               32    'd2                                 
+#   parent sequence (name)       string            8     init_seq                            
+#   parent sequence (full name)  string            36    uvm_test_top.env.agent.sqcr.init_seq
+#   sequencer                    string            27    uvm_test_top.env.agent.sqcr         
+# -------------------------------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(28) @ 300000: uvm_test_top.env.agent.drv [DRV] Drive to DUT:
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(24) @ 300000: uvm_test_top.env.agent.drv [DRV] Wait for item from seqcr
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_monitor.sv(40) @ 300000: uvm_test_top.env.agent.mon [IBR128_monitor] Monitor captures packet: trans=KEY_trans cs=0x1 addr=0x4 wr=0x1 rd=0x0 wdata=0x56701122 rdata=0x0
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/IBR128_scoreboard.sv(25) @ 300000: uvm_test_top.env.scoreboard [SCB] write function
-# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_encrypt_seq.sv(38) @ 300000: uvm_test_top.env.agent.sqcr@@seq [SEQ] Generate new item: 
-# --------------------------------------------------------------------------------------
-# Name                           Type              Size  Value                          
-# --------------------------------------------------------------------------------------
-# item                           IBR128_base_item  -     @640                           
-#   trns_type                    transtype         3     KEY_TRANS                      
-#   CS                           integral          1     'h1                            
-#   Addr                         integral          5     'h6                            
-#   Write                        integral          1     'h1                            
-#   Read                         integral          1     'h0                            
-#   WData                        integral          32    'h2736ccdd                     
-#   RData                        integral          32    'h0                            
-#   begin_time                   time              64    300000                         
-#   depth                        int               32    'd2                            
-#   parent sequence (name)       string            3     seq                            
-#   parent sequence (full name)  string            31    uvm_test_top.env.agent.sqcr.seq
-#   sequencer                    string            27    uvm_test_top.env.agent.sqcr    
-# --------------------------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_init_seq.sv(36) @ 300000: uvm_test_top.env.agent.sqcr@@init_seq [SEQ] Generate new item: 
+# -------------------------------------------------------------------------------------------
+# Name                           Type              Size  Value                               
+# -------------------------------------------------------------------------------------------
+# base_item                      IBR128_base_item  -     @652                                
+#   trns_type                    transtype         3     KEY_TRANS                           
+#   CS                           integral          1     'h1                                 
+#   Addr                         integral          5     'h6                                 
+#   Write                        integral          1     'h1                                 
+#   Read                         integral          1     'h0                                 
+#   WData                        integral          32    'h2736ccdd                          
+#   RData                        integral          32    'h0                                 
+#   begin_time                   time              64    300000                              
+#   depth                        int               32    'd2                                 
+#   parent sequence (name)       string            8     init_seq                            
+#   parent sequence (full name)  string            36    uvm_test_top.env.agent.sqcr.init_seq
+#   sequencer                    string            27    uvm_test_top.env.agent.sqcr         
+# -------------------------------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(28) @ 320000: uvm_test_top.env.agent.drv [DRV] Drive to DUT:
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(24) @ 320000: uvm_test_top.env.agent.drv [DRV] Wait for item from seqcr
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_monitor.sv(40) @ 320000: uvm_test_top.env.agent.mon [IBR128_monitor] Monitor captures packet: trans=KEY_trans cs=0x1 addr=0x5 wr=0x1 rd=0x0 wdata=0x99881234 rdata=0x0
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/IBR128_scoreboard.sv(25) @ 320000: uvm_test_top.env.scoreboard [SCB] write function
-# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_encrypt_seq.sv(38) @ 320000: uvm_test_top.env.agent.sqcr@@seq [SEQ] Generate new item: 
-# --------------------------------------------------------------------------------------
-# Name                           Type              Size  Value                          
-# --------------------------------------------------------------------------------------
-# item                           IBR128_base_item  -     @640                           
-#   trns_type                    transtype         3     KEY_TRANS                      
-#   CS                           integral          1     'h1                            
-#   Addr                         integral          5     'h7                            
-#   Write                        integral          1     'h1                            
-#   Read                         integral          1     'h0                            
-#   WData                        integral          32    'haabb0918                     
-#   RData                        integral          32    'h0                            
-#   begin_time                   time              64    320000                         
-#   depth                        int               32    'd2                            
-#   parent sequence (name)       string            3     seq                            
-#   parent sequence (full name)  string            31    uvm_test_top.env.agent.sqcr.seq
-#   sequencer                    string            27    uvm_test_top.env.agent.sqcr    
-# --------------------------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_init_seq.sv(36) @ 320000: uvm_test_top.env.agent.sqcr@@init_seq [SEQ] Generate new item: 
+# -------------------------------------------------------------------------------------------
+# Name                           Type              Size  Value                               
+# -------------------------------------------------------------------------------------------
+# base_item                      IBR128_base_item  -     @652                                
+#   trns_type                    transtype         3     KEY_TRANS                           
+#   CS                           integral          1     'h1                                 
+#   Addr                         integral          5     'h7                                 
+#   Write                        integral          1     'h1                                 
+#   Read                         integral          1     'h0                                 
+#   WData                        integral          32    'haabb0918                          
+#   RData                        integral          32    'h0                                 
+#   begin_time                   time              64    320000                              
+#   depth                        int               32    'd2                                 
+#   parent sequence (name)       string            8     init_seq                            
+#   parent sequence (full name)  string            36    uvm_test_top.env.agent.sqcr.init_seq
+#   sequencer                    string            27    uvm_test_top.env.agent.sqcr         
+# -------------------------------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(28) @ 340000: uvm_test_top.env.agent.drv [DRV] Drive to DUT:
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(24) @ 340000: uvm_test_top.env.agent.drv [DRV] Wait for item from seqcr
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_monitor.sv(40) @ 340000: uvm_test_top.env.agent.mon [IBR128_monitor] Monitor captures packet: trans=KEY_trans cs=0x1 addr=0x6 wr=0x1 rd=0x0 wdata=0x2736ccdd rdata=0x0
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/IBR128_scoreboard.sv(25) @ 340000: uvm_test_top.env.scoreboard [SCB] write function
-# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_encrypt_seq.sv(38) @ 340000: uvm_test_top.env.agent.sqcr@@seq [SEQ] Generate new item: 
-# --------------------------------------------------------------------------------------
-# Name                           Type              Size  Value                          
-# --------------------------------------------------------------------------------------
-# item                           IBR128_base_item  -     @640                           
-#   trns_type                    transtype         3     PLAINTEXT_TRANS                
-#   CS                           integral          1     'h1                            
-#   Addr                         integral          5     'h8                            
-#   Write                        integral          1     'h1                            
-#   Read                         integral          1     'h0                            
-#   WData                        integral          32    'hcd132536                     
-#   RData                        integral          32    'h0                            
-#   begin_time                   time              64    340000                         
-#   depth                        int               32    'd2                            
-#   parent sequence (name)       string            3     seq                            
-#   parent sequence (full name)  string            31    uvm_test_top.env.agent.sqcr.seq
-#   sequencer                    string            27    uvm_test_top.env.agent.sqcr    
-# --------------------------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_init_seq.sv(36) @ 340000: uvm_test_top.env.agent.sqcr@@init_seq [SEQ] Generate new item: 
+# -------------------------------------------------------------------------------------------
+# Name                           Type              Size  Value                               
+# -------------------------------------------------------------------------------------------
+# base_item                      IBR128_base_item  -     @652                                
+#   trns_type                    transtype         3     PLAINTEXT_TRANS                     
+#   CS                           integral          1     'h1                                 
+#   Addr                         integral          5     'h8                                 
+#   Write                        integral          1     'h1                                 
+#   Read                         integral          1     'h0                                 
+#   WData                        integral          32    'hcd132536                          
+#   RData                        integral          32    'h0                                 
+#   begin_time                   time              64    340000                              
+#   depth                        int               32    'd2                                 
+#   parent sequence (name)       string            8     init_seq                            
+#   parent sequence (full name)  string            36    uvm_test_top.env.agent.sqcr.init_seq
+#   sequencer                    string            27    uvm_test_top.env.agent.sqcr         
+# -------------------------------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(28) @ 360000: uvm_test_top.env.agent.drv [DRV] Drive to DUT:
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(24) @ 360000: uvm_test_top.env.agent.drv [DRV] Wait for item from seqcr
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_monitor.sv(40) @ 360000: uvm_test_top.env.agent.mon [IBR128_monitor] Monitor captures packet: trans=KEY_trans cs=0x1 addr=0x7 wr=0x1 rd=0x0 wdata=0xaabb0918 rdata=0x0
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/IBR128_scoreboard.sv(25) @ 360000: uvm_test_top.env.scoreboard [SCB] write function
-# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_encrypt_seq.sv(38) @ 360000: uvm_test_top.env.agent.sqcr@@seq [SEQ] Generate new item: 
-# --------------------------------------------------------------------------------------
-# Name                           Type              Size  Value                          
-# --------------------------------------------------------------------------------------
-# item                           IBR128_base_item  -     @640                           
-#   trns_type                    transtype         3     PLAINTEXT_TRANS                
-#   CS                           integral          1     'h1                            
-#   Addr                         integral          5     'h9                            
-#   Write                        integral          1     'h1                            
-#   Read                         integral          1     'h0                            
-#   WData                        integral          32    'h123456ab                     
-#   RData                        integral          32    'h0                            
-#   begin_time                   time              64    360000                         
-#   depth                        int               32    'd2                            
-#   parent sequence (name)       string            3     seq                            
-#   parent sequence (full name)  string            31    uvm_test_top.env.agent.sqcr.seq
-#   sequencer                    string            27    uvm_test_top.env.agent.sqcr    
-# --------------------------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_init_seq.sv(36) @ 360000: uvm_test_top.env.agent.sqcr@@init_seq [SEQ] Generate new item: 
+# -------------------------------------------------------------------------------------------
+# Name                           Type              Size  Value                               
+# -------------------------------------------------------------------------------------------
+# base_item                      IBR128_base_item  -     @652                                
+#   trns_type                    transtype         3     PLAINTEXT_TRANS                     
+#   CS                           integral          1     'h1                                 
+#   Addr                         integral          5     'h9                                 
+#   Write                        integral          1     'h1                                 
+#   Read                         integral          1     'h0                                 
+#   WData                        integral          32    'h123456ab                          
+#   RData                        integral          32    'h0                                 
+#   begin_time                   time              64    360000                              
+#   depth                        int               32    'd2                                 
+#   parent sequence (name)       string            8     init_seq                            
+#   parent sequence (full name)  string            36    uvm_test_top.env.agent.sqcr.init_seq
+#   sequencer                    string            27    uvm_test_top.env.agent.sqcr         
+# -------------------------------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(28) @ 380000: uvm_test_top.env.agent.drv [DRV] Drive to DUT:
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(24) @ 380000: uvm_test_top.env.agent.drv [DRV] Wait for item from seqcr
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_monitor.sv(40) @ 380000: uvm_test_top.env.agent.mon [IBR128_monitor] Monitor captures packet: trans=PLAINTEXT_trans cs=0x1 addr=0x8 wr=0x1 rd=0x0 wdata=0xcd132536 rdata=0x0
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/IBR128_scoreboard.sv(25) @ 380000: uvm_test_top.env.scoreboard [SCB] write function
-# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_encrypt_seq.sv(38) @ 380000: uvm_test_top.env.agent.sqcr@@seq [SEQ] Generate new item: 
-# --------------------------------------------------------------------------------------
-# Name                           Type              Size  Value                          
-# --------------------------------------------------------------------------------------
-# item                           IBR128_base_item  -     @640                           
-#   trns_type                    transtype         3     PLAINTEXT_TRANS                
-#   CS                           integral          1     'h1                            
-#   Addr                         integral          5     'ha                            
-#   Write                        integral          1     'h1                            
-#   Read                         integral          1     'h0                            
-#   WData                        integral          32    'hcd132536                     
-#   RData                        integral          32    'h0                            
-#   begin_time                   time              64    380000                         
-#   depth                        int               32    'd2                            
-#   parent sequence (name)       string            3     seq                            
-#   parent sequence (full name)  string            31    uvm_test_top.env.agent.sqcr.seq
-#   sequencer                    string            27    uvm_test_top.env.agent.sqcr    
-# --------------------------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_init_seq.sv(36) @ 380000: uvm_test_top.env.agent.sqcr@@init_seq [SEQ] Generate new item: 
+# -------------------------------------------------------------------------------------------
+# Name                           Type              Size  Value                               
+# -------------------------------------------------------------------------------------------
+# base_item                      IBR128_base_item  -     @652                                
+#   trns_type                    transtype         3     PLAINTEXT_TRANS                     
+#   CS                           integral          1     'h1                                 
+#   Addr                         integral          5     'ha                                 
+#   Write                        integral          1     'h1                                 
+#   Read                         integral          1     'h0                                 
+#   WData                        integral          32    'hcd132536                          
+#   RData                        integral          32    'h0                                 
+#   begin_time                   time              64    380000                              
+#   depth                        int               32    'd2                                 
+#   parent sequence (name)       string            8     init_seq                            
+#   parent sequence (full name)  string            36    uvm_test_top.env.agent.sqcr.init_seq
+#   sequencer                    string            27    uvm_test_top.env.agent.sqcr         
+# -------------------------------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(28) @ 400000: uvm_test_top.env.agent.drv [DRV] Drive to DUT:
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(24) @ 400000: uvm_test_top.env.agent.drv [DRV] Wait for item from seqcr
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_monitor.sv(40) @ 400000: uvm_test_top.env.agent.mon [IBR128_monitor] Monitor captures packet: trans=PLAINTEXT_trans cs=0x1 addr=0x9 wr=0x1 rd=0x0 wdata=0x123456ab rdata=0x0
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/IBR128_scoreboard.sv(25) @ 400000: uvm_test_top.env.scoreboard [SCB] write function
-# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_encrypt_seq.sv(38) @ 400000: uvm_test_top.env.agent.sqcr@@seq [SEQ] Generate new item: 
-# --------------------------------------------------------------------------------------
-# Name                           Type              Size  Value                          
-# --------------------------------------------------------------------------------------
-# item                           IBR128_base_item  -     @640                           
-#   trns_type                    transtype         3     PLAINTEXT_TRANS                
-#   CS                           integral          1     'h1                            
-#   Addr                         integral          5     'hb                            
-#   Write                        integral          1     'h1                            
-#   Read                         integral          1     'h0                            
-#   WData                        integral          32    'h123456ab                     
-#   RData                        integral          32    'h0                            
-#   begin_time                   time              64    400000                         
-#   depth                        int               32    'd2                            
-#   parent sequence (name)       string            3     seq                            
-#   parent sequence (full name)  string            31    uvm_test_top.env.agent.sqcr.seq
-#   sequencer                    string            27    uvm_test_top.env.agent.sqcr    
-# --------------------------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_init_seq.sv(36) @ 400000: uvm_test_top.env.agent.sqcr@@init_seq [SEQ] Generate new item: 
+# -------------------------------------------------------------------------------------------
+# Name                           Type              Size  Value                               
+# -------------------------------------------------------------------------------------------
+# base_item                      IBR128_base_item  -     @652                                
+#   trns_type                    transtype         3     PLAINTEXT_TRANS                     
+#   CS                           integral          1     'h1                                 
+#   Addr                         integral          5     'hb                                 
+#   Write                        integral          1     'h1                                 
+#   Read                         integral          1     'h0                                 
+#   WData                        integral          32    'h123456ab                          
+#   RData                        integral          32    'h0                                 
+#   begin_time                   time              64    400000                              
+#   depth                        int               32    'd2                                 
+#   parent sequence (name)       string            8     init_seq                            
+#   parent sequence (full name)  string            36    uvm_test_top.env.agent.sqcr.init_seq
+#   sequencer                    string            27    uvm_test_top.env.agent.sqcr         
+# -------------------------------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(28) @ 420000: uvm_test_top.env.agent.drv [DRV] Drive to DUT:
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(24) @ 420000: uvm_test_top.env.agent.drv [DRV] Wait for item from seqcr
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_monitor.sv(40) @ 420000: uvm_test_top.env.agent.mon [IBR128_monitor] Monitor captures packet: trans=PLAINTEXT_trans cs=0x1 addr=0xa wr=0x1 rd=0x0 wdata=0xcd132536 rdata=0x0
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/IBR128_scoreboard.sv(25) @ 420000: uvm_test_top.env.scoreboard [SCB] write function
-# --------------------------------------------------------------------------------------
-# Name                           Type              Size  Value                          
-# --------------------------------------------------------------------------------------
-# item                           IBR128_base_item  -     @640                           
-#   trns_type                    transtype         3     CMD_TRANS                      
-#   CS                           integral          1     'h1                            
-#   Addr                         integral          5     'h10                           
-#   Write                        integral          1     'h1                            
-#   Read                         integral          1     'h0                            
-#   WData                        integral          32    'h2d                           
-#   RData                        integral          32    'h0                            
-#   begin_time                   time              64    420000                         
-#   depth                        int               32    'd2                            
-#   parent sequence (name)       string            3     seq                            
-#   parent sequence (full name)  string            31    uvm_test_top.env.agent.sqcr.seq
-#   sequencer                    string            27    uvm_test_top.env.agent.sqcr    
-# --------------------------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_init_seq.sv(41) @ 420000: uvm_test_top.env.agent.sqcr@@init_seq [SEQ] Exit body
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_cmd_seq.sv(59) @ 420000: uvm_test_top.env.agent.sqcr@@cmd_seq [SEQ] Generate new item: 
+# ------------------------------------------------------------------------------------------
+# Name                           Type              Size  Value                              
+# ------------------------------------------------------------------------------------------
+# base_item                      IBR128_base_item  -     @829                               
+#   trns_type                    transtype         3     CMD_TRANS                          
+#   CS                           integral          1     'h1                                
+#   Addr                         integral          5     'h10                               
+#   Write                        integral          1     'h1                                
+#   Read                         integral          1     'h0                                
+#   WData                        integral          32    'h2d                               
+#   RData                        integral          32    'h0                                
+#   begin_time                   time              64    420000                             
+#   depth                        int               32    'd2                                
+#   parent sequence (name)       string            7     cmd_seq                            
+#   parent sequence (full name)  string            35    uvm_test_top.env.agent.sqcr.cmd_seq
+#   sequencer                    string            27    uvm_test_top.env.agent.sqcr        
+# ------------------------------------------------------------------------------------------
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(28) @ 440000: uvm_test_top.env.agent.drv [DRV] Drive to DUT:
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_driver.sv(24) @ 440000: uvm_test_top.env.agent.drv [DRV] Wait for item from seqcr
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_monitor.sv(40) @ 440000: uvm_test_top.env.agent.mon [IBR128_monitor] Monitor captures packet: trans=PLAINTEXT_trans cs=0x1 addr=0xb wr=0x1 rd=0x0 wdata=0x123456ab rdata=0x0
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/IBR128_scoreboard.sv(25) @ 440000: uvm_test_top.env.scoreboard [SCB] write function
-# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_encrypt_seq.sv(53) @ 440000: uvm_test_top.env.agent.sqcr@@seq [SEQ] Exit body
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_cmd_seq.sv(63) @ 440000: uvm_test_top.env.agent.sqcr@@cmd_seq [SEQ] Exit body
+# UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/seq/IBR128_blowfish_cbc_seq.sv(50) @ 440000: uvm_test_top.env.agent.sqcr@@seq2 [SEQ] Exit body
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_monitor.sv(40) @ 460000: uvm_test_top.env.agent.mon [IBR128_monitor] Monitor captures packet: trans=CMD_trans cs=0x1 addr=0x10 wr=0x1 rd=0x0 wdata=0x2d rdata=0x0
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/IBR128_scoreboard.sv(25) @ 460000: uvm_test_top.env.scoreboard [SCB] write function
 # UVM_INFO D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent/IBR128_monitor.sv(40) @ 480000: uvm_test_top.env.agent.mon [IBR128_monitor] Monitor captures packet: trans=CMD_trans cs=0x1 addr=0x10 wr=0x1 rd=0x0 wdata=0x2d rdata=0x0
@@ -576,18 +632,18 @@ Starting simulation...
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :   78
+# UVM_INFO :   94
 # UVM_WARNING :    0
 # UVM_ERROR :    0
 # UVM_FATAL :    0
 # ** Report counts by id
-# [DRV]    14
+# [DRV]    27
 # [IBR128_monitor]    22
 # [MON]     1
 # [NO_DPI_TSTNAME]     1
 # [RNTST]     1
 # [SCB]    22
-# [SEQ]    13
+# [SEQ]    16
 # [TEST_DONE]     1
 # [UVM/COMP/NAMECHECK]     1
 # [UVM/RELNOTES]     1

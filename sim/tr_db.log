@@ -20,3 +20,24 @@
   CREATE_STREAM @180 {NAME:seq T:Transactions SCOPE:uvm_test_top.env.agent.sqcr STREAM:635}
   CREATE_STREAM @180000 {NAME:seq T:Transactions SCOPE:uvm_test_top.env.agent.sqcr STREAM:637}
   CREATE_STREAM @180000 {NAME:seq T:Transactions SCOPE:uvm_test_top.env.agent.sqcr STREAM:637}
+  CREATE_STREAM @180000 {NAME:seq T:Transactions SCOPE:uvm_test_top.env.agent.sqcr STREAM:637}
+  CREATE_STREAM @180000 {NAME:seq T:Transactions SCOPE:uvm_test_top.env.agent.sqcr STREAM:637}
+  CREATE_STREAM @180000 {NAME:seq T:Transactions SCOPE:uvm_test_top.env.agent.sqcr STREAM:637}
+  CREATE_STREAM @180000 {NAME:seq T:Transactions SCOPE:uvm_test_top.env.agent.sqcr STREAM:637}
+  CREATE_STREAM @180000 {NAME:seq2 T:Transactions SCOPE:uvm_test_top.env.agent.sqcr STREAM:637}
+  CREATE_STREAM @180000 {NAME:init_seq T:Transactions SCOPE:uvm_test_top.env.agent.sqcr STREAM:650}
+  CREATE_STREAM @180000 {NAME:seq2 T:Transactions SCOPE:uvm_test_top.env.agent.sqcr STREAM:637}
+  CREATE_STREAM @180000 {NAME:init_seq T:Transactions SCOPE:uvm_test_top.env.agent.sqcr STREAM:650}
+  CREATE_STREAM @180000 {NAME:seq2 T:Transactions SCOPE:uvm_test_top.env.agent.sqcr STREAM:637}
+  CREATE_STREAM @180000 {NAME:init_seq T:Transactions SCOPE:uvm_test_top.env.agent.sqcr STREAM:650}
+  CREATE_STREAM @180000 {NAME:seq2 T:Transactions SCOPE:uvm_test_top.env.agent.sqcr STREAM:637}
+  CREATE_STREAM @180000 {NAME:init_seq T:Transactions SCOPE:uvm_test_top.env.agent.sqcr STREAM:650}
+  CREATE_STREAM @180000 {NAME:seq2 T:Transactions SCOPE:uvm_test_top.env.agent.sqcr STREAM:637}
+  CREATE_STREAM @180000 {NAME:init_seq T:Transactions SCOPE:uvm_test_top.env.agent.sqcr STREAM:650}
+  CREATE_STREAM @180 {NAME:seq2 T:Transactions SCOPE:uvm_test_top.env.agent.sqcr STREAM:635}
+  CREATE_STREAM @180 {NAME:init_seq T:Transactions SCOPE:uvm_test_top.env.agent.sqcr STREAM:648}
+  CREATE_STREAM @180000 {NAME:seq2 T:Transactions SCOPE:uvm_test_top.env.agent.sqcr STREAM:637}
+  CREATE_STREAM @180000 {NAME:init_seq T:Transactions SCOPE:uvm_test_top.env.agent.sqcr STREAM:650}
+  CREATE_STREAM @180000 {NAME:seq2 T:Transactions SCOPE:uvm_test_top.env.agent.sqcr STREAM:637}
+  CREATE_STREAM @180000 {NAME:init_seq T:Transactions SCOPE:uvm_test_top.env.agent.sqcr STREAM:650}
+  CREATE_STREAM @420000 {NAME:cmd_seq T:Transactions SCOPE:uvm_test_top.env.agent.sqcr STREAM:827}
