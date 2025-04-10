@@ -16,6 +16,8 @@ class IBR128_blowfish_cbc_seq extends uvm_sequence #(IBR128_base_item);
 
 	IBR128_init_seq init_seq;
 	IBR128_cmd_seq cmd_seq;
+	IBR128_status_seq status_seq;
+	IBR128_collect_seq collect_seq;
 
 	function new(string name="IBR128_blowfish_cbc_seq");
 		super.new(name);
@@ -46,6 +48,12 @@ class IBR128_blowfish_cbc_seq extends uvm_sequence #(IBR128_base_item);
 		cmd_seq.Al = Al;
 		cmd_seq.bcOpMode = bcOpMode;
 		cmd_seq.start(m_sequencer);
+
+		status_seq = IBR128_status_seq::type_id::create("status_seq");
+		status_seq.start(m_sequencer);
+
+		collect_seq = IBR128_collect_seq::type_id::create("collect_seq");
+		collect_seq.start(m_sequencer);
 
 		`uvm_info("SEQ", "Exit body", UVM_LOW)
 	endtask

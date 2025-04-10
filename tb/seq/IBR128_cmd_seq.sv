@@ -50,14 +50,10 @@ class IBR128_cmd_seq extends uvm_sequence #(IBR128_base_item);
 
 		start_item(base_item);
 		base_item.trns_type = CMD_TRANS;
-		base_item.CS = 1;
 		base_item.Addr = 5'h10;
-		base_item.Write = 1;
-		base_item.Read = 0;
 		base_item.WData = ctrl_reg;
 		
-		`uvm_info("SEQ", "Generate new item: ", UVM_LOW)
-		base_item.print();
+		`uvm_info("SEQ", "Generated new item", UVM_LOW)
 		finish_item(base_item);
 
 		`uvm_info("SEQ", "Exit body", UVM_LOW)

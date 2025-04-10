@@ -38,7 +38,7 @@ class IBR128_base_item extends uvm_sequence_item;
 			PLAINTEXT_TRANS: trans_str = "PLAINTEXT_trans";
 			CIPHERTEXT_TRANS: trans_str = "CIPHERTEXT_trans";
 			CMD_TRANS: trans_str = "CMD_trans";
-			STATUS_TRANS: trans_str = "CMD_trans";
+			STATUS_TRANS: trans_str = "STATUS_trans";
 			default: trans_str = "NOP_trans";
 		endcase
 
