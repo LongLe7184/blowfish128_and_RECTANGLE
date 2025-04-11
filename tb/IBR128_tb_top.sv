@@ -7,6 +7,9 @@ import uvm_pkg::*;
 
 module IBR128_tb_top;
 
+	//Add an enum signal of base_item.trns_type 
+	//To display it on waveform
+
 	//Interface
 	IBR128_if vif();
 	IBR128_wrapper dut(
@@ -18,7 +21,7 @@ module IBR128_tb_top;
 			.Addr(vif.Addr),
 			.WData(vif.WData),
 			.RData(vif.RData)
-		);
+	);
 		
 	initial begin
 		$dumpfile("dump.vcd");

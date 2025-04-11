@@ -37,8 +37,11 @@ class IBR128_monitor extends uvm_monitor;
 						base_item.RData = vif.RData;
 					end
 				end
-				`uvm_info(get_type_name(), $sformatf("Monitor captures packet: %s", base_item.toString()), UVM_LOW)
-				mon_analysis_port.write(base_item);
+
+				if(base_item.trns_type != STATUS_TRANS) begin
+					`uvm_info(get_type_name(), $sformatf("Monitor captures packet: %s", base_item.toString()), UVM_LOW)
+					mon_analysis_port.write(base_item);
+				end
 			end
 		end
 		`uvm_info("MON", "Exit runphase", UVM_LOW)

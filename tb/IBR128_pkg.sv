@@ -34,6 +34,8 @@ package IBR128_pkg;
 	`include "IBR128_base_item.sv"
 	`include "IBR128_init_seq.sv"
 	`include "IBR128_cmd_seq.sv"
+	`include "IBR128_status_seq.sv"
+	`include "IBR128_collect_seq.sv"
 	`include "IBR128_blowfish_cbc_seq.sv"
 	
 	//components
