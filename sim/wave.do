@@ -1,5 +1,6 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
+add wave -noupdate /IBR128_tb_top/vif/trans_type_debug
 add wave -noupdate -expand -group dut_wrapper /IBR128_tb_top/dut/Clk
 add wave -noupdate -expand -group dut_wrapper /IBR128_tb_top/dut/RstN
 add wave -noupdate -expand -group dut_wrapper /IBR128_tb_top/dut/CS
@@ -122,12 +123,12 @@ add wave -noupdate -group core/encrypt /IBR128_tb_top/dut/IBR128_core/IBR128_enc
 add wave -noupdate -group core/encrypt /IBR128_tb_top/dut/IBR128_core/IBR128_encrypt/rectangle_eText2
 add wave -noupdate -group core/encrypt /IBR128_tb_top/dut/IBR128_core/IBR128_encrypt/rectangle_eReady1
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {0 ns} 0}
-quietly wave cursor active 0
+WaveRestoreCursors {{Cursor 1} {497 ns} 0}
+quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
-configure wave -signalnamewidth 0
+configure wave -signalnamewidth 1
 configure wave -snapdistance 10
 configure wave -datasetprefix 0
 configure wave -rowmargin 4
@@ -138,4 +139,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ns} {1 us}
+WaveRestoreZoom {0 ns} {1869 ns}
