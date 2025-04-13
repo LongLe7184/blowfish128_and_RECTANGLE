@@ -14,6 +14,8 @@ class IBR128_cmd_seq extends uvm_sequence #(IBR128_base_item);
 	algorithm Al;
 	bcom bcOpMode;
 	logic [31:0] ctrl_reg;
+	IBR128_seq_item parent_seq_item;
+	bit is_first_sequence;
 
 	virtual function void prepareCtrlReg();
 		ctrl_reg = 32'h0;
@@ -52,6 +54,8 @@ class IBR128_cmd_seq extends uvm_sequence #(IBR128_base_item);
 		base_item.trns_type = CMD_TRANS;
 		base_item.Addr = 5'h10;
 		base_item.WData = ctrl_reg;
+		base_item.parent_seq_item = parent_seq_item;
+		base_item.is_first_of_sequence = is_first_sequence;
 		
 		`uvm_info("SEQ", "Generated new item", UVM_LOW)
 		finish_item(base_item);

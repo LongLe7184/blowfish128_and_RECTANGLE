@@ -11,6 +11,8 @@ class IBR128_base_item extends uvm_sequence_item;
 	bit Read;
 	bit [31:0] WData;
 	bit [31:0] RData;
+	bit is_first_of_sequence = 0;
+	IBR128_seq_item parent_seq_item;
 
 	//UVM factory registration
 	`uvm_object_utils_begin(IBR128_base_item)

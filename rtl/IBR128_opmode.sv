@@ -76,7 +76,7 @@ module IBR128_opmode(
 				//CBC BCOM Implementation
 				CBC: begin
 					if(!block_ready) begin
-						nextBlock_input <= (FB) ? IV : 128'h0;
+						nextBlock_input <= (FB) ? IV : nextBlock_input;
 						encrypt <= Encrypt;
 						block_start <= 1'b1;
 						pData <= (Encrypt) ? (nextBlock_input ^ plainText) : plainText;
@@ -90,7 +90,7 @@ module IBR128_opmode(
 				//OFB BCOM Implementation
 				OFB: begin
 					if(!block_ready) begin
-						nextBlock_input <= (FB) ? IV : 128'h0;
+						nextBlock_input <= (FB) ? IV : nextBlock_input;
 						encrypt <= 1'b1;
 						block_start <= 1'b1;
 						pData <= nextBlock_input;
@@ -104,7 +104,7 @@ module IBR128_opmode(
 				//CTR BCOM Implementation
 				CTR: begin
 					if(!block_ready) begin
-						nextBlock_input <= (FB) ? IV : 128'h0;
+						nextBlock_input <= (FB) ? IV : nextBlock_input;
 						encrypt <= 1'b1;
 						block_start <= 1'b1;
 						pData <= nextBlock_input;

@@ -20,7 +20,8 @@ class IBR128_env extends uvm_env;
 
 	virtual function void connect_phase(uvm_phase phase);
 		super.connect_phase(phase);
-		agent.mon.mon_analysis_port.connect(scoreboard.m_analysis_imp);
+		agent.drv.drv_analysis_port.connect(scoreboard.m_analysis_imp_drv);
+		agent.mon.mon_analysis_port.connect(scoreboard.m_analysis_imp_mon);
 	endfunction: connect_phase
 
 endclass

@@ -65,7 +65,7 @@ if {[file exists $RTL_DIR]} {
 puts "Compiling testbench files..."
 
 # Compile local pkg
-vlog -sv -work work +incdir+$TB_DIR +incdir+$TB_DIR/seq +incdir+$TB_DIR/test +incdir+$TB_DIR/env +incdir+$TB_DIR/env/agent +incdir+$UVM_HOME/src $TB_DIR/IBR128_pkg.sv
+vlog -sv -work work +incdir+$TB_DIR +incdir+$TB_DIR/seq +incdir+$TB_DIR/test +incdir+$TB_DIR/env +incdir+$TB_DIR/env/agent +incdir+$TB_DIR/env/model +incdir+$UVM_HOME/src $TB_DIR/IBR128_pkg.sv
 
 # IMPORTANT: First compile the interface and top level testbench which import uvm_pkg
 if {[file exists $TB_DIR]} {

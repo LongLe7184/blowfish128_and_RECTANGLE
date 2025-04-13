@@ -29,21 +29,29 @@ package IBR128_pkg;
 	import uvm_pkg::*;
 	`include "uvm_macros.svh"
 
-	//items & sequences
+	//items
 	`include "IBR128_seq_item.sv"
 	`include "IBR128_base_item.sv"
-	`include "IBR128_init_seq.sv"
-	`include "IBR128_cmd_seq.sv"
-	`include "IBR128_status_seq.sv"
-	`include "IBR128_collect_seq.sv"
-	`include "IBR128_blowfish_cbc_seq.sv"
-	
+
+	//models
+	`include "rectangle128_encrypt_ref_model.sv"
+	`include "rectangle128_decrypt_ref_model.sv"
+
 	//components
 	`include "IBR128_driver.sv"
 	`include "IBR128_monitor.sv"
 	`include "IBR128_agent.sv"
 	`include "IBR128_scoreboard.sv"
 	`include "IBR128_env.sv"
+
+	//sequences
+	`include "IBR128_init_seq.sv"
+	`include "IBR128_cmd_seq.sv"
+	`include "IBR128_status_seq.sv"
+	`include "IBR128_collect_seq.sv"
+	`include "IBR128_intermediate_seq.sv"
+	// `include "IBR128_blowfish_cbc_seq.sv"
+	`include "IBR128_rectangle_cbc_seq.sv"
 
 	//tests
 	`include "IBR128_base_test.sv"

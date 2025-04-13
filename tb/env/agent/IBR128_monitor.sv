@@ -32,10 +32,9 @@ class IBR128_monitor extends uvm_monitor;
 				base_item.Read = vif.Read;
 				base_item.WData = vif.WData;
 
-				if(vif.Read && vif.Addr==5'h11) begin
-					if(vif.RData[0]) begin
-						base_item.RData = vif.RData;
-					end
+				if(vif.Read) begin
+					@(posedge vif.Clk);
+					base_item.RData = vif.RData;
 				end
 
 				if(base_item.trns_type != STATUS_TRANS) begin
