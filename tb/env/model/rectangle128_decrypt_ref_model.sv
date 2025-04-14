@@ -161,8 +161,10 @@ class rectangle128_decrypt_ref_model;
 		subkey_generate(key);
 
 		case(input_tx.BCOM)
+			//BCOM: Cipher Block Chain
 			CBC: begin
 				PData = input_tx.PData;
+				output_tx.CarryData = PData;
 				$display($sformatf("PData: %h", PData));
 				cipher_text_upper = PData[127:64];
 				cipher_text_lower = PData[63:0];

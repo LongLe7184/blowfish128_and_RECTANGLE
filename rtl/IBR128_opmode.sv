@@ -50,7 +50,7 @@ module IBR128_opmode(
 	logic [127:0] ctr;
 	logic [127:0] cipherText_reg;
 	logic cipherReady_reg;
-	logic adder_en;
+	logic adder_en, cbc_flag;
 
 	assign adder_en = (block_start && !block_ready && (modeSel == CTR)) ? 1'b1 : 1'b0;
 
@@ -71,6 +71,7 @@ module IBR128_opmode(
 			sa <= 1'b0;
 			cipherText_reg <= 128'b0;
 			cipherReady_reg <= 1'b0;
+			cbc_flag <= 1'b0;
 		end else if (Enable) begin
 			case(modeSel)
 				//CBC BCOM Implementation
@@ -83,7 +84,10 @@ module IBR128_opmode(
 						sa <= SA;	
 					end else begin
 						nextBlock_input <= (Encrypt) ? eData : plainText;
-						cipherText_reg <= (Encrypt) ? eData : (eData ^ nextBlock_input);
+						if(!cbc_flag) begin
+							cipherText_reg <= (Encrypt) ? eData : (eData ^ nextBlock_input);
+							cbc_flag <= 1'b1;
+						end
 						cipherReady_reg <= block_ready;
 					end
 				end

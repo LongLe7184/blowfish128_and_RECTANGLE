@@ -176,6 +176,7 @@ class rectangle128_encrypt_ref_model;
 				cipher_text_lower = encrypt(plain_text_lower);
 
 				output_tx.EData = {cipher_text_upper, cipher_text_lower};
+				output_tx.CarryData = output_tx.EData;
 			end
 			//BCOM: Output Feedback Mode
 			OFB: begin
@@ -195,9 +196,9 @@ class rectangle128_encrypt_ref_model;
 				$display("====LOWER====");
 				cipher_text_lower = encrypt(plain_text_lower);
 
-				output_tx.EData = {cipher_text_upper, cipher_text_lower};
+				output_tx.CarryData = {cipher_text_upper, cipher_text_lower};
+				output_tx.EData = output_tx.CarryData;
 				output_tx.EData = output_tx.EData ^ input_tx.PData;
-				
 			end
 			//BCOM: Counter Mode
 			CTR: begin
@@ -216,7 +217,7 @@ class rectangle128_encrypt_ref_model;
 
 				output_tx.EData = {cipher_text_upper, cipher_text_lower};
 				output_tx.EData = output_tx.EData ^ input_tx.PData;
-				
+				output_tx.CarryData = {(PData[127:64] + 1), (PData[63:0] + 1)}; 	
 			end
 
 		endcase

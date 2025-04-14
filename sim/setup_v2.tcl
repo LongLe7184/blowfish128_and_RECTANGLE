@@ -1,3 +1,9 @@
+# Test names
+
+# set TEST_NAME "IBR128_rectangle_cbc_test"
+# set TEST_NAME "IBR128_rectangle_ofb_test"
+set TEST_NAME "IBR128_rectangle_ctr_test"
+
 # Project root directory - adjust if needed
 set PROJ_ROOT "D:/designIP/blowfish128_and_RECTANGLE"
 set RTL_DIR "$PROJ_ROOT/rtl"
@@ -110,7 +116,7 @@ if {[file exists $TEST_DIR]} {
 
 # Start simulation
 puts "Starting simulation..."
-vsim -t 1ps -novopt work.IBR128_tb_top +UVM_TESTNAME=IBR128_base_test +UVM_NO_DPI
+vsim -t 1ps -novopt work.IBR128_tb_top +UVM_TESTNAME=$TEST_NAME +UVM_NO_DPI
 
 # Run simulation for a reasonable time
 run -all

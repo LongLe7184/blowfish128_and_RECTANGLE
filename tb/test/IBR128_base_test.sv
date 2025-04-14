@@ -2,7 +2,7 @@ import IBR128_pkg::*;
 import uvm_pkg::*;
 `include "uvm_macros.svh"
 
-`define SEQ_LENGTH 2
+`define SEQ_LENGTH 4
 
 class IBR128_base_test extends uvm_test;
 	`uvm_component_utils(IBR128_base_test)
@@ -41,6 +41,8 @@ class IBR128_base_test extends uvm_test;
 
 			`uvm_info("TEST", $sformatf("Starting sequence iteration %0d", i+1), UVM_LOW)
 			seq2.start(env.agent.sqcr);
+
+			wait_for_scoreboard_done();
 		end
 
 		phase.drop_objection(this);
@@ -54,5 +56,19 @@ class IBR128_base_test extends uvm_test;
 		vif.RstN <= 1;
 		repeat(5) @(posedge vif.Clk);
 	endtask
+
+	task wait_for_scoreboard_done();
+		IBR128_scoreboard scb;
+		if (!$cast(scb, uvm_top.find("uvm_test_top.env.scoreboard"))) begin
+			`uvm_error("TEST", "Failed to find scoreboard")
+			return;
+		end
+		if (scb.done_comparing == 0) begin
+			`uvm_info("TEST", "Waiting for scoreboard to complete comparison", UVM_LOW)
+			@(scb.done_comparing_event);
+			`uvm_info("TEST", "Scoreboard comparison completed", UVM_LOW)
+		end
+	endtask
+
 
 endclass

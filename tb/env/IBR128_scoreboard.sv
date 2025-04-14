@@ -19,6 +19,8 @@ class IBR128_scoreboard extends uvm_scoreboard;
 	IBR128_base_item base_item;
 
 	bit [127:0] CarryData;
+	bit done_comparing = 1;
+	event done_comparing_event;
 
 	function new(string name="IBR128_scoreboard", uvm_component parent=null);
 		super.new(name, parent);
@@ -40,7 +42,12 @@ class IBR128_scoreboard extends uvm_scoreboard;
 
 		if(item.trns_type == CIPHERTEXT_TRANS) begin
         		mon_items.push_back(item);
+			`uvm_info("SCB", $sformatf("mon_items queue size = %d", mon_items.size()), UVM_LOW)
+			`uvm_info("SCB", $sformatf("drv_items queue size = %d", drv_items.size()), UVM_LOW)
 		end
+
+
+		done_comparing = 0;
 
 		if( (drv_items.size() == 1) && (mon_items.size() == 4) ) begin
 
@@ -60,6 +67,8 @@ class IBR128_scoreboard extends uvm_scoreboard;
 				end
 			endcase
 
+			CarryData = golden_item.CarryData;
+			
 			// actual_item = golden_item;
 			actual_item = new();
 			while(mon_items.size() != 0) begin
@@ -71,9 +80,11 @@ class IBR128_scoreboard extends uvm_scoreboard;
 					5'h0F: actual_item.EData[127:96] = base_item.RData;
 				endcase
 			end
-			CarryData = actual_item.EData;
 
 			compare(golden_item, actual_item);	
+
+			done_comparing = 1;
+			-> done_comparing_event;
 		end
 	endfunction: write_mon
 

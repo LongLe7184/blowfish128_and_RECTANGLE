@@ -80,31 +80,32 @@ add wave -noupdate -expand -group core /IBR128_tb_top/dut/IBR128_core/sa
 add wave -noupdate -expand -group core /IBR128_tb_top/dut/IBR128_core/block_ready
 add wave -noupdate -expand -group core /IBR128_tb_top/dut/IBR128_core/pData
 add wave -noupdate -expand -group core /IBR128_tb_top/dut/IBR128_core/eData
-add wave -noupdate -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/Clk
-add wave -noupdate -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/RstN
-add wave -noupdate -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/Enable
-add wave -noupdate -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/Encrypt
-add wave -noupdate -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/SOM
-add wave -noupdate -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/FB
-add wave -noupdate -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/plainText
-add wave -noupdate -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/key0
-add wave -noupdate -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/key1
-add wave -noupdate -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/SA
-add wave -noupdate -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/IV
-add wave -noupdate -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/cipherText
-add wave -noupdate -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/cipherReady
-add wave -noupdate -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/encrypt
-add wave -noupdate -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/block_start
-add wave -noupdate -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/pData
-add wave -noupdate -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/sa
-add wave -noupdate -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/block_ready
-add wave -noupdate -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/eData
-add wave -noupdate -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/modeSel
-add wave -noupdate -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/nextBlock_input
-add wave -noupdate -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/ctr
-add wave -noupdate -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/cipherText_reg
-add wave -noupdate -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/cipherReady_reg
-add wave -noupdate -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/adder_en
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/Clk
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/RstN
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/Enable
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/Encrypt
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/SOM
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/FB
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/plainText
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/key0
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/key1
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/SA
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/IV
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/cipherText
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/cipherReady
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/encrypt
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/block_start
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/pData
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/sa
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/cbc_flag
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/block_ready
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/eData
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/modeSel
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/nextBlock_input
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/ctr
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/cipherText_reg
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/cipherReady_reg
+add wave -noupdate -expand -group core/opmode /IBR128_tb_top/dut/IBR128_core/IBR128_opmode/adder_en
 add wave -noupdate -group core/encrypt /IBR128_tb_top/dut/IBR128_core/IBR128_encrypt/Clk
 add wave -noupdate -group core/encrypt /IBR128_tb_top/dut/IBR128_core/IBR128_encrypt/RstN
 add wave -noupdate -group core/encrypt /IBR128_tb_top/dut/IBR128_core/IBR128_encrypt/key0

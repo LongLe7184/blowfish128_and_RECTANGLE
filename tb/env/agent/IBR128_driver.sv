@@ -39,6 +39,7 @@ class IBR128_driver extends uvm_driver #(IBR128_base_item);
 			drive_item(base_item);
 
 			if(base_item.trns_type == STATUS_TRANS) begin
+				@(posedge vif.Clk);
 				wait(vif.RData[0]);	
 				`uvm_info("LONG_DEBUG", "Wait Complete!", UVM_LOW)
 			end

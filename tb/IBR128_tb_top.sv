@@ -27,7 +27,11 @@ module IBR128_tb_top;
 		$dumpfile("dump.vcd");
 		$dumpvars(0, IBR128_tb_top);
 		uvm_config_db#(virtual IBR128_if)::set(null, "*", "vif", vif);	
-		run_test("IBR128_base_test");
+		// run_test("IBR128_rectangle_cbc_test");
+		// run_test("IBR128_rectangle_ofb_test");
+		run_test("IBR128_rectangle_ctr_test");
+
+		// run_test();
 	end
 
 	initial begin
