@@ -54,13 +54,22 @@ module IBR128_opmode(
 
 	assign adder_en = (block_start && !block_ready && (modeSel == CTR)) ? 1'b1 : 1'b0;
 
-	IBR128_adder IBR128_adder(
+	IBR128_adder IBR128_adder1(
 		.Clk(Clk),
 		.RstN(RstN),
 		.Enable(adder_en),
-		.A(nextBlock_input),
-		.B(128'b1),
-		.S(ctr)
+		.A(nextBlock_input[127:64]),
+		.B(64'b1),
+		.S(ctr[127:64])
+	);
+
+	IBR128_adder IBR128_adder2(
+		.Clk(Clk),
+		.RstN(RstN),
+		.Enable(adder_en),
+		.A(nextBlock_input[63:0]),
+		.B(64'b1),
+		.S(ctr[63:0])
 	);
 
 	always @(posedge Clk or negedge RstN or negedge Enable) begin

@@ -2,7 +2,7 @@ import IBR128_pkg::*;
 import uvm_pkg::*;
 `include "uvm_macros.svh"
 
-`define SEQ_LENGTH 4
+`define SEQ_LENGTH 100
 
 class IBR128_rectangle_ctr_test extends uvm_test;
 	`uvm_component_utils(IBR128_rectangle_ctr_test)
