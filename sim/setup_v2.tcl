@@ -2,7 +2,8 @@
 
 # set TEST_NAME "IBR128_rectangle_cbc_test"
 # set TEST_NAME "IBR128_rectangle_ofb_test"
-set TEST_NAME "IBR128_rectangle_ctr_test"
+# set TEST_NAME "IBR128_rectangle_ctr_test"
+set TEST_NAME "IBR128_blowfish_cbc_test"
 
 # Project root directory - adjust if needed
 set PROJ_ROOT "D:/designIP/blowfish128_and_RECTANGLE"

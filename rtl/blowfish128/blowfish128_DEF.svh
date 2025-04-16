@@ -1,9 +1,9 @@
 //-----------------------------------------------------------
-// Header: Blowfish-128's Definition
+// Function: Blowfish-128's Definition
 //-----------------------------------------------------------
 // Author	: Long Le, Manh Nguyen
 // Date  	: Feb-11th, 2025
-// Description	: Contain Macros holding S-Boxes's values
+// Description	: Contain S-Boxes's values
 //-----------------------------------------------------------
 
 
@@ -522,3 +522,25 @@
 `define SBOX2_ELEMENT_253 32'h8FB03D4A
 `define SBOX2_ELEMENT_254 32'hE6E39F2B
 `define SBOX2_ELEMENT_255 32'hDB83ADF7
+
+//PArr Macro's Values
+`define PARR_ELEMENT_000 32'hBCF46B2E
+`define PARR_ELEMENT_001 32'hD4A20068
+`define PARR_ELEMENT_002 32'hD4082471
+`define PARR_ELEMENT_003 32'h3320F46A
+`define PARR_ELEMENT_004 32'h43B7D4B7
+`define PARR_ELEMENT_005 32'h500061AF
+`define PARR_ELEMENT_006 32'h1E39F62E
+`define PARR_ELEMENT_007 32'h97244546
+`define PARR_ELEMENT_008 32'h14214F74
+`define PARR_ELEMENT_009 32'hBF8B8840
+`define PARR_ELEMENT_010 32'h4D95FC1D
+`define PARR_ELEMENT_011 32'h96B591AF
+`define PARR_ELEMENT_012 32'h70F4DDD3
+`define PARR_ELEMENT_013 32'h66A02F45
+`define PARR_ELEMENT_014 32'hBFBC09EC
+`define PARR_ELEMENT_015 32'h03BD9785
+`define PARR_ELEMENT_016 32'h7FAC6DD0
+`define PARR_ELEMENT_017 32'h31CB8504
+`define PARR_ELEMENT_018 32'h96EB27B3
+`define PARR_ELEMENT_019 32'h55FD3941

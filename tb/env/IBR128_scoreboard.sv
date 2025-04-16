@@ -54,7 +54,12 @@ class IBR128_scoreboard extends uvm_scoreboard;
 			golden_item = drv_items.pop_front(); 
 			case(golden_item.Algorithm)
 				BLOWFISH: begin
-					
+					if(golden_item.Operation == ENCRYPT) begin
+						blowfish128_encrypt_ref_model golden_model = new();
+						golden_item = golden_model.predict(golden_item);
+					end else begin
+
+					end
 				end
 				RECTANGLE: begin
 					if(golden_item.Operation == ENCRYPT) begin

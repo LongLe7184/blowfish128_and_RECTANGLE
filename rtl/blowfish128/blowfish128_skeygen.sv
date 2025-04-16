@@ -7,6 +7,8 @@
 // 		  generating subkeys (use for integrate IP version)
 //-----------------------------------------------------------
 
+`include "blowfish128_DEF.svh"
+
 module blowfish128_skeygen (
 	input Clk,
 	input RstN,
@@ -62,26 +64,26 @@ module blowfish128_skeygen (
 		if (!RstN | !Enable) begin
 			state_machine <= IDLE;
 			ready <= 0;
-			p_array[0] <= 32'h243F6A88;
-			p_array[1] <= 32'h85A308D3;
-			p_array[2] <= 32'h13198A2E;
-			p_array[3] <= 32'h03707344;
-			p_array[4] <= 32'hA4093822;
-			p_array[5] <= 32'h299F31D0;
-			p_array[6] <= 32'h082EFA98;
-			p_array[7] <= 32'hEC4E6C89;
-			p_array[8] <= 32'h452821E6;
-			p_array[9] <= 32'h38D01377;
-			p_array[10] <= 32'hBE5466CF;
-			p_array[11] <= 32'h34E90C6C;
-			p_array[12] <= 32'hC0AC29B7;
-			p_array[13] <= 32'hC97C50DD;
-			p_array[14] <= 32'h3F84D5B5;
-			p_array[15] <= 32'hB5470917;
-			p_array[16] <= 32'h9216D5D9;
-			p_array[17] <= 32'h8979FB1B;
-			p_array[18] <= 32'h578FDFE3;
-			p_array[19] <= 32'h3AC372E6;
+			p_array[0] <= `PARR_ELEMENT_000;
+			p_array[1] <= `PARR_ELEMENT_001;
+			p_array[2] <= `PARR_ELEMENT_002;
+			p_array[3] <= `PARR_ELEMENT_003;
+			p_array[4] <= `PARR_ELEMENT_004;
+			p_array[5] <= `PARR_ELEMENT_005;
+			p_array[6] <= `PARR_ELEMENT_006;
+			p_array[7] <= `PARR_ELEMENT_007;
+			p_array[8] <= `PARR_ELEMENT_008;
+			p_array[9] <= `PARR_ELEMENT_009;
+			p_array[10] <= `PARR_ELEMENT_010;
+			p_array[11] <= `PARR_ELEMENT_011;
+			p_array[12] <= `PARR_ELEMENT_012;
+			p_array[13] <= `PARR_ELEMENT_013;
+			p_array[14] <= `PARR_ELEMENT_014;
+			p_array[15] <= `PARR_ELEMENT_015;
+			p_array[16] <= `PARR_ELEMENT_016;
+			p_array[17] <= `PARR_ELEMENT_017;
+			p_array[18] <= `PARR_ELEMENT_018;
+			p_array[19] <= `PARR_ELEMENT_019;
 		end else begin
 			case (state_machine)
 
