@@ -11,7 +11,7 @@ class IBR128_rectangle_cbc_seq extends uvm_sequence #(IBR128_base_item);
 	const bit [127:0] key_data = 128'haabb_0918_2736_ccdd_9988_1234_5670_1122;
 	// bit [127:0] plainText_data = 128'h1234_56ab_cd13_2536_1234_56ab_cd13_2536;
 	rand bit [127:0] plainText_data;
-	operation Op = ENCRYPT;
+	operation Op;
 	algorithm Al = RECTANGLE;
 	bcom bcOpMode = CBC;
 

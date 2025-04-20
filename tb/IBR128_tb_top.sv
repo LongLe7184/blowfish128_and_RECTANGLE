@@ -24,15 +24,28 @@ module IBR128_tb_top;
 	);
 		
 	initial begin
-		$dumpfile("dump.vcd");
-		$dumpvars(0, IBR128_tb_top);
-		uvm_config_db#(virtual IBR128_if)::set(null, "*", "vif", vif);	
-		// run_test("IBR128_rectangle_cbc_test");
-		// run_test("IBR128_rectangle_ofb_test");
-		// run_test("IBR128_rectangle_ctr_test");
-		run_test("IBR128_blowfish_cbc_test");
 
-		// run_test();
+		string test_name;
+
+		uvm_config_db#(virtual IBR128_if)::set(null, "*", "vif", vif);	
+
+		if ($value$plusargs("UVM_TESTNAME=%s", test_name)) begin
+			// Create a filename based on the test name
+			$display("[TB_TOP] Running test: %s", test_name);
+			$dumpfile({test_name, ".vcd"});
+			$dumpvars(0, IBR128_tb_top);
+		end
+		else begin
+			// Default case if no test name is provided
+			test_name = "base_test";
+			$display("[TB_TOP] Running default test: %s", test_name);
+			$dumpfile({test_name, ".vcd"});
+			$dumpvars(0, IBR128_tb_top);
+		end
+
+		run_test(test_name);
+		run_test();
+
 	end
 
 	initial begin

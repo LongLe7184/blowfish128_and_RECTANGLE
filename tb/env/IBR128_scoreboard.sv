@@ -12,6 +12,11 @@ class IBR128_scoreboard extends uvm_scoreboard;
 	uvm_analysis_imp_drv#(IBR128_seq_item, IBR128_scoreboard) m_analysis_imp_drv;
 	uvm_analysis_imp_mon#(IBR128_base_item, IBR128_scoreboard) m_analysis_imp_mon;
 
+	int seq_length;
+	bit [127:0] pBlock[$];
+	bit [127:0] eBlock[$];
+	bit [127:0] dBlock[$];
+
 	IBR128_seq_item drv_items[$];
 	IBR128_base_item mon_items[$];
 	IBR128_seq_item golden_item;
@@ -30,6 +35,10 @@ class IBR128_scoreboard extends uvm_scoreboard;
 		super.build_phase(phase);
 		m_analysis_imp_drv = new("m_analysis_imp_drv", this);
 		m_analysis_imp_mon = new("m_analysis_imp_mon", this);
+
+		if(!uvm_config_db#(int)::get(this, "", "seq_length", seq_length))
+			`uvm_fatal("SCB", "Couldn't get seq_length")
+
 	endfunction: build_phase
 
 	virtual function void write_drv(IBR128_seq_item item);
@@ -38,6 +47,7 @@ class IBR128_scoreboard extends uvm_scoreboard;
 	endfunction: write_drv
 
 	virtual function void write_mon(IBR128_base_item item);
+
 		`uvm_info("SCB", "write_mon function called", UVM_LOW)
 
 		if(item.trns_type == CIPHERTEXT_TRANS) begin
@@ -45,7 +55,6 @@ class IBR128_scoreboard extends uvm_scoreboard;
 			`uvm_info("SCB", $sformatf("mon_items queue size = %d", mon_items.size()), UVM_LOW)
 			`uvm_info("SCB", $sformatf("drv_items queue size = %d", drv_items.size()), UVM_LOW)
 		end
-
 
 		done_comparing = 0;
 
@@ -73,9 +82,10 @@ class IBR128_scoreboard extends uvm_scoreboard;
 			endcase
 
 			CarryData = golden_item.CarryData;
-			
-			// actual_item = golden_item;
-			actual_item = new();
+
+			// Copy all property except EData
+			actual_item = golden_item;
+			actual_item.EData = 0;
 			while(mon_items.size() != 0) begin
 				base_item = mon_items.pop_front();
 				case(base_item.Addr)
@@ -90,23 +100,70 @@ class IBR128_scoreboard extends uvm_scoreboard;
 
 			done_comparing = 1;
 			-> done_comparing_event;
+
+			if(golden_item.Operation == DECRYPT && golden_item.BlockNum == seq_length)
+				summarize();
 		end
+
 	endfunction: write_mon
 
 	virtual function void compare(IBR128_seq_item golden, IBR128_seq_item actual);
 		if(actual.EData == golden.EData) begin
 			string str = $sformatf("\n\t======  COMPARE RESULT: [MATCH] ======\
+						\n\tOperation   : %s\
+						\n\tBlock Num   : %d\
 						\n\tGolden EData: %032h\
 						\n\tActual EData: %032h\
-						\n\t======================================", golden.EData, actual.EData);
+						\n\t======================================", golden.op2String(), golden.BlockNum, golden.EData, actual.EData);
 			`uvm_info("COMPARE", str, UVM_LOW)
 		end else begin
 			string str = $sformatf("\n\t=====  COMPARE RESULT: [MISMATCH] ====\
+						\n\tOperation   : %s\
+						\n\tBlock Num   : %d\
 						\n\tGolden EData: %032h\
 						\n\tActual EData: %032h\
-						\n\t======================================", golden.EData, actual.EData);
+						\n\t======================================", golden.op2String(), golden.BlockNum, golden.EData, actual.EData);
 			`uvm_error("COMPARE", str);
 		end
+
+		if(actual.Operation == ENCRYPT) begin
+			pBlock.push_back(actual.PData);
+			eBlock.push_back(actual.EData);
+		end else begin
+			dBlock.push_back(actual.EData);
+		end
+
 	endfunction: compare
+
+	virtual function void summarize();
+		string str;
+
+		if(pBlock.size() != eBlock.size() || pBlock.size() != dBlock.size() || eBlock.size() != dBlock.size())
+			`uvm_warning("SUMMARY", $sformatf("Queues Size is not the same!\
+							\ eBlock.size = %d,\
+							\ pBlock.size = %d,\
+							\ dBlock.size = %d"
+							, eBlock.size()
+							, pBlock.size()
+							, dBlock.size()))
+
+		str = $sformatf("\n\t\t\t------------------------------------------------------------------------\
+				 \n\t\t\t\t\t\t=====\tTEST SUMMARIZE\t=====\
+				 \n\t\t\t------------------------------------------------------------------------\
+				 \n\tBlockNum\tPBlock\t\t\t\t\tEBlock\t\t\t\t\tDBlock\n");
+		
+		`uvm_info("SUMMARY", str, UVM_LOW);
+
+		for(int i=0; i < seq_length; i++) begin
+			if(pBlock.size() && eBlock.size() && dBlock.size()) begin
+				logic[127:0] pData, eData, dData;
+				pData = pBlock.pop_front();
+				eData = eBlock.pop_front();
+				dData = dBlock.pop_front();
+				$display($sformatf("\t%d\t%h\t%h\t%h\n", (i+1), pData, eData, dData));
+			end
+		end
+
+	endfunction
 
 endclass

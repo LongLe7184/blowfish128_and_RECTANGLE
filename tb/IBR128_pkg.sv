@@ -53,6 +53,8 @@ package IBR128_pkg;
 	`include "IBR128_collect_seq.sv"
 	`include "IBR128_intermediate_seq.sv"
 	`include "IBR128_blowfish_cbc_seq.sv"
+	`include "IBR128_blowfish_ofb_seq.sv"
+	`include "IBR128_blowfish_ctr_seq.sv"
 	`include "IBR128_rectangle_cbc_seq.sv"
 	`include "IBR128_rectangle_ofb_seq.sv"
 	`include "IBR128_rectangle_ctr_seq.sv"
@@ -60,6 +62,8 @@ package IBR128_pkg;
 	//tests
 	`include "IBR128_base_test.sv"
 	`include "IBR128_blowfish_cbc_test.sv"
+	`include "IBR128_blowfish_ofb_test.sv"
+	`include "IBR128_blowfish_ctr_test.sv"
 	`include "IBR128_rectangle_cbc_test.sv"
 	`include "IBR128_rectangle_ofb_test.sv"
 	`include "IBR128_rectangle_ctr_test.sv"

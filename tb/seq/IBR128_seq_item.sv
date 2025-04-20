@@ -32,4 +32,11 @@ class IBR128_seq_item extends uvm_sequence_item;
 		super.new(name);
 	endfunction
 
+	function string op2String();
+		case(Operation)
+			ENCRYPT: return "ENCRYPT";
+			DECRYPT: return "DECRYPT";
+		endcase
+	endfunction
+
 endclass
