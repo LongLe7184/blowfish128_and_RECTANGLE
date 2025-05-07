@@ -1,245 +1,4 @@
-# do setup_v3.tcl 
-# IBR128_rectangle_ofb_test
-# D:/designIP/blowfish128_and_RECTANGLE
-# D:/designIP/blowfish128_and_RECTANGLE/rtl
-# D:/designIP/blowfish128_and_RECTANGLE/tb
-# D:/designIP/blowfish128_and_RECTANGLE/sim
-# D:/uvm/UVM/1.2
-# D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_ofb_test
-# reading modelsim.ini
-# Modifying modelsim.ini
-# Modifying modelsim.ini
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling package uvm_pkg
-# ** Warning: D:/uvm/UVM/1.2/src/base/uvm_event.svh(40): (vlog-2181) Use of a parameterized class uvm_event_callback as a type creates a default specialization.
-# 
-# 
-# Top level modules:
-# 	--none--
-# D:/designIP/blowfish128_and_RECTANGLE/rtl/RECTANGLE
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling package RECTANGLE128_core_sv_unit
-# -- Compiling module RECTANGLE128_core
-# 
-# Top level modules:
-# 	RECTANGLE128_core
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling package RECTANGLE128_skeygen_sv_unit
-# -- Compiling module RECTANGLE128_skeygen
-# 
-# Top level modules:
-# 	RECTANGLE128_skeygen
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling module RECTANGLE128_skeymem
-# 
-# Top level modules:
-# 	RECTANGLE128_skeymem
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling module RECTANGLE128_top
-# 
-# Top level modules:
-# 	RECTANGLE128_top
-# D:/designIP/blowfish128_and_RECTANGLE/rtl/blowfish128
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling module blowfish128_core
-# 
-# Top level modules:
-# 	blowfish128_core
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling package blowfish128_ffunc_sv_unit
-# -- Compiling module blowfish128_ffunc
-# 
-# Top level modules:
-# 	blowfish128_ffunc
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling module blowfish128_skeygen
-# 
-# Top level modules:
-# 	blowfish128_skeygen
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling module blowfish128_top
-# 
-# Top level modules:
-# 	blowfish128_top
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling module IBR128_adder
-# 
-# Top level modules:
-# 	IBR128_adder
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling module IBR128_core
-# 
-# Top level modules:
-# 	IBR128_core
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling module IBR128_csr
-# 
-# Top level modules:
-# 	IBR128_csr
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling module RECTANGLE128_top
-# -- Compiling module blowfish128_top
-# -- Compiling module IBR128_encrypt
-# 
-# Top level modules:
-# 	IBR128_encrypt
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling module IBR128_opmode
-# 
-# Top level modules:
-# 	IBR128_opmode
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling module IBR128_wrapper
-# 
-# Top level modules:
-# 	IBR128_wrapper
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling package IBR128_pkg
-# -- Importing package uvm_pkg
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling interface IBR128_if
-# -- Compiling package IBR128_if_sv_unit
-# -- Importing package IBR128_pkg
-# -- Importing package uvm_pkg
-# ** Warning: D:/uvm/UVM/1.2/src/base/uvm_event.svh(40): (vlog-2181) Use of a parameterized class uvm_event_callback as a type creates a default specialization.
-# 
-# -- Compiling interface IBR128_if
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling package IBR128_tb_top_sv_unit
-# -- Importing package IBR128_pkg
-# -- Importing package uvm_pkg
-# ** Warning: D:/uvm/UVM/1.2/src/base/uvm_event.svh(40): (vlog-2181) Use of a parameterized class uvm_event_callback as a type creates a default specialization.
-# 
-# -- Compiling module IBR128_wrapper
-# -- Compiling module IBR128_tb_top
-# 
-# Top level modules:
-# 	IBR128_tb_top
-# D:/designIP/blowfish128_and_RECTANGLE/tb/seq
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# D:/designIP/blowfish128_and_RECTANGLE/tb/env/agent
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# D:/designIP/blowfish128_and_RECTANGLE/tb/env
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# D:/designIP/blowfish128_and_RECTANGLE/tb/test
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# 
-# Top level modules:
-# 	--none--
-# vsim +UVM_TESTNAME=IBR128_rectangle_ofb_test +UVM_NO_DPI -t 1ps -wlf IBR128_rectangle_ofb_test.wlf -novopt work.IBR128_tb_top 
-# Loading C:\Users\ADMIN\AppData\Local\Temp\ADMIN@ASUS-A15_dpi_81352\win64_gcc-4.5.0\export_tramp.dll
+# Reading C:/questasim64_10.2c/tcl/vsim/pref.tcl 
 # //  Questa Sim-64
 # //  Version 10.2c Unknown Platform Jul 19 2013
 # //
@@ -250,58 +9,81 @@
 # //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_ofb_test/work.IBR128_tb_top
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_ofb_test/work.IBR128_tb_top_sv_unit
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_ofb_test/work.IBR128_pkg
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_ofb_test/work.uvm_pkg
+# vsim -gui -t ps -novopt IBR128_middle_reset_test/work.IBR128_tb_top 
+# Loading C:\Users\ADMIN\AppData\Local\Temp\ADMIN@ASUS-A15_dpi_96840\win64_gcc-4.5.0\export_tramp.dll
 # Loading sv_std.std
-# Loading work.uvm_pkg
-# Loading work.IBR128_pkg
+# Loading IBR128_middle_reset_test/work.uvm_pkg
+# Loading IBR128_middle_reset_test/work.IBR128_pkg
 # ** Note: (vsim-8785) UVM-aware debugging capabilities will be disabled since no compiled "questa_uvm_pkg" can be found.
 # 
 # This also means that later if you turn on UVM-aware debugging your debug simulations may have
 # 
 # different random seeds from your non-debug simulations.
 # 
-# Loading work.IBR128_tb_top_sv_unit
-# Loading work.IBR128_tb_top
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_ofb_test/work.IBR128_if
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_ofb_test/work.IBR128_if_sv_unit
-# Loading work.IBR128_if_sv_unit
-# Loading work.IBR128_if
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_ofb_test/work.IBR128_wrapper
-# Loading work.IBR128_wrapper
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_ofb_test/work.IBR128_csr
-# Loading work.IBR128_csr
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_ofb_test/work.IBR128_core
-# Loading work.IBR128_core
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_ofb_test/work.IBR128_opmode
-# Loading work.IBR128_opmode
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_ofb_test/work.IBR128_adder
-# Loading work.IBR128_adder
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_ofb_test/work.IBR128_encrypt
-# Loading work.IBR128_encrypt
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_ofb_test/work.blowfish128_top
-# Loading work.blowfish128_top
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_ofb_test/work.blowfish128_core
-# Loading work.blowfish128_core
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_ofb_test/work.blowfish128_skeygen
-# Loading work.blowfish128_skeygen
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_ofb_test/work.blowfish128_ffunc
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_ofb_test/work.blowfish128_ffunc_sv_unit
-# Loading work.blowfish128_ffunc_sv_unit
-# Loading work.blowfish128_ffunc
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_ofb_test/work.RECTANGLE128_top
-# Loading work.RECTANGLE128_top
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_ofb_test/work.RECTANGLE128_skeygen
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_ofb_test/work.RECTANGLE128_skeygen_sv_unit
-# Loading work.RECTANGLE128_skeygen_sv_unit
-# Loading work.RECTANGLE128_skeygen
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_ofb_test/work.RECTANGLE128_skeymem
-# Loading work.RECTANGLE128_skeymem
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_ofb_test/work.RECTANGLE128_core
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_ofb_test/work.RECTANGLE128_core_sv_unit
-# Loading work.RECTANGLE128_core_sv_unit
-# Loading work.RECTANGLE128_core
-# Compiling C:\Users\ADMIN\AppData\Local\Temp\ADMIN@ASUS-A15_dpi_81352\win64_gcc-4.5.0\exportwrapper.c
-# Loading C:\Users\ADMIN\AppData\Local\Temp\ADMIN@ASUS-A15_dpi_81352\win64_gcc-4.5.0\dpi_auto_compile.dll
+# Loading IBR128_middle_reset_test/work.IBR128_tb_top_sv_unit
+# Loading IBR128_middle_reset_test/work.IBR128_tb_top
+# Loading IBR128_middle_reset_test/work.IBR128_if_sv_unit
+# Loading IBR128_middle_reset_test/work.IBR128_if
+# Loading IBR128_middle_reset_test/work.IBR128_wrapper
+# Loading IBR128_middle_reset_test/work.IBR128_csr
+# Loading IBR128_middle_reset_test/work.IBR128_core
+# Loading IBR128_middle_reset_test/work.IBR128_opmode
+# Loading IBR128_middle_reset_test/work.IBR128_adder
+# Loading IBR128_middle_reset_test/work.IBR128_encrypt
+# Loading IBR128_middle_reset_test/work.blowfish128_top
+# Loading IBR128_middle_reset_test/work.blowfish128_core
+# Loading IBR128_middle_reset_test/work.blowfish128_skeygen
+# Loading IBR128_middle_reset_test/work.blowfish128_ffunc_sv_unit
+# Loading IBR128_middle_reset_test/work.blowfish128_ffunc
+# Loading IBR128_middle_reset_test/work.RECTANGLE128_top
+# Loading IBR128_middle_reset_test/work.RECTANGLE128_skeygen_sv_unit
+# Loading IBR128_middle_reset_test/work.RECTANGLE128_skeygen
+# Loading IBR128_middle_reset_test/work.RECTANGLE128_skeymem
+# Loading IBR128_middle_reset_test/work.RECTANGLE128_core_sv_unit
+# Loading IBR128_middle_reset_test/work.RECTANGLE128_core
+# Compiling C:\Users\ADMIN\AppData\Local\Temp\ADMIN@ASUS-A15_dpi_96840\win64_gcc-4.5.0\exportwrapper.c
+# Loading C:\Users\ADMIN\AppData\Local\Temp\ADMIN@ASUS-A15_dpi_96840\win64_gcc-4.5.0\dpi_auto_compile.dll
+vsim -view IBR128_rectangle_cbc_test/IBR128_rectangle_cbc_test.wlf
+# vsim -view IBR128_rectangle_cbc_test/IBR128_rectangle_cbc_test.wlf 
+# IBR128_rectangle_cbc_test/IBR128_rectangle_cbc_test.wlf opened as dataset "IBR128_rectangle_cbc_test"
+do wave.do
+# ** Error: (vish-4014) No objects found matching '/IBR128_tb_top/dut/IBR128_csr/IBR128_IV0'.
+# Executing ONERROR command at macro ./wave.do line 23
+# ** Error: (vish-4014) No objects found matching '/IBR128_tb_top/dut/IBR128_csr/IBR128_IV1'.
+# Executing ONERROR command at macro ./wave.do line 24
+# ** Error: (vish-4014) No objects found matching '/IBR128_tb_top/dut/IBR128_csr/IBR128_IV2'.
+# Executing ONERROR command at macro ./wave.do line 26
+# ** Error: (vish-4014) No objects found matching '/IBR128_tb_top/dut/IBR128_csr/IBR128_IV3'.
+# Executing ONERROR command at macro ./wave.do line 28
+# ** Error: (vish-4014) No objects found matching '/IBR128_tb_top/dut/IBR128_csr/IBR128_KEY0'.
+# Executing ONERROR command at macro ./wave.do line 30
+# ** Error: (vish-4014) No objects found matching '/IBR128_tb_top/dut/IBR128_csr/IBR128_KEY1'.
+# Executing ONERROR command at macro ./wave.do line 32
+# ** Error: (vish-4014) No objects found matching '/IBR128_tb_top/dut/IBR128_csr/IBR128_KEY2'.
+# Executing ONERROR command at macro ./wave.do line 34
+# ** Error: (vish-4014) No objects found matching '/IBR128_tb_top/dut/IBR128_csr/IBR128_KEY3'.
+# Executing ONERROR command at macro ./wave.do line 36
+# ** Error: (vish-4014) No objects found matching '/IBR128_tb_top/dut/IBR128_csr/IBR128_PT0'.
+# Executing ONERROR command at macro ./wave.do line 38
+# ** Error: (vish-4014) No objects found matching '/IBR128_tb_top/dut/IBR128_csr/IBR128_PT1'.
+# Executing ONERROR command at macro ./wave.do line 40
+# ** Error: (vish-4014) No objects found matching '/IBR128_tb_top/dut/IBR128_csr/IBR128_PT2'.
+# Executing ONERROR command at macro ./wave.do line 42
+# ** Error: (vish-4014) No objects found matching '/IBR128_tb_top/dut/IBR128_csr/IBR128_PT3'.
+# Executing ONERROR command at macro ./wave.do line 44
+# ** Error: (vish-4014) No objects found matching '/IBR128_tb_top/dut/IBR128_csr/IBR128_CT0'.
+# Executing ONERROR command at macro ./wave.do line 46
+# ** Error: (vish-4014) No objects found matching '/IBR128_tb_top/dut/IBR128_csr/IBR128_CT1'.
+# Executing ONERROR command at macro ./wave.do line 48
+# ** Error: (vish-4014) No objects found matching '/IBR128_tb_top/dut/IBR128_csr/IBR128_CT2'.
+# Executing ONERROR command at macro ./wave.do line 50
+# ** Error: (vish-4014) No objects found matching '/IBR128_tb_top/dut/IBR128_csr/IBR128_CT3'.
+# Executing ONERROR command at macro ./wave.do line 52
+# ** Error: (vish-4014) No objects found matching '/IBR128_tb_top/dut/IBR128_csr/IBR128_CTRL'.
+# Executing ONERROR command at macro ./wave.do line 54
+# ** Error: (vish-4014) No objects found matching '/IBR128_tb_top/dut/IBR128_csr/IBR128_STA'.
+# Executing ONERROR command at macro ./wave.do line 56
+# ** Error: (vish-4014) No objects found matching '/IBR128_tb_top/dut/IBR128_csr/data_reg'.
+# Executing ONERROR command at macro ./wave.do line 77
+# ** Error: (vish-4014) No objects found matching '/IBR128_tb_top/dut/IBR128_csr/data_ro_reg'.
+# Executing ONERROR command at macro ./wave.do line 78

@@ -67,5 +67,6 @@ package IBR128_pkg;
 	`include "IBR128_rectangle_cbc_test.sv"
 	`include "IBR128_rectangle_ofb_test.sv"
 	`include "IBR128_rectangle_ctr_test.sv"
+	`include "IBR128_middle_reset_test.sv"
 
 endpackage : IBR128_pkg

@@ -44,7 +44,7 @@ module IBR128_tb_top;
 		end
 
 		run_test(test_name);
-		run_test();
+		// run_test();
 
 	end
 
