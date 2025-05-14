@@ -1,4 +1,6 @@
+#Stop ignoring sim folder (from April-6th)
+#sim/
 #Ignoring files having following extention:
-
+*.swp
 *.bak
 *.txt
