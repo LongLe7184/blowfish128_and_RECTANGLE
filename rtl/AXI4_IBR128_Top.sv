@@ -1,7 +1,6 @@
 //-----------------------------------------------------------
 // Module: AXI4_IBR128_Top
 //-----------------------------------------------------------
-// Author    : -
 // Date      : May-8th, 2025
 // Description: Top-level module connecting AXI4 interface to IBR128
 //              through AXI4-to-Avalon bridge and adapter

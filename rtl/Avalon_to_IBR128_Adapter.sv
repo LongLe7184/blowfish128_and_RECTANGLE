@@ -1,7 +1,6 @@
 //-----------------------------------------------------------
 // Module: Avalon_to_IBR128_Adapter
 //-----------------------------------------------------------
-// Author    : -
 // Date      : May-8th, 2025
 // Description: Adapter to convert from 32-bit Avalon interface
 //              to the 5-bit address Avalon interface used by IBR128_wrapper

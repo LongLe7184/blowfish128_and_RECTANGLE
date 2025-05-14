@@ -1,8 +1,6 @@
 //-----------------------------------------------------------
 // Module: AXI4_to_Avalon_Bridge
 //-----------------------------------------------------------
-// Author    : Claude Assistant
-// Monitor   : Long Le
 // Date      : May-8th, 2025
 // Description: Bridge to convert AXI4 interface to Avalon interface
 //              BUS WIDTH: 32-bit
