@@ -33,8 +33,6 @@ module IBR128_core(
 		.SOM(SOM),
 		.FB(FB),
 		.plainText(plainText),
-		.key0(key0),
-		.key1(key1),
 		.SA(SA),
 		.IV(IV),
 		.cipherText(cipherText),

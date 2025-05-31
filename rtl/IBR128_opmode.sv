@@ -18,8 +18,6 @@ module IBR128_opmode(
 	input FB,
 	//Encrypt Input
 	input [127:0] plainText,
-	input [63:0] key0,
-	input [63:0] key1,
 	input SA,
 	input [127:0] IV,
 	//Encrypt Output
