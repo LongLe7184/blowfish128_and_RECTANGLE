@@ -1,11 +1,11 @@
 # do setup_v3.tcl 
-# IBR128_rectangle_cbc_test
+# IBR128_blowfish_cbc_test
 # D:/designIP/blowfish128_and_RECTANGLE
 # D:/designIP/blowfish128_and_RECTANGLE/rtl
 # D:/designIP/blowfish128_and_RECTANGLE/tb
 # D:/designIP/blowfish128_and_RECTANGLE/sim
 # D:/uvm/UVM/1.2
-# D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_cbc_test
+# D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_blowfish_cbc_test
 # reading modelsim.ini
 # Modifying modelsim.ini
 # Modifying modelsim.ini
@@ -18,26 +18,14 @@
 # 	--none--
 # D:/designIP/blowfish128_and_RECTANGLE/rtl/RECTANGLE
 # QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling module rectangle128_sbox
-# -- Compiling module rectangle128_inv_sbox
 # -- Compiling module RECTANGLE128_core
 # 
 # Top level modules:
 # 	RECTANGLE128_core
 # QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling module rectangle128_sbox
-# -- Compiling module rectangle128_inv_sbox
-# 
-# Top level modules:
-# 	rectangle128_sbox
-# 	rectangle128_inv_sbox
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling module rectangle128_sbox
-# -- Compiling module rectangle128_inv_sbox
 # -- Compiling module RECTANGLE128_skeygen
 # 
 # Top level modules:
-# 	rectangle128_inv_sbox
 # 	RECTANGLE128_skeygen
 # QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
 # -- Compiling module RECTANGLE128_skeymem
@@ -57,19 +45,10 @@
 # Top level modules:
 # 	blowfish128_core
 # QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling module blowfish128_sbox1
-# -- Compiling module blowfish128_sbox2
 # -- Compiling module blowfish128_ffunc
 # 
 # Top level modules:
 # 	blowfish128_ffunc
-# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
-# -- Compiling module blowfish128_sbox1
-# -- Compiling module blowfish128_sbox2
-# 
-# Top level modules:
-# 	blowfish128_sbox1
-# 	blowfish128_sbox2
 # QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
 # -- Compiling module blowfish128_skeygen
 # 
@@ -292,8 +271,8 @@
 # 
 # Top level modules:
 # 	--none--
-# vsim +UVM_TESTNAME=IBR128_rectangle_cbc_test +UVM_NO_DPI -t 1ps -wlf IBR128_rectangle_cbc_test.wlf -novopt work.IBR128_tb_top 
-# Loading C:\Users\ADMIN\AppData\Local\Temp\ADMIN@ASUS-A15_dpi_15284\win64_gcc-4.5.0\export_tramp.dll
+# vsim +UVM_TESTNAME=IBR128_blowfish_cbc_test +UVM_NO_DPI -t 1ps -wlf IBR128_blowfish_cbc_test.wlf -novopt work.IBR128_tb_top 
+# Loading C:\Users\ADMIN\AppData\Local\Temp\ADMIN@ASUS-A15_dpi_11704\win64_gcc-4.5.0\export_tramp.dll
 # //  Questa Sim-64
 # //  Version 10.2c Unknown Platform Jul 19 2013
 # //
@@ -304,10 +283,10 @@
 # //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_cbc_test/work.IBR128_tb_top
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_cbc_test/work.IBR128_tb_top_sv_unit
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_cbc_test/work.IBR128_pkg
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_cbc_test/work.uvm_pkg
+# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_blowfish_cbc_test/work.IBR128_tb_top
+# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_blowfish_cbc_test/work.IBR128_tb_top_sv_unit
+# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_blowfish_cbc_test/work.IBR128_pkg
+# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_blowfish_cbc_test/work.uvm_pkg
 # Loading sv_std.std
 # Loading work.uvm_pkg
 # Loading work.IBR128_pkg
@@ -319,45 +298,37 @@
 # 
 # Loading work.IBR128_tb_top_sv_unit
 # Loading work.IBR128_tb_top
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_cbc_test/work.IBR128_if
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_cbc_test/work.IBR128_if_sv_unit
+# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_blowfish_cbc_test/work.IBR128_if
+# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_blowfish_cbc_test/work.IBR128_if_sv_unit
 # Loading work.IBR128_if_sv_unit
 # Loading work.IBR128_if
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_cbc_test/work.IBR128_wrapper
+# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_blowfish_cbc_test/work.IBR128_wrapper
 # Loading work.IBR128_wrapper
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_cbc_test/work.IBR128_csr
+# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_blowfish_cbc_test/work.IBR128_csr
 # Loading work.IBR128_csr
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_cbc_test/work.IBR128_core
+# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_blowfish_cbc_test/work.IBR128_core
 # Loading work.IBR128_core
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_cbc_test/work.IBR128_opmode
+# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_blowfish_cbc_test/work.IBR128_opmode
 # Loading work.IBR128_opmode
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_cbc_test/work.IBR128_adder
+# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_blowfish_cbc_test/work.IBR128_adder
 # Loading work.IBR128_adder
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_cbc_test/work.IBR128_encrypt
+# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_blowfish_cbc_test/work.IBR128_encrypt
 # Loading work.IBR128_encrypt
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_cbc_test/work.blowfish128_top
+# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_blowfish_cbc_test/work.blowfish128_top
 # Loading work.blowfish128_top
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_cbc_test/work.blowfish128_core
+# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_blowfish_cbc_test/work.blowfish128_core
 # Loading work.blowfish128_core
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_cbc_test/work.blowfish128_skeygen
+# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_blowfish_cbc_test/work.blowfish128_skeygen
 # Loading work.blowfish128_skeygen
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_cbc_test/work.blowfish128_ffunc
+# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_blowfish_cbc_test/work.blowfish128_ffunc
 # Loading work.blowfish128_ffunc
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_cbc_test/work.blowfish128_sbox1
-# Loading work.blowfish128_sbox1
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_cbc_test/work.blowfish128_sbox2
-# Loading work.blowfish128_sbox2
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_cbc_test/work.RECTANGLE128_top
+# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_blowfish_cbc_test/work.RECTANGLE128_top
 # Loading work.RECTANGLE128_top
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_cbc_test/work.RECTANGLE128_skeygen
+# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_blowfish_cbc_test/work.RECTANGLE128_skeygen
 # Loading work.RECTANGLE128_skeygen
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_cbc_test/work.rectangle128_sbox
-# Loading work.rectangle128_sbox
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_cbc_test/work.RECTANGLE128_skeymem
+# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_blowfish_cbc_test/work.RECTANGLE128_skeymem
 # Loading work.RECTANGLE128_skeymem
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_cbc_test/work.RECTANGLE128_core
+# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_blowfish_cbc_test/work.RECTANGLE128_core
 # Loading work.RECTANGLE128_core
-# Refreshing D:/designIP/blowfish128_and_RECTANGLE/sim/IBR128_rectangle_cbc_test/work.rectangle128_inv_sbox
-# Loading work.rectangle128_inv_sbox
-# Compiling C:\Users\ADMIN\AppData\Local\Temp\ADMIN@ASUS-A15_dpi_15284\win64_gcc-4.5.0\exportwrapper.c
-# Loading C:\Users\ADMIN\AppData\Local\Temp\ADMIN@ASUS-A15_dpi_15284\win64_gcc-4.5.0\dpi_auto_compile.dll
+# Compiling C:\Users\ADMIN\AppData\Local\Temp\ADMIN@ASUS-A15_dpi_11704\win64_gcc-4.5.0\exportwrapper.c
+# Loading C:\Users\ADMIN\AppData\Local\Temp\ADMIN@ASUS-A15_dpi_11704\win64_gcc-4.5.0\dpi_auto_compile.dll

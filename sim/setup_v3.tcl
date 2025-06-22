@@ -1,9 +1,9 @@
 # Test names
 
-set TEST_NAME "IBR128_rectangle_cbc_test"
+# set TEST_NAME "IBR128_rectangle_cbc_test"
 # set TEST_NAME "IBR128_rectangle_ofb_test"
 # set TEST_NAME "IBR128_rectangle_ctr_test"
-# set TEST_NAME "IBR128_blowfish_cbc_test"
+set TEST_NAME "IBR128_blowfish_cbc_test"
 # set TEST_NAME "IBR128_blowfish_ofb_test"
 # set TEST_NAME "IBR128_blowfish_ctr_test"
 # set TEST_NAME "IBR128_middle_reset_test"
