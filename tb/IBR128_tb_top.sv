@@ -3,7 +3,7 @@
 import IBR128_pkg::*;
 import uvm_pkg::*;
 `include "uvm_macros.svh"
-`include "./../rtl/IBR128_wrapper.sv"
+`include "./../rtl/IBR128_wrapper.v"
 
 module IBR128_tb_top;
 

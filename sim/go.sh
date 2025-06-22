@@ -22,4 +22,4 @@ TEST_NAME=IBR128_middle_reset_test
 # Uncomment to open GUI after compilation
 # vsim -gui
 # vsim -gui -t ps -novopt work.IBR128_tb_top
-vsim -gui -t ps -novopt $TEST_NAME/work.IBR128_tb_top
+# vsim -gui -t ps -novopt $TEST_NAME/work.IBR128_tb_top
