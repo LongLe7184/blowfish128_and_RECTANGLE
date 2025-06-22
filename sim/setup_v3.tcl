@@ -50,6 +50,14 @@ if {[file exists $RECTANGLE_DESIGN_DIR]} {
         vlog -sv -work work +incdir+$RECTANGLE_DESIGN_DIR $file
         puts "\[DEBUG\] Compiled: $file"
     }
+    foreach file [glob -nocomplain $RECTANGLE_DESIGN_DIR/*.vh] {
+        vlog -work work +incdir+$RECTANGLE_DESIGN_DIR $file
+        puts "\[DEBUG\] Compiled: $file"
+    }
+    foreach file [glob -nocomplain $RECTANGLE_DESIGN_DIR/*.v] {
+        vlog -work work +incdir+$RECTANGLE_DESIGN_DIR $file
+        puts "\[DEBUG\] Compiled: $file"
+    }
 }
 
 # Blowfish component next
@@ -63,6 +71,14 @@ if {[file exists $BLOWFISH_DESIGN_DIR]} {
         vlog -sv -work work +incdir+$BLOWFISH_DESIGN_DIR $file
         puts "\[DEBUG\] Compiled: $file"
     }
+    foreach file [glob -nocomplain $BLOWFISH_DESIGN_DIR/*.vh] {
+        vlog -work work +incdir+$BLOWFISH_DESIGN_DIR $file
+        puts "\[DEBUG\] Compiled: $file"
+    }
+    foreach file [glob -nocomplain $BLOWFISH_DESIGN_DIR/*.v] {
+        vlog -work work +incdir+$BLOWFISH_DESIGN_DIR $file
+        puts "\[DEBUG\] Compiled: $file"
+    }
 }
 
 # Main IBR128 components - this is where IBR128_csr.sv and IBR128_core.sv should be
@@ -73,6 +89,14 @@ if {[file exists $RTL_DIR]} {
     }
     foreach file [glob -nocomplain $RTL_DIR/*.sv] {
         vlog -sv -work work +incdir+$RTL_DIR $file
+        puts "\[DEBUG\] Compiled: $file"
+    }
+    foreach file [glob -nocomplain $RTL_DIR/*.vh] {
+        vlog -work work +incdir+$RTL_DIR $file
+        puts "\[DEBUG\] Compiled: $file"
+    }
+    foreach file [glob -nocomplain $RTL_DIR/*.v] {
+        vlog -work work +incdir+$RTL_DIR $file
         puts "\[DEBUG\] Compiled: $file"
     }
 }
