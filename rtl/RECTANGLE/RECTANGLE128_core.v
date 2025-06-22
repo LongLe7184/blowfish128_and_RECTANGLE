@@ -6,8 +6,6 @@
 // Description	: Perform encrypting/decrypting process 
 //-----------------------------------------------------------
 
-`include "RECTANGLE128_sbox.v"
-
 module RECTANGLE128_core(
 	input Clk,
 	input RstN,
@@ -22,6 +20,54 @@ module RECTANGLE128_core(
 	output [4:0] RAddr
 	);
 
+	function [3:0] rectangle128_sbox;
+		input [3:0] sbox_in;
+		begin
+			case(sbox_in[3:0])
+				4'h0: rectangle128_sbox = 4'h6;
+				4'h1: rectangle128_sbox = 4'h5;
+				4'h2: rectangle128_sbox = 4'hC;
+				4'h3: rectangle128_sbox = 4'hA;
+				4'h4: rectangle128_sbox = 4'h1;
+				4'h5: rectangle128_sbox = 4'hE;
+				4'h6: rectangle128_sbox = 4'h7;
+				4'h7: rectangle128_sbox = 4'h9;
+				4'h8: rectangle128_sbox = 4'hB;
+				4'h9: rectangle128_sbox = 4'h0;
+				4'hA: rectangle128_sbox = 4'h3;
+				4'hB: rectangle128_sbox = 4'hD;
+				4'hC: rectangle128_sbox = 4'h8;
+				4'hD: rectangle128_sbox = 4'hF;
+				4'hE: rectangle128_sbox = 4'h4;
+				4'hF: rectangle128_sbox = 4'h2;
+			endcase
+		end
+	endfunction
+
+	function [3:0] rectangle128_inv_sbox;
+		input [3:0] sbox_in;
+		begin
+			case(sbox_in[3:0])
+				4'h0: rectangle128_inv_sbox = 4'h9;
+				4'h1: rectangle128_inv_sbox = 4'h4;
+				4'h2: rectangle128_inv_sbox = 4'hF;
+				4'h3: rectangle128_inv_sbox = 4'hA;
+				4'h4: rectangle128_inv_sbox = 4'hE;
+				4'h5: rectangle128_inv_sbox = 4'h1;
+				4'h6: rectangle128_inv_sbox = 4'h0;
+				4'h7: rectangle128_inv_sbox = 4'h6;
+				4'h8: rectangle128_inv_sbox = 4'hC;
+				4'h9: rectangle128_inv_sbox = 4'h7;
+				4'hA: rectangle128_inv_sbox = 4'h3;
+				4'hB: rectangle128_inv_sbox = 4'h8;
+				4'hC: rectangle128_inv_sbox = 4'h2;
+				4'hD: rectangle128_inv_sbox = 4'hB;
+				4'hE: rectangle128_inv_sbox = 4'h5;
+				4'hF: rectangle128_inv_sbox = 4'hD;
+			endcase
+		end
+	endfunction
+
 	reg [63:0] round_text;
 	wire [63:0] sub_in, rot_in;
 	wire [63:0] sub_text, rot_text;
@@ -32,96 +78,39 @@ module RECTANGLE128_core(
 	//SUBSTITUTION LAYER
 	wire [3:0] so0, so1, so2, so3, so4, so5, so6, so7;
 	wire [3:0] so8, so9, so10, so11, so12, so13, so14, so15;
-
-	wire [3:0] so0_A, so1_A, so2_A, so3_A, so4_A, so5_A, so6_A, so7_A;
-	wire [3:0] so8_A, so9_A, so10_A, so11_A, so12_A, so13_A, so14_A, so15_A;
-
-	wire [3:0] so0_B, so1_B, so2_B, so3_B, so4_B, so5_B, so6_B, so7_B;
-	wire [3:0] so8_B, so9_B, so10_B, so11_B, so12_B, so13_B, so14_B, so15_B;
-
-	//Column Substitution
-	rectangle128_sbox sbox0  ( .sbox_in ( { sub_in[48],  sub_in[32],  sub_in[16],  sub_in[0]}  ),
-				   .sbox_out( so0_A  ) );
-	rectangle128_sbox sbox1  ( .sbox_in ( { sub_in[49],  sub_in[33],  sub_in[17],  sub_in[1]}  ),
-				   .sbox_out( so1_A  ) );
-	rectangle128_sbox sbox2  ( .sbox_in ( { sub_in[50],  sub_in[34],  sub_in[18],  sub_in[2]}  ),
-				   .sbox_out( so2_A  ) );
-	rectangle128_sbox sbox3  ( .sbox_in ( { sub_in[51],  sub_in[35],  sub_in[19],  sub_in[3]}  ),
-				   .sbox_out( so3_A  ) );
-	rectangle128_sbox sbox4  ( .sbox_in ( { sub_in[52],  sub_in[36],  sub_in[20],  sub_in[4]}  ),
-				   .sbox_out( so4_A  ) );
-	rectangle128_sbox sbox5  ( .sbox_in ( { sub_in[53],  sub_in[37],  sub_in[21],  sub_in[5]}  ),
-				   .sbox_out( so5_A  ) );
-	rectangle128_sbox sbox6  ( .sbox_in ( { sub_in[54],  sub_in[38],  sub_in[22],  sub_in[6]}  ),
-				   .sbox_out( so6_A  ) );
-	rectangle128_sbox sbox7  ( .sbox_in ( { sub_in[55],  sub_in[39],  sub_in[23],  sub_in[7]}  ),
-				   .sbox_out( so7_A  ) );
-	rectangle128_sbox sbox8  ( .sbox_in ( { sub_in[56],  sub_in[40],  sub_in[24],  sub_in[8]}  ),
-				   .sbox_out( so8_A  ) );
-	rectangle128_sbox sbox9  ( .sbox_in ( { sub_in[57],  sub_in[41],  sub_in[25],  sub_in[9]}  ),
-				   .sbox_out( so9_A  ) );
-	rectangle128_sbox sbox10 ( .sbox_in ( { sub_in[58],  sub_in[42],  sub_in[26],  sub_in[10]} ),
-				   .sbox_out( so10_A ) );
-	rectangle128_sbox sbox11 ( .sbox_in ( { sub_in[59],  sub_in[43],  sub_in[27],  sub_in[11]} ),
-				   .sbox_out( so11_A ) );
-	rectangle128_sbox sbox12 ( .sbox_in ( { sub_in[60],  sub_in[44],  sub_in[28],  sub_in[12]} ),
-				   .sbox_out( so12_A ) );
-	rectangle128_sbox sbox13 ( .sbox_in ( { sub_in[61],  sub_in[45],  sub_in[29],  sub_in[13]} ),
-				   .sbox_out( so13_A ) );
-	rectangle128_sbox sbox14 ( .sbox_in ( { sub_in[62],  sub_in[46],  sub_in[30],  sub_in[14]} ),
-				   .sbox_out( so14_A ) );
-	rectangle128_sbox sbox15 ( .sbox_in ( { sub_in[63],  sub_in[47],  sub_in[31],  sub_in[15]} ),
-				   .sbox_out( so15_A ) );
-
-	rectangle128_inv_sbox inv_sbox0  ( .sbox_in ( {rot_text[48],  rot_text[32],  rot_text[16],  rot_text[0]}  ),
-					   .sbox_out( so0_B  ) );
-	rectangle128_inv_sbox inv_sbox1  ( .sbox_in ( {rot_text[49],  rot_text[33],  rot_text[17],  rot_text[1]}  ),
-					   .sbox_out( so1_B  ) );
-	rectangle128_inv_sbox inv_sbox2  ( .sbox_in ( {rot_text[50],  rot_text[34],  rot_text[18],  rot_text[2]}  ),
-					   .sbox_out( so2_B  ) );
-	rectangle128_inv_sbox inv_sbox3  ( .sbox_in ( {rot_text[51],  rot_text[35],  rot_text[19],  rot_text[3]}  ),
-					   .sbox_out( so3_B  ) );
-	rectangle128_inv_sbox inv_sbox4  ( .sbox_in ( {rot_text[52],  rot_text[36],  rot_text[20],  rot_text[4]}  ),
-					   .sbox_out( so4_B  ) );
-	rectangle128_inv_sbox inv_sbox5  ( .sbox_in ( {rot_text[53],  rot_text[37],  rot_text[21],  rot_text[5]}  ),
-					   .sbox_out( so5_B  ) );
-	rectangle128_inv_sbox inv_sbox6  ( .sbox_in ( {rot_text[54],  rot_text[38],  rot_text[22],  rot_text[6]}  ),
-					   .sbox_out( so6_B  ) );
-	rectangle128_inv_sbox inv_sbox7  ( .sbox_in ( {rot_text[55],  rot_text[39],  rot_text[23],  rot_text[7]}  ),
-					   .sbox_out( so7_B  ) );
-	rectangle128_inv_sbox inv_sbox8  ( .sbox_in ( {rot_text[56],  rot_text[40],  rot_text[24],  rot_text[8]}  ),
-					   .sbox_out( so8_B  ) );
-	rectangle128_inv_sbox inv_sbox9  ( .sbox_in ( {rot_text[57],  rot_text[41],  rot_text[25],  rot_text[9]}  ),
-					   .sbox_out( so9_B  ) );
-	rectangle128_inv_sbox inv_sbox10 ( .sbox_in ( {rot_text[58],  rot_text[42],  rot_text[26],  rot_text[10]} ),
-					   .sbox_out( so10_B ) );
-	rectangle128_inv_sbox inv_sbox11 ( .sbox_in ( {rot_text[59],  rot_text[43],  rot_text[27],  rot_text[11]} ),
-					   .sbox_out( so11_B ) );
-	rectangle128_inv_sbox inv_sbox12 ( .sbox_in ( {rot_text[60],  rot_text[44],  rot_text[28],  rot_text[12]} ),
-					   .sbox_out( so12_B ) );
-	rectangle128_inv_sbox inv_sbox13 ( .sbox_in ( {rot_text[61],  rot_text[45],  rot_text[29],  rot_text[13]} ),
-					   .sbox_out( so13_B ) );
-	rectangle128_inv_sbox inv_sbox14 ( .sbox_in ( {rot_text[62],  rot_text[46],  rot_text[30],  rot_text[14]} ),
-					   .sbox_out( so14_B ) );
-	rectangle128_inv_sbox inv_sbox15 ( .sbox_in ( {rot_text[63],  rot_text[47],  rot_text[31],  rot_text[15]} ),
-					   .sbox_out( so15_B ) );
-
-	assign so0  = (Encrypt) ? so0_A  : so0_B;
-	assign so1  = (Encrypt) ? so1_A  : so1_B;
-	assign so2  = (Encrypt) ? so2_A  : so2_B;
-	assign so3  = (Encrypt) ? so3_A  : so3_B;
-	assign so4  = (Encrypt) ? so4_A  : so4_B;
-	assign so5  = (Encrypt) ? so5_A  : so5_B;
-	assign so6  = (Encrypt) ? so6_A  : so6_B;
-	assign so7  = (Encrypt) ? so7_A  : so7_B;
-	assign so8  = (Encrypt) ? so8_A  : so8_B;
-	assign so9  = (Encrypt) ? so9_A  : so9_B;
-	assign so10 = (Encrypt) ? so10_A : so10_B;
-	assign so11 = (Encrypt) ? so11_A : so11_B;
-	assign so12 = (Encrypt) ? so12_A : so12_B;
-	assign so13 = (Encrypt) ? so13_A : so13_B;
-	assign so14 = (Encrypt) ? so14_A : so14_B;
-	assign so15 = (Encrypt) ? so15_A : so15_B;
+        
+	assign so0 = (Encrypt) ? rectangle128_sbox	( {  sub_in[48],   sub_in[32],   sub_in[16],   sub_in[0]} ) :
+				 rectangle128_inv_sbox	( {rot_text[48], rot_text[32], rot_text[16], rot_text[0]} );
+	assign so1 = (Encrypt) ? rectangle128_sbox	( {  sub_in[49],   sub_in[33],   sub_in[17],   sub_in[1]} ) :
+				 rectangle128_inv_sbox	( {rot_text[49], rot_text[33], rot_text[17], rot_text[1]} );
+	assign so2 = (Encrypt) ? rectangle128_sbox	( {  sub_in[50],   sub_in[34],   sub_in[18],   sub_in[2]} ) :
+				 rectangle128_inv_sbox	( {rot_text[50], rot_text[34], rot_text[18], rot_text[2]} );
+	assign so3 = (Encrypt) ? rectangle128_sbox	( {  sub_in[51],   sub_in[35],   sub_in[19],   sub_in[3]} ) :
+				 rectangle128_inv_sbox	( {rot_text[51], rot_text[35], rot_text[19], rot_text[3]} );
+	assign so4 = (Encrypt) ? rectangle128_sbox	( {  sub_in[52],   sub_in[36],   sub_in[20],   sub_in[4]} ) :
+				 rectangle128_inv_sbox	( {rot_text[52], rot_text[36], rot_text[20], rot_text[4]} );
+	assign so5 = (Encrypt) ? rectangle128_sbox	( {  sub_in[53],   sub_in[37],   sub_in[21],   sub_in[5]} ) :
+				 rectangle128_inv_sbox	( {rot_text[53], rot_text[37], rot_text[21], rot_text[5]} );
+	assign so6 = (Encrypt) ? rectangle128_sbox	( {  sub_in[54],   sub_in[38],   sub_in[22],   sub_in[6]} ) :
+				 rectangle128_inv_sbox	( {rot_text[54], rot_text[38], rot_text[22], rot_text[6]} );
+	assign so7 = (Encrypt) ? rectangle128_sbox	( {  sub_in[55],   sub_in[39],   sub_in[23],   sub_in[7]} ) :
+				 rectangle128_inv_sbox	( {rot_text[55], rot_text[39], rot_text[23], rot_text[7]} );
+	assign so8 = (Encrypt) ? rectangle128_sbox	( {  sub_in[56],   sub_in[40],   sub_in[24],   sub_in[8]} ) :
+				 rectangle128_inv_sbox	( {rot_text[56], rot_text[40], rot_text[24], rot_text[8]} );
+	assign so9 = (Encrypt) ? rectangle128_sbox	( {  sub_in[57],   sub_in[41],   sub_in[25],   sub_in[9]} ) :
+				 rectangle128_inv_sbox	( {rot_text[57], rot_text[41], rot_text[25], rot_text[9]} );
+	assign so10 = (Encrypt) ? rectangle128_sbox	( {  sub_in[58],   sub_in[42],   sub_in[26],   sub_in[10]} ) :
+				 rectangle128_inv_sbox	( {rot_text[58], rot_text[42], rot_text[26], rot_text[10]} );
+	assign so11 = (Encrypt) ? rectangle128_sbox	( {  sub_in[59],   sub_in[43],   sub_in[27],   sub_in[11]} ) :
+				 rectangle128_inv_sbox	( {rot_text[59], rot_text[43], rot_text[27], rot_text[11]} );
+	assign so12 = (Encrypt) ? rectangle128_sbox	( {  sub_in[60],   sub_in[44],   sub_in[28],   sub_in[12]} ) :
+				 rectangle128_inv_sbox	( {rot_text[60], rot_text[44], rot_text[28], rot_text[12]} );
+	assign so13 = (Encrypt) ? rectangle128_sbox	( {  sub_in[61],   sub_in[45],   sub_in[29],   sub_in[13]} ) :
+				 rectangle128_inv_sbox	( {rot_text[61], rot_text[45], rot_text[29], rot_text[13]} );
+	assign so14 = (Encrypt) ? rectangle128_sbox	( {  sub_in[62],   sub_in[46],   sub_in[30],   sub_in[14]} ) :
+				 rectangle128_inv_sbox	( {rot_text[62], rot_text[46], rot_text[30], rot_text[14]} );
+	assign so15 = (Encrypt) ? rectangle128_sbox	( {  sub_in[63],   sub_in[47],   sub_in[31],   sub_in[15]} ) :
+				 rectangle128_inv_sbox	( {rot_text[63], rot_text[47], rot_text[31], rot_text[15]} );
 
 	//Output
 	assign sub_text = {

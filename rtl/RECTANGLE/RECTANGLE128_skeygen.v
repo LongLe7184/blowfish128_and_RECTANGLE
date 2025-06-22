@@ -6,8 +6,6 @@
 // Description	: Generating Sub-Keys base on Key Schedule
 //-----------------------------------------------------------
 
-`include "RECTANGLE128_sbox.v"
-
 module RECTANGLE128_skeygen(
 	input Clk,
 	input RstN,
@@ -21,6 +19,29 @@ module RECTANGLE128_skeygen(
 	output [63:0] KeyIn
 	);
 
+	function [3:0] rectangle128_sbox;
+		input [3:0] sbox_in;
+		begin
+			case(sbox_in[3:0])
+				4'h0: rectangle128_sbox = 4'h6;
+				4'h1: rectangle128_sbox = 4'h5;
+				4'h2: rectangle128_sbox = 4'hC;
+				4'h3: rectangle128_sbox = 4'hA;
+				4'h4: rectangle128_sbox = 4'h1;
+				4'h5: rectangle128_sbox = 4'hE;
+				4'h6: rectangle128_sbox = 4'h7;
+				4'h7: rectangle128_sbox = 4'h9;
+				4'h8: rectangle128_sbox = 4'hB;
+				4'h9: rectangle128_sbox = 4'h0;
+				4'hA: rectangle128_sbox = 4'h3;
+				4'hB: rectangle128_sbox = 4'hD;
+				4'hC: rectangle128_sbox = 4'h8;
+				4'hD: rectangle128_sbox = 4'hF;
+				4'hE: rectangle128_sbox = 4'h4;
+				4'hF: rectangle128_sbox = 4'h2;
+			endcase
+		end
+	endfunction
 	wire [4:0] RC [25:1];
 	
 	assign RC[1] = 5'h01;
@@ -58,22 +79,14 @@ module RECTANGLE128_skeygen(
 	wire [3:0] sbox_out0, sbox_out1, sbox_out2, sbox_out3, sbox_out4, sbox_out5, sbox_out6, sbox_out7;
 	
 	//Column Substitution
-	rectangle128_sbox sbox_u0  ( .sbox_in ( {ini_row3[0],  ini_row2[0],  ini_row1[0],  ini_row0[0]}  ),
-				     .sbox_out( sbox_out0  ) );
-	rectangle128_sbox sbox_u1  ( .sbox_in ( {ini_row3[1],  ini_row2[1],  ini_row1[1],  ini_row0[1]}  ),
-				     .sbox_out( sbox_out1  ) );
-	rectangle128_sbox sbox_u2  ( .sbox_in ( {ini_row3[2],  ini_row2[2],  ini_row1[2],  ini_row0[2]}  ),
-				     .sbox_out( sbox_out2  ) );
-	rectangle128_sbox sbox_u3  ( .sbox_in ( {ini_row3[3],  ini_row2[3],  ini_row1[3],  ini_row0[3]}  ),
-				     .sbox_out( sbox_out3  ) );
-	rectangle128_sbox sbox_u4  ( .sbox_in ( {ini_row3[4],  ini_row2[4],  ini_row1[4],  ini_row0[4]}  ),
-				     .sbox_out( sbox_out4  ) );
-	rectangle128_sbox sbox_u5  ( .sbox_in ( {ini_row3[5],  ini_row2[5],  ini_row1[5],  ini_row0[5]}  ),
-				     .sbox_out( sbox_out5  ) );
-	rectangle128_sbox sbox_u6  ( .sbox_in ( {ini_row3[6],  ini_row2[6],  ini_row1[6],  ini_row0[6]}  ),
-				     .sbox_out( sbox_out6  ) );
-	rectangle128_sbox sbox_u7  ( .sbox_in ( {ini_row3[7],  ini_row2[7],  ini_row1[7],  ini_row0[7]}  ),
-				     .sbox_out( sbox_out7  ) );
+	assign sbox_out0 = rectangle128_sbox( {ini_row3[0], ini_row2[0], ini_row1[0], ini_row0[0]} );
+	assign sbox_out1 = rectangle128_sbox( {ini_row3[1], ini_row2[1], ini_row1[1], ini_row0[1]} );
+	assign sbox_out2 = rectangle128_sbox( {ini_row3[2], ini_row2[2], ini_row1[2], ini_row0[2]} );
+	assign sbox_out3 = rectangle128_sbox( {ini_row3[3], ini_row2[3], ini_row1[3], ini_row0[3]} );
+	assign sbox_out4 = rectangle128_sbox( {ini_row3[4], ini_row2[4], ini_row1[4], ini_row0[4]} );
+	assign sbox_out5 = rectangle128_sbox( {ini_row3[5], ini_row2[5], ini_row1[5], ini_row0[5]} );
+	assign sbox_out6 = rectangle128_sbox( {ini_row3[6], ini_row2[6], ini_row1[6], ini_row0[6]} );
+	assign sbox_out7 = rectangle128_sbox( {ini_row3[7], ini_row2[7], ini_row1[7], ini_row0[7]} );
 
 	wire [31:0] sub_row0, sub_row1, sub_row2, sub_row3;
 	//Matrix Re-Arrangement
